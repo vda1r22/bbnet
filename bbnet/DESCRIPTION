@@ -1,0 +1,15 @@
+Package: bbnet
+Type: Package
+Title: What the Package Does (Title Case)
+Version: 0.1.0
+Author: Rick Stafford & Victoria Dominguez Almela
+URL:
+Maintainer: Victoria Dominguez Almela <vda1r22@soton.ac.uk>
+Description: More about what it does (maybe more than one line)
+    Use four spaces when indenting paragraphs within the Description.
+License: use_proprietary_license()
+Encoding: UTF-8
+LazyData: false
+Depends:
+Suggests:
+RoxygenNote: 7.3.1
