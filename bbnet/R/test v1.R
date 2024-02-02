@@ -1,7 +1,7 @@
 #' @title bbnet
 #'
 #' @description
-#' Turn NA's into zeros
+#' Turn NA's into zeros - there shouldn't be an apostrophe here :-)
 #'
 #'@param dataframe description
 #'
