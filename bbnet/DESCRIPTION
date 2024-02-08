@@ -1,15 +1,19 @@
 Package: bbnet
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Bayesian Belief Networks
 Version: 0.1.0
-Author: Rick Stafford & Victoria Dominguez Almela
-URL:
+Author: Rick Stafford [cre, aut], Victoria Dominguez Almela [cre, aut]
 Maintainer: Victoria Dominguez Almela <vda1r22@soton.ac.uk>
 Description: More about what it does (maybe more than one line)
     Use four spaces when indenting paragraphs within the Description.
 License: use_proprietary_license()
 Encoding: UTF-8
-LazyData: false
 Depends:
-Suggests:
+  R (>= 2.10),
+  ggplot2,
+  tibble,
+  igraph,
+  dplyr
+Imports:
+  grid
 RoxygenNote: 7.3.1
