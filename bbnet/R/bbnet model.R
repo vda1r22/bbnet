@@ -103,18 +103,18 @@ bbn.predict <- function(boot_max=1){
 
     # if uploading priors
 
-    if(policy==1){node <- read.csv(priors1, header = T)}
-    if(policy==2){node <- read.csv(priors2, header = T)}
-    if(policy==3){node <- read.csv(priors3, header = T)}
-    if(policy==4){node <- read.csv(priors4, header = T)}
-    if(policy==5){node <- read.csv(priors5, header = T)}
-    if(policy==6){node <- read.csv(priors6, header = T)}
-    if(policy==7){node <- read.csv(priors7, header = T)}
-    if(policy==8){node <- read.csv(priors8, header = T)}
-    if(policy==9){node <- read.csv(priors9, header = T)}
-    if(policy==10){node <- read.csv(priors10, header = T)}
-    if(policy==11){node <- read.csv(priors11, header = T)}
-    if(policy==12){node <- read.csv(priors12, header = T)}
+    if(policy==1){node <- priors1}
+    if(policy==2){node <- priors2}
+    if(policy==3){node <- priors3}
+    if(policy==4){node <- data("priors4")}
+    if(policy==5){node <- data("priors5")}
+    if(policy==6){node <- data("priors6")}
+    if(policy==7){node <- data("priors7")}
+    if(policy==8){node <- data("priors8")}
+    if(policy==9){node <- data("priors9")}
+    if(policy==10){node <- data("priors10")}
+    if(policy==11){node <- data("priors11")}
+    if(policy==12){node <- data("priors12")}
 
     colnames(node)<- c('Increase','name') # setting fixed column names as these are refered to later on
 
@@ -134,7 +134,7 @@ bbn.predict <- function(boot_max=1){
 
 
 
-    node.x.increase.if.node.y.increase <- read.csv(bbn.model, header = T)  # # file name read in from input.param function
+    node.x.increase.if.node.y.increase <- bbn.model  # # file name read in from input.param function
 
     #### convert from +4 to -4 scale to 1 to 0 scale
     node.x.increase.if.node.y.increase[node.x.increase.if.node.y.increase==4]<- 0.9
