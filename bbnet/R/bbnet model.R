@@ -106,15 +106,15 @@ bbn.predict <- function(boot_max=1){
     if(policy==1){node <- priors1}
     if(policy==2){node <- priors2}
     if(policy==3){node <- priors3}
-    if(policy==4){node <- data("priors4")}
-    if(policy==5){node <- data("priors5")}
-    if(policy==6){node <- data("priors6")}
-    if(policy==7){node <- data("priors7")}
-    if(policy==8){node <- data("priors8")}
-    if(policy==9){node <- data("priors9")}
-    if(policy==10){node <- data("priors10")}
-    if(policy==11){node <- data("priors11")}
-    if(policy==12){node <- data("priors12")}
+    if(policy==4){node <- priors4}
+    if(policy==5){node <- priors5}
+    if(policy==6){node <- priors6}
+    if(policy==7){node <- priors7}
+    if(policy==8){node <- priors8}
+    if(policy==9){node <- priors9}
+    if(policy==10){node <- priors10}
+    if(policy==11){node <- priors11}
+    if(policy==12){node <- priors12}
 
     colnames(node)<- c('Increase','name') # setting fixed column names as these are refered to later on
 

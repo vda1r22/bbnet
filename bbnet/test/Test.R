@@ -13,6 +13,8 @@ input.files(BBNfile, priors1, priors2, priors3) # set up of all the BBN models
 # can be run simply as BBN.predict()
 
 bbn.predict(bbn.model) # ERROR AT THIS POINT - 173 I THINK
+# only if loading priors again as dataframe
+# if running as it is: ERROR TO SET COLNAMES on priors I THINK
 
 bbn.predict(boot_max = 1000, values =0, figure = 2)
 
