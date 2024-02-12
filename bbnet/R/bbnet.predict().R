@@ -57,32 +57,6 @@ isEmpty <- function(x) {
 
 
 
-#'
-#'
-#'@param input.files Load in the files.
-#'Stores files with correct variable names in global environment
-#'to be passed to the main function.
-#'Number of modelled scenarios is also captured by this.
-#'
-#' @return bbn.model
-#'
-#' @export
-
-
-input.files <- function(BBNfile, ...){
-  assign('bbn.model', BBNfile,envir= .GlobalEnv)
-  x<-length(list(...))
-  if(x > 12){print('Maximum of 12 scenarios can be run at once')}
-  y<-list(...)
-  for(z in 1:x){
-    assign(paste('priors',z,sep=''),as.character(y[z]), envir = .GlobalEnv)
-  }
-  assign('policyno',x, envir= .GlobalEnv)
-}
-
-
-
-
 #'@param bbn.predict
 #'This reads in scenarios or policies based on the specified prior values in csv files.
 #'Maximum of 12 policies/scenarios for producing the figures.
@@ -94,12 +68,12 @@ input.files <- function(BBNfile, ...){
 #' @export
 
 
-bbn.predict <- function(boot_max=1){
+bbn.predict <- function(start=1, end = 1, boot_max=1, values = 1, figure = 1){
 
   plot.keep= list() # to display plots at the end of the function
+  policyno = end-start+1
 
-
-  for(policy in 1:policyno){  # policyno set as global variable by input.files function, as are file names for the priors and BBN files
+  for(policy in start:end){  # policyno set as global variable by input.files function, as are file names for the priors and BBN files
 
     # if uploading priors
 
@@ -134,7 +108,7 @@ bbn.predict <- function(boot_max=1){
 
 
 
-    node.x.increase.if.node.y.increase <- BBNfile  # # file name read in from input.param function
+    node.x.increase.if.node.y.increase <- bbn.model  # # file name read in from input.param function
 
     #### convert from +4 to -4 scale to 1 to 0 scale
     node.x.increase.if.node.y.increase[node.x.increase.if.node.y.increase==4]<- 0.9
@@ -297,6 +271,7 @@ bbn.predict <- function(boot_max=1){
       }
       boot.node.store[,,boot]<-node.store2
     }
+
     ## calculating bootstrap values - removing top and bottom 2.5% for 95% CI
 
     boot.node.mean <- apply(boot.node.store, c(1,2), mean)
@@ -352,8 +327,10 @@ bbn.predict <- function(boot_max=1){
 
     final.output <- subset(final.output, select = -Decrease)
 
-    print('Scenario', policy)
-    print(final.output)
+    if(values==1){ ## print out outputs by scenario
+      print(paste('Scenario number ', policy))
+      print(final.output)
+    }
 
     p0<-ggplot(data=final.output, aes(x=name, y=Increase)) +
       geom_point(stat="identity", size=0.5) +
@@ -370,21 +347,38 @@ bbn.predict <- function(boot_max=1){
 
   }
 
-  #pdf("rplot.pdf")
+  if(figure==1){## plot pdf figure to working directory
 
-  if(policyno==1){multiplot(plot.keep[[1]])}
-  if(policyno==2){multiplot(plot.keep[[1]],plot.keep[[2]])}
-  if(policyno==3){multiplot(plot.keep[[1]],plot.keep[[2]], plot.keep[[3]], cols=2)}
-  if(policyno==4){multiplot(plot.keep[[1]],plot.keep[[2]], plot.keep[[3]], plot.keep[[4]], cols=2)}
-  if(policyno==5){multiplot(plot.keep[[1]],plot.keep[[2]], plot.keep[[3]], plot.keep[[4]],plot.keep[[5]], cols=2)}
-  if(policyno==6){multiplot(plot.keep[[1]],plot.keep[[2]], plot.keep[[3]], plot.keep[[4]],plot.keep[[5]], plot.keep[[6]], cols=2)}
-  if(policyno==7){multiplot(plot.keep[[1]],plot.keep[[2]], plot.keep[[3]], plot.keep[[4]],plot.keep[[5]], plot.keep[[6]],plot.keep[[7]], cols=2)}
-  if(policyno==8){multiplot(plot.keep[[1]],plot.keep[[2]], plot.keep[[3]], plot.keep[[4]],plot.keep[[5]], plot.keep[[6]],plot.keep[[7]],plot.keep[[8]], cols=2)}
-  if(policyno==9){multiplot(plot.keep[[1]],plot.keep[[2]], plot.keep[[3]], plot.keep[[4]],  plot.keep[[5]], plot.keep[[6]],plot.keep[[7]],plot.keep[[8]],plot.keep[[9]],cols=2)}
-  if(policyno==10){multiplot(plot.keep[[1]],plot.keep[[2]],plot.keep[[3]], plot.keep[[4]], plot.keep[[5]], plot.keep[[6]],plot.keep[[7]],plot.keep[[8]],plot.keep[[9]],plot.keep[[10]],cols=2)}
-  if(policyno==11){multiplot(plot.keep[[1]],plot.keep[[2]],plot.keep[[3]], plot.keep[[4]], plot.keep[[5]], plot.keep[[6]],plot.keep[[7]],plot.keep[[8]],plot.keep[[9]],plot.keep[[10]],plot.keep[[11]],cols=3)}
-  if(policyno==12){multiplot(plot.keep[[1]],plot.keep[[2]],plot.keep[[3]], plot.keep[[4]], plot.keep[[5]], plot.keep[[6]],plot.keep[[7]],plot.keep[[8]],plot.keep[[9]],plot.keep[[10]],plot.keep[[11]], plot.keep[[12]],cols=3)}
+    pdf("BBN_Output_RenameMe.pdf")
 
-  #dev.off()
+    if(policyno==1){multiplot(plot.keep[[1]])}
+    if(policyno==2){multiplot(plot.keep[[1]],plot.keep[[2]])}
+    if(policyno==3){multiplot(plot.keep[[1]],plot.keep[[2]], plot.keep[[3]], cols=2)}
+    if(policyno==4){multiplot(plot.keep[[1]],plot.keep[[2]], plot.keep[[3]], plot.keep[[4]], cols=2)}
+    if(policyno==5){multiplot(plot.keep[[1]],plot.keep[[2]], plot.keep[[3]], plot.keep[[4]],plot.keep[[5]], cols=2)}
+    if(policyno==6){multiplot(plot.keep[[1]],plot.keep[[2]], plot.keep[[3]], plot.keep[[4]],plot.keep[[5]], plot.keep[[6]], cols=2)}
+    if(policyno==7){multiplot(plot.keep[[1]],plot.keep[[2]], plot.keep[[3]], plot.keep[[4]],plot.keep[[5]], plot.keep[[6]],plot.keep[[7]], cols=2)}
+    if(policyno==8){multiplot(plot.keep[[1]],plot.keep[[2]], plot.keep[[3]], plot.keep[[4]],plot.keep[[5]], plot.keep[[6]],plot.keep[[7]],plot.keep[[8]], cols=2)}
+    if(policyno==9){multiplot(plot.keep[[1]],plot.keep[[2]], plot.keep[[3]], plot.keep[[4]],  plot.keep[[5]], plot.keep[[6]],plot.keep[[7]],plot.keep[[8]],plot.keep[[9]],cols=2)}
+    if(policyno==10){multiplot(plot.keep[[1]],plot.keep[[2]],plot.keep[[3]], plot.keep[[4]], plot.keep[[5]], plot.keep[[6]],plot.keep[[7]],plot.keep[[8]],plot.keep[[9]],plot.keep[[10]],cols=2)}
+    if(policyno==11){multiplot(plot.keep[[1]],plot.keep[[2]],plot.keep[[3]], plot.keep[[4]], plot.keep[[5]], plot.keep[[6]],plot.keep[[7]],plot.keep[[8]],plot.keep[[9]],plot.keep[[10]],plot.keep[[11]],cols=3)}
+    if(policyno==12){multiplot(plot.keep[[1]],plot.keep[[2]],plot.keep[[3]], plot.keep[[4]], plot.keep[[5]], plot.keep[[6]],plot.keep[[7]],plot.keep[[8]],plot.keep[[9]],plot.keep[[10]],plot.keep[[11]], plot.keep[[12]],cols=3)}
 
+    dev.off()
+  }
+
+  if(figure==2){ # plot figure to console
+    if(policyno==1){multiplot(plot.keep[[1]])}
+    if(policyno==2){multiplot(plot.keep[[1]],plot.keep[[2]])}
+    if(policyno==3){multiplot(plot.keep[[1]],plot.keep[[2]], plot.keep[[3]], cols=2)}
+    if(policyno==4){multiplot(plot.keep[[1]],plot.keep[[2]], plot.keep[[3]], plot.keep[[4]], cols=2)}
+    if(policyno==5){multiplot(plot.keep[[1]],plot.keep[[2]], plot.keep[[3]], plot.keep[[4]],plot.keep[[5]], cols=2)}
+    if(policyno==6){multiplot(plot.keep[[1]],plot.keep[[2]], plot.keep[[3]], plot.keep[[4]],plot.keep[[5]], plot.keep[[6]], cols=2)}
+    if(policyno==7){multiplot(plot.keep[[1]],plot.keep[[2]], plot.keep[[3]], plot.keep[[4]],plot.keep[[5]], plot.keep[[6]],plot.keep[[7]], cols=2)}
+    if(policyno==8){multiplot(plot.keep[[1]],plot.keep[[2]], plot.keep[[3]], plot.keep[[4]],plot.keep[[5]], plot.keep[[6]],plot.keep[[7]],plot.keep[[8]], cols=2)}
+    if(policyno==9){multiplot(plot.keep[[1]],plot.keep[[2]], plot.keep[[3]], plot.keep[[4]],  plot.keep[[5]], plot.keep[[6]],plot.keep[[7]],plot.keep[[8]],plot.keep[[9]],cols=2)}
+    if(policyno==10){multiplot(plot.keep[[1]],plot.keep[[2]],plot.keep[[3]], plot.keep[[4]], plot.keep[[5]], plot.keep[[6]],plot.keep[[7]],plot.keep[[8]],plot.keep[[9]],plot.keep[[10]],cols=2)}
+    if(policyno==11){multiplot(plot.keep[[1]],plot.keep[[2]],plot.keep[[3]], plot.keep[[4]], plot.keep[[5]], plot.keep[[6]],plot.keep[[7]],plot.keep[[8]],plot.keep[[9]],plot.keep[[10]],plot.keep[[11]],cols=3)}
+    if(policyno==12){multiplot(plot.keep[[1]],plot.keep[[2]],plot.keep[[3]], plot.keep[[4]], plot.keep[[5]], plot.keep[[6]],plot.keep[[7]],plot.keep[[8]],plot.keep[[9]],plot.keep[[10]],plot.keep[[11]], plot.keep[[12]],cols=3)}
+  }
 }
