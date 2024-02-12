@@ -134,7 +134,7 @@ bbn.predict <- function(boot_max=1){
 
 
 
-    node.x.increase.if.node.y.increase <- bbn.model  # # file name read in from input.param function
+    node.x.increase.if.node.y.increase <- BBNfile  # # file name read in from input.param function
 
     #### convert from +4 to -4 scale to 1 to 0 scale
     node.x.increase.if.node.y.increase[node.x.increase.if.node.y.increase==4]<- 0.9
@@ -370,7 +370,7 @@ bbn.predict <- function(boot_max=1){
 
   }
 
-  pdf("rplot.pdf")
+  #pdf("rplot.pdf")
 
   if(policyno==1){multiplot(plot.keep[[1]])}
   if(policyno==2){multiplot(plot.keep[[1]],plot.keep[[2]])}
@@ -385,6 +385,6 @@ bbn.predict <- function(boot_max=1){
   if(policyno==11){multiplot(plot.keep[[1]],plot.keep[[2]],plot.keep[[3]], plot.keep[[4]], plot.keep[[5]], plot.keep[[6]],plot.keep[[7]],plot.keep[[8]],plot.keep[[9]],plot.keep[[10]],plot.keep[[11]],cols=3)}
   if(policyno==12){multiplot(plot.keep[[1]],plot.keep[[2]],plot.keep[[3]], plot.keep[[4]], plot.keep[[5]], plot.keep[[6]],plot.keep[[7]],plot.keep[[8]],plot.keep[[9]],plot.keep[[10]],plot.keep[[11]], plot.keep[[12]],cols=3)}
 
-  dev.off()
+  #dev.off()
 
 }

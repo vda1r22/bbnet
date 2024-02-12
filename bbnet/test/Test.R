@@ -2,7 +2,9 @@
 
 library(bbnet)
 
-data("BBNfile", "priors1", "priors2", "priors3") #Load data examples
+data("BBNfile","priors1")
+
+BBNfile <- read.csv()
 
 input.files(BBNfile, priors1, priors2, priors3) # set up of all the BBN models
 
@@ -12,7 +14,7 @@ input.files(BBNfile, priors1, priors2, priors3) # set up of all the BBN models
 # figure - 0 no figures are produced, 1 (default) PDF is saved to working directory, 2 figure is presented in figure panel
 # can be run simply as BBN.predict()
 
-bbn.predict(bbn.model) # ERROR AT THIS POINT - 173 I THINK
+bbn.predict() # ERROR AT THIS POINT - 173 I THINK
 # only if loading priors again as dataframe
 # if running as it is: ERROR TO SET COLNAMES on priors I THINK
 
