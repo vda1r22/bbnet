@@ -1,26 +1,29 @@
-Package: bbnet
 Type: Package
-Title: Create simple predictive models in ecology, conservation and environmental policy based on Bayesian belief networks
-Description: A system for ecological and environmental users to build, 
-    visualise and evaluate Bayesian belief networks. These models can incorporate 
-    expert knowledge and/or empirical data to model complex systems.
+Package: bbnet
+Title: Create simple predictive models in ecology, conservation and
+    environmental policy based on Bayesian belief networks
 Version: 0.1.0
 Authors@R: c(
-    person("Rick", "Stafford", email = "rstafford@bournemouth.ac.uk", 
-          role = c("cre", "aut"), comment = c(ORCID = "0000-0002-1964-5787")),
-    person("Victoria", "Dominguez Almela", email = "vda1r22@soton.ac.uk", 
-          role = "aut", comment = c(ORCID = "0000-0003-4877-5967")))
+    person("Rick", "Stafford", , "rstafford@bournemouth.ac.uk", role = c("cre", "aut"),
+           comment = c(ORCID = "0000-0002-1964-5787")),
+    person("Victoria", "Dominguez Almela", , "vda1r22@soton.ac.uk", role = "aut",
+           comment = c(ORCID = "0000-0003-4877-5967"))
+  )
 Maintainer: Victoria Dominguez Almela <vda1r22@soton.ac.uk>
+Description: A system for ecological and environmental users to build,
+    visualise and evaluate Bayesian belief networks. These models can
+    incorporate expert knowledge and/or empirical data to model complex
+    systems.
 License: use_proprietary_license()
+URL: https://github.com/vda1r22/bbnet
+BugReports: https://github.com/vda1r22/bbnet/issues
+Depends:
+    dplyr,
+    ggplot2,
+    grid,
+    igraph,
+    tibble
 Encoding: UTF-8
 LadyData: true
-Depends:
-  R (>= 2.10),
-  ggplot2,
-  tibble,
-  igraph,
-  dplyr
-Imports:
-  grid
-RoxygenNote: 7.3.1
 LazyData: true
+RoxygenNote: 7.3.1
