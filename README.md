@@ -32,6 +32,7 @@ Rick Stafford & Victoria Dominguez Almela
 status](https://www.r-pkg.org/badges/version/bbnet)](https://CRAN.R-project.org/package=bbnet)
 [![Codecov test
 coverage](https://codecov.io/gh/vda1r22/bbnet/branch/main/graph/badge.svg)](https://app.codecov.io/gh/vda1r22/bbnet?branch=main)
+[![R-CMD-check](https://github.com/vda1r22/bbnet/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/vda1r22/bbnet/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 # Introduction
@@ -520,24 +521,25 @@ bbn.sensitivity(bbn.model = my_BBN, boot_max = 100, 'Limpet', 'Green Algae')
 <img src="man/figures/README-unnamed-chunk-8-1.png" width="100%" />
 
     #>                   sens.output Freq
-    #> 1          Dogwhelk->Barnacle    1
-    #> 2        Dogwhelk->Periwinkle    1
-    #> 3            Limpet->Topshell    1
-    #> 4            Dogwhelk->Limpet    2
-    #> 5        Green.Algae->Biofilm    2
-    #> 6  Green.Algae->Corline.algae    2
-    #> 7         Periwinkle->Biofilm    2
-    #> 8     Periwinkle->Green.Algae    2
-    #> 9        Periwinkle->Topshell    2
-    #> 10       Topshell->Periwinkle    2
-    #> 11  Green.Algae->Fucoid.Algae    3
-    #> 12           Topshell->Limpet    3
-    #> 13        Limpet->Green.Algae    4
-    #> 14         Limpet->Periwinkle    4
-    #> 15         Periwinkle->Limpet    4
-    #> 16      Topshell->Green.Algae    4
-    #> 17            Limpet->Biofilm    5
-    #> 18          Topshell->Biofilm    6
+    #> 1          Dogwhelk->Topshell    1
+    #> 2   Green.Algae->Fucoid.Algae    1
+    #> 3             Limpet->Biofilm    1
+    #> 4         Periwinkle->Biofilm    1
+    #> 5        Topshell->Periwinkle    1
+    #> 6          Dogwhelk->Barnacle    2
+    #> 7            Dogwhelk->Limpet    2
+    #> 8        Dogwhelk->Periwinkle    2
+    #> 9         Limpet->Green.Algae    2
+    #> 10         Limpet->Periwinkle    2
+    #> 11    Periwinkle->Green.Algae    2
+    #> 12      Topshell->Green.Algae    2
+    #> 13       Green.Algae->Biofilm    3
+    #> 14           Limpet->Topshell    3
+    #> 15         Periwinkle->Limpet    3
+    #> 16 Green.Algae->Corline.algae    5
+    #> 17       Periwinkle->Topshell    5
+    #> 18          Topshell->Biofilm    5
+    #> 19           Topshell->Limpet    7
 
 The function works by bootstrapping with multiple changes to prior
 values and interaction strengths in the network. The frequency shows the
@@ -654,16 +656,7 @@ bbn.network.diagram(bbn.network = my_network, font.size = 0.7, arrow.size = 4, a
 
 If something is not clear, or missing, or if you would like to request a
 feature, please open an issue on [our GitHub
-repository](https://github.com/Farewe/invacost/issues).
-
-However, remember that we need to find a good balance between
-generalisability and specificity: not enough parameters and users are
-not happy; too many parameters and users are lost in the function usage.
-Therefore, if you have a very specific request that will not be useful
-to other users, do not hesitate to duplicate the source code and adapt
-the function to your needs. On the contrary, if you think of a new thing
-that could be beneficial to many users, please do not hesitate and
-become an official contributor to the package!
+repository](https://github.com/vda1r22/bbnet/issues).
 
 # Citation
 
@@ -673,24 +666,23 @@ acknowledgement for the time spent in writing the package and this
 tutorial. Like all R packages, to know how to cite it, type:
 
 ``` r
-citation("invacost")
-#> To cite invacost in publications use:
+citation("bbnet")
+#> Warning in citation("bbnet"): could not determine year for 'bbnet' from package
+#> DESCRIPTION file
+#> To cite package 'bbnet' in publications use:
 #> 
-#>   Leroy B, Kramer AM, Vaissière A, Kourantidou M, Courchamp F, Diagne C
-#>   (2022). "Analysing economic costs of invasive alien species with the
-#>   invacost R package." _Methods in Ecology and Evolution_, *13*(9),
-#>   1930-1937. <https://doi.org/10.1111/2041-210X.13929>.
+#>   Stafford R, Dominguez Almela V (????). _bbnet: Create simple
+#>   predictive models in ecology, conservation and environmental policy
+#>   based on Bayesian belief networks_. R package version 0.1.0,
+#>   <https://github.com/vda1r22/bbnet>.
 #> 
 #> A BibTeX entry for LaTeX users is
 #> 
-#>   @Article{,
-#>     title = {Analysing economic costs of invasive alien species with the invacost R package.},
-#>     author = {Boris Leroy and Andrew M Kramer and Anne-Charlotte Vaissière and Melina Kourantidou and Franck Courchamp and Christophe Diagne},
-#>     journal = {Methods in Ecology and Evolution},
-#>     year = {2022},
-#>     volume = {13},
-#>     number = {9},
-#>     pages = {1930-1937},
-#>     url = {https://doi.org/10.1111/2041-210X.13929},
+#>   @Manual{,
+#>     title = {bbnet: Create simple predictive models in ecology, conservation and
+#> environmental policy based on Bayesian belief networks},
+#>     author = {Rick Stafford and Victoria {Dominguez Almela}},
+#>     note = {R package version 0.1.0},
+#>     url = {https://github.com/vda1r22/bbnet},
 #>   }
 ```

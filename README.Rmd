@@ -28,6 +28,7 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 [![CRAN status](https://www.r-pkg.org/badges/version/bbnet)](https://CRAN.R-project.org/package=bbnet)
 [![Codecov test coverage](https://codecov.io/gh/vda1r22/bbnet/branch/main/graph/badge.svg)](https://app.codecov.io/gh/vda1r22/bbnet?branch=main)
+[![R-CMD-check](https://github.com/vda1r22/bbnet/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/vda1r22/bbnet/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 # Introduction 
@@ -241,17 +242,7 @@ bbn.network.diagram(bbn.network = my_network, font.size = 0.7, arrow.size = 2, a
 
 If something is not clear, or missing, or if you would like to request a 
 feature, please open an issue on
-[our GitHub repository](https://github.com/Farewe/invacost/issues).
-
-However, remember that we need to find a good balance
-between generalisability and specificity: not enough parameters and users are not
-happy; too many parameters and users are lost in the function usage. Therefore,
-if you have a very specific request that will not be useful to other users, do
-not hesitate to duplicate the source code and adapt the function to your needs.
-On the contrary, if you think of a new thing that could be beneficial to many
-users, please do not hesitate and become an official contributor to the
-package!
-
+[our GitHub repository](https://github.com/vda1r22/bbnet/issues).
 
 # Citation
 
@@ -260,6 +251,6 @@ cite the package (in addition to the papers) as an acknowledgement for the
 time spent in writing the package and this tutorial. Like all R packages, 
 to know how to cite it, type:
 ```{r i4}
-citation("invacost")
+citation("bbnet")
 ```
 
