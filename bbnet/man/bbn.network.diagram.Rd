@@ -2,7 +2,7 @@
 % Please edit documentation in R/bbn.network.diagram.R
 \name{bbn.network.diagram}
 \alias{bbn.network.diagram}
-\title{Bayesian Belief Model v4.0.1 - Network diagrams}
+\title{Create Network Diagram from Bayesian Belief Network Data}
 \usage{
 bbn.network.diagram(
   bbn.network,
@@ -12,32 +12,44 @@ bbn.network.diagram(
 )
 }
 \arguments{
-\item{bbn.network.diagram}{To illustrate a ‘complex system’.}
+\item{bbn.network}{A dataframe, with a first column called \code{id} that consists of an \code{s} and a 2 digit number relating to the \code{node} number.
+The second column called \code{node.type} is an \code{integer} value from 1-4.
+This sets the colour of the \code{node} in the network (sticking to a maximum of four colours).
+The third column is the same as the first column in the standard \code{BBN} interaction matrix or dataframe, other than it is titled \code{node.name}.
+It is important to use these column names (including capitals and dot notation).
+The remainder of the columns are exactly as the standard \code{BBN} interaction matrix or dataframe.}
+
+\item{font.size}{Changes the font in the figure produced. Default = 0.7.
+The value here is a multiplier of the default font size used in the \code{igraph} package and does not correspond to the \code{font.size} argument in \code{\link{bbn.timeseries}}.}
+
+\item{arrow.size}{Changes the size of the arrows. Default = 4.
+Note, sizes do vary based on interaction strength, so this is a multiplier for visualisation purposes.
+Negative interactions are shown by red arrows, and positive interactions by black arrows.}
+
+\item{arrange}{this describes how the final diagram looks.
+Default is \code{layout_on_sphere} but \code{layout_on_grid} provides the same layout as in \code{\link{bbn.visualise}} and ensures \code{nodes} are structured in the order specified in the network.
+Other layouts, including \code{layout_on_sphere} are more randomly determined, and better/clearer diagrams may occur if you run these multiple times.
+Other options are from the igraph package:
+\code{layout.sphere}
+\code{layout.circle}
+\code{layout.random}
+\code{layout.fruchterman.reingold}}
 }
 \value{
-It visualises all nodes and interactions in a full network.
+A plot of the network diagram, illustrating the interactions (both positive and negative) between \code{nodes}.
 }
 \description{
-27 Feb 2024
-Copyright Rick Stafford
+\code{bbn.network.diagram()} generates a network diagram from a specified Bayesian Belief Network (\code{BBN}),
+allowing for the visualization of the relationships and interactions between \code{nodes}.
+}
+\details{
+The diagram is created using \code{edge} and \code{node} data derived from the \code{BBN}, with \code{edges} representing
+interactions (positive or negative) between \code{nodes}.
 
-Requires all functions loaded and:
-  1) BBN interaction grid - named bbn.model
-  2) list of scenarios indicating changes (1-12 can be used). Named priors1, priors2, ... priors12
-Nodes can also be colour coded by theme.
-It is easiest to create a slightly different csv file to produce these networks, which allows for the colour coding.
+\code{bbn.network.diagram()} visualises all \code{nodes} and interactions in a network, in a similar manner to \code{\link{bbn.visualise}}, other than this is the full network.
+}
+\examples{
+# Assuming 'bbn.network' is a data frame representing the BBN, including node ids, types, and the matrix of interactions:
+bbn.network.diagram(bbn.network, font.size=0.7, arrow.size=4, arrange = layout_on_sphere)
 
-Required arguments:
-bbn.network - a csv file as described above, with note paid to the first three column names.
-
-Optional arguments:
-   1) font.size - default = 0.7. Changes the font in the figure produced.
-      The value here is a multiplier of the default font size used in the igraph package and does not correspond to the font.size argument in the bbn.timeseries() function.
-   2) arrow.size - default = 4. Changes the size of the arrows.
-      Note, sizes do vary based on interaction strength, so this is a multiplier for visualisation purposes.
-      Negative interactions are shown by red arrows, and positive interactions by black arrows.
-   3) arrange - this describes how the final diagram looks.
-      Default is `layout_on_sphere` but `layout_on_grid` provides the same layout as in the bbn.visualise() function and ensures nodes are structured in the order specified in the network.
-      Other layouts, including `layout_on_sphere` are more randomly determined, and better/clearer diagrams may occur if you run these multiple times.
-      Other options are from the igraph package
 }
