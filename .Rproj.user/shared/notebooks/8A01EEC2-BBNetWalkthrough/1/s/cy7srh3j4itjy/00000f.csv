@@ -1,0 +1,3 @@
+"0","bbn.visualise(bbn.model = my_BBN, priors1 = combined, timesteps = 5, disturbance = 2, threshold=0.05, font.size=0.7, arrow.size=4)"
+"1","NULL
+"
