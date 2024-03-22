@@ -1,36 +1,28 @@
-#' @title Bayesian Belief Model v4.0.1 - Sensitivity function
+#' Sensitivity Analysis for Bayesian Belief Network Models
 #'
-#' @description
-#'27 Feb 2024
-#'Copyright Rick Stafford
+#' \code{bbn.sensitivity()} conducts a sensitivity analysis on a Bayesian Belief Network (\code{BBN}) model.
+#' It evaluates the impact of varying key \code{node} on the network's outcomes using \code{bootstrapping}.
+#' The analysis helps identify which \code{node} significantly influence the network, providing insights into the robustness and dependency of the network's structure.
 #'
-#'Requires all functions loaded and:
-#'   1) BBN interaction grid - named bbn.model
-#'   2) list of scenarios indicating changes (1-12 can be used). Named priors1, priors2, ... priors12
+#' @param bbn.model a matrix or dataframe of interactions between different model \code{nodes}.
+#' One or more \code{nodes} (recommended no more than 3) which would be the main outcomes of interest in the model.
+#' The spelling of these \code{nodes} needs to be identical (including capital letters) to that in the matrix or dataframe file.
+#' (note, you should include spaces if these are in your matrix or dataframe file, rather than the dot notation used once imported into R).
+#' @param boot_max The number of bootstraps to perform.
+#' Suggested range for exploratory analysis 100-1000.
+#' For final analysis recommended size = 1000 - 10000 - note, this can take a long time to run.
+#' Default value is 1000.
+#' @param ... Key \code{nodes} for sensitivity analysis.
+#' The function is designed to handle up to three key \code{nodes}, beyond which it recommends limiting the analysis for clarity and efficiency.
 #'
-#' The function works by bootstrapping with multiple changes to prior values and interaction strengths in the network.
-#' The frequency shows the number of times a modified interaction shows up as important in causing a change to the listed nodes.
-#' As such, those interactions showing as more frequent in the table or figure are likely to be most influential in any predictions.
-#' These should be subject to closer scrutiny in terms of values used.
-#' (note, this does not mean the values are incorrect or should be reduced from more extreme values - i.e. from 4 to 3, just that they should be carefully checked)
+#' @return The function outputs a plot showing the \code{nodes} most influential to the network's outcomes, alongside a table ranking these variables by their impact.
+#' The analysis highlights how changes in the key \code{nodes} can affect the network, offering valuable insights for model refinement and decision-making.
 #'
-#' Required arguments:
-#'   1) bbn.model - a matrix or dataframe of interactions between different model nodes.
-#'      One or more nodes (recommended no more than 3) which would be the main outcomes of interest in the model.
-#'      The spelling of these nodes needs to be identical (including capital letters) to that in the imported csv file (note, you should include spaces if these are in your csv file, rather than the dot notation used once imported into R).
-#'
-#' Optional arguments:
-#'   2) boot_max - the number of bootstraps to perform.
-#'      Suggested range for exploratory analysis 100-1000.
-#'      For final analysis recommended size = 1000 - 10000 - note, this can take a long time to run. Default value is 1000.
-#'
-#' @param bbn.sensitivity
-#'
-#' @return
-#' This function produces a list of the most important parameters/interaction strengths to examine.
+#' @examples
+#' # Assuming 'bbn.model' is your Bayesian Belief Network model and 'var1', 'var2', 'var3' are key \code{nodes}:
+#' bbn.sensitivity(bbn.model, boot_max = 1000, "var1", "var2", "var3")
 #'
 #' @export
-
 bbn.sensitivity <- function(bbn.model, boot_max = 1000, ...){
 
   x<-length(list(...))
