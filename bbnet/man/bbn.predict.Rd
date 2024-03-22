@@ -18,16 +18,16 @@ bbn.predict(
 \item{bbn.model}{A matrix or dataframe of interactions between different model \code{nodes}.}
 
 \item{priors1}{An X by 2 array of initial changes to the system under investigation.
-The first column should be a -4 to 4 (including 0) integer value for each node in the network with negative values
+The first column should be a -4 to 4 (including 0) integer value for each \code{node} in the network with negative values
 indicating a decrease and positive values representing an increase. 0 represents no change.
 Note, names included here are included as outputs in tables and figures.
 Shortening these names can provide better figures.}
 
 \item{boot_max}{The number of bootstraps to perform. Suggested range for exploratory analysis 1-1000.
 For final analysis recommended size = 1000 - 10000 - note, this can take a long time to run.
-Default value is 1, running with no bootstrapping - suitable for exploration of data and error checking.}
+Default value is 1, running with no \code{bootstrapping} - suitable for exploration of data and error checking.}
 
-\item{values}{This provides a numeric output of posterior values and any confidence intervals.
+\item{values}{This provides a numeric output of \code{posterior} values and any \code{confidence intervals}.
 Default value 1. Set to 0 to hide this output.}
 
 \item{figure}{Sets the figure options. Default value 1. 0 = no figures produced.
@@ -37,22 +37,18 @@ All figures are combined on a single plot where scenario 2 is below scenario 1 (
 
 \item{font.size}{Font size for the plot labels. Defaults to 5.}
 
-\item{priors2-priors12}{Additional prior sets can be specified for multiple scenario predictions.}
+\item{priors2-priors12}{Additional \code{prior} sets can be specified for multiple scenario predictions.}
 }
 \value{
 Plots of the \code{(BBN)} predictions and optionally prints the predicted values.
 }
 \description{
 \code{bbn.predict} performs predictions using a Bayesian Belief Network \code{(BBN)} model,
-accommodating multiple scenarios and allowing for \code{bootstrapping} to assess variability.
+accommodating multiple \code{priors} scenarios and allowing for \code{bootstrapping} to assess variability.
 }
 \details{
-\code{bbn.predict} takes a pre-defined BBN model and uses \code{priors} distributions
-to predict outcomes across specified scenarios. It supports visualization of the results
-and bootstrapping to estimate variability.
-
 \itemize{
-  \item Supports input of multiple scenarios through \code{ellipsis()}.
+  \item Supports input of multiple \code{priors} through \code{ellipsis()}.
   \item Allows \code{bootstrapping} with a specified number of maximum iterations to assess prediction variability.
   \item Generates \code{plots} for visual representation of the predictions.
 }

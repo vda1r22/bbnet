@@ -1,29 +1,25 @@
 #' Bayesian Belief Network Prediction
 #'
 #' \code{bbn.predict} performs predictions using a Bayesian Belief Network \code{(BBN)} model,
-#' accommodating multiple scenarios and allowing for \code{bootstrapping} to assess variability.
-#'
-#' \code{bbn.predict} takes a pre-defined BBN model and uses \code{priors} distributions
-#' to predict outcomes across specified scenarios. It supports visualization of the results
-#' and bootstrapping to estimate variability.
+#' accommodating multiple \code{priors} scenarios and allowing for \code{bootstrapping} to assess variability.
 #'
 #' \itemize{
-#'   \item Supports input of multiple scenarios through \code{ellipsis()}.
+#'   \item Supports input of multiple \code{priors} through \code{ellipsis()}.
 #'   \item Allows \code{bootstrapping} with a specified number of maximum iterations to assess prediction variability.
 #'   \item Generates \code{plots} for visual representation of the predictions.
 #' }
 #'
 #' @param bbn.model  A matrix or dataframe of interactions between different model \code{nodes}.
 #' @param priors1 An X by 2 array of initial changes to the system under investigation.
-#' The first column should be a -4 to 4 (including 0) integer value for each node in the network with negative values
+#' The first column should be a -4 to 4 (including 0) integer value for each \code{node} in the network with negative values
 #' indicating a decrease and positive values representing an increase. 0 represents no change.
 #' Note, names included here are included as outputs in tables and figures.
 #' Shortening these names can provide better figures.
-#' @param priors2-priors12 Additional prior sets can be specified for multiple scenario predictions.
+#' @param priors2-priors12 Additional \code{prior} sets can be specified for multiple scenario predictions.
 #' @param boot_max The number of bootstraps to perform. Suggested range for exploratory analysis 1-1000.
 #' For final analysis recommended size = 1000 - 10000 - note, this can take a long time to run.
-#' Default value is 1, running with no bootstrapping - suitable for exploration of data and error checking.
-#' @param values  This provides a numeric output of posterior values and any confidence intervals.
+#' Default value is 1, running with no \code{bootstrapping} - suitable for exploration of data and error checking.
+#' @param values  This provides a numeric output of \code{posterior} values and any \code{confidence intervals}.
 #' Default value 1. Set to 0 to hide this output.
 #' @param figure Sets the figure options. Default value 1. 0 = no figures produced.
 #' 1 = figure is saved in working directory as a PDF file (note, this is overwritten if the name is not changed, and no figure is produced if the existing PDF is open when the new one is generated).
