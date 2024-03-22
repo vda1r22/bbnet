@@ -10,28 +10,23 @@ bbn.timeseries(bbn.model, priors1, timesteps = 5, disturbance = 1)
 \item{bbn.model}{A matrix or dataframe of interactions between different model \code{nodes}.}
 
 \item{priors1}{An X by 2 array of initial changes to the system under investigation.
-The first column should be a -4 to 4 (including 0) integer value for each node in the network with negative values
+The first column should be a -4 to 4 (including 0) integer value for each \code{node} in the network with negative values
 indicating a decrease and positive values representing an increase. 0 represents no change.}
 
-\item{timesteps}{This is the number of timesteps the model performs. Default = 5.
-Note, timesteps are arbitrary and non-linear. However, something occurring in timestep 2, should occur before timestep 3.}
+\item{timesteps}{This is the number of \code{timesteps} the model performs. Default = 5.
+Note, \code{timesteps} are arbitrary and non-linear. However, something occurring in \code{timestep 2}, should occur before \code{timestep 3}.}
 
 \item{disturbance}{Default = 1.
-1 creates a prolonged or press disturbance as per \code{\link{bbn.predict}}
-Essentially \code{prior} values for each manipulated \code{node} are at least maintained (if not increased through reinforcement in the model) over all timesteps.
-2 shows a brief pulse disturbance, which can be useful to visualise changes as peaks and troughs in increase and decrease of \code{nodes} can propagate through the network.}
+1 creates a prolonged or press \code{disturbance} as per \code{\link{bbn.predict}}.
+Essentially \code{prior} values for each manipulated \code{node} are at least maintained (if not increased through reinforcement in the model) over all \code{timesteps}.
+2 shows a brief pulse \code{disturbance}, which can be useful to visualise changes as peaks and troughs in increase and decrease of \code{nodes} can propagate through the network.}
 }
 \value{
 Plots for each \code{node} showing the predicted change over time.
 }
 \description{
-\code{bbn.timeseries()} performs time series predictions using a Bayesian Belief Network (\code{BBN}) model based on a single scenario.
+\code{bbn.timeseries()} performs time series predictions using a Bayesian Belief Network (\code{BBN}) model based on a single \code{prior} scenario.
 It generates figures illustrating how parameters change over time for all or selected \code{nodes}.
-}
-\details{
-\code{bbn.timeseries()} reads in a single scenario as prior information and calculates the changes in parameters over
-specified time steps, considering potential disturbances. It uses the \code{BBN} model to predict the evolution
-of each \code{node} over time and plots these changes to provide a visual representation of the model's dynamics.
 }
 \examples{
 # Assuming 'bbn.model' is a predefined BBN model matrix and 'priors1' is the initial set of priors:
