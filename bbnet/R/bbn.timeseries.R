@@ -1,0 +1,179 @@
+#' @title Bayesian Belief Model v4.0.1 - Time series
+#'
+#' @description
+#'27 Feb 2024
+#'Copyright Rick Stafford
+#'
+#'Requires all functions loaded and:
+#'   1) BBN interaction grid - named bbn.model
+#'   2) list of scenarios indicating changes (1-12 can be used). Named priors1, priors2, ... priors12
+#'
+#' Required arguments:
+#'    1) bbn.model - a matrix or dataframe of interactions between different model nodes.
+#'    2) priors1 - an X by 2 array of initial changes to the system under investigation.
+#'       The first column should be a -4 to 4 (including 0) integer value for each node in the network with negative values indicating a decrease and positive values representing an increase.
+#'       0 represents no change.
+#'
+#' Optional Arguments:
+#'    3) timesteps - default = 5. This is the number of timesteps the model performs.
+#'       Note, timesteps are arbitrary and non-linear. However, something occurring in timestep 2, should occur before timestep 3.
+#'    4) disturbance - default = 1.
+#'       where 1 - creates a prolonged or press disturbance as per the bbn.predict() function. Essentially prior values for each manipulated node are at least maintained (if not increased through reinforcement in the model) over all timesteps.
+#'       where 2 - shows a brief pulse disturbance, which can be useful to visualise changes as peaks and troughs in increase and decrease of nodes can propagate through the network
+#'
+#' @param bbn.timeseries
+#'
+#' @return
+#' Graph of each node in the network, visualised across the different timesteps in the model.
+#'
+#' @export
+
+bbn.timeseries <- function(bbn.model, priors1, timesteps=5, disturbance = 1){ ### reads in a single scenario and makes figures of how parameters change over time for all or selected nodes
+
+  node <- priors1 # read in single scenario
+
+  colnames(node)<- c('Increase','name') # setting fixed column names as these are refered to later on
+
+  ## Bayesian Belief network relies on values between 0 and 1, but -4 to 4 is much more intuitive, so converted at this stage
+  node <- node %>%
+    mutate(Increase = recode(Increase, '4' = '0.9', '3' = '0.8', '2' = '0.7', '1' ='0.6','-1'='0.4', '-2'='0.3', '-3'='0.2', '-4'='0.1', '0'='0.5'))
+
+  node$Increase <- as.numeric(node$Increase)
+
+  node$Decrease <- 1-node$Increase  # the decrease is 1- the increase once in probability format
+
+  node <- node[,c('Increase','Decrease','name')]
+
+  number.nodes <- dim(node)[1]
+
+  #### edge strengths of the network, read in from the main csv file - again, converted from -4 to 4 into 0 to 1 format
+
+
+
+  node.x.increase.if.node.y.increase <- bbn.model # input of bbm matrix
+
+  #### convert from +4 to -4 scale to 1 to 0 scale
+  node.x.increase.if.node.y.increase[node.x.increase.if.node.y.increase==4]<- 0.9
+  node.x.increase.if.node.y.increase[node.x.increase.if.node.y.increase==3]<- 0.8
+  node.x.increase.if.node.y.increase[node.x.increase.if.node.y.increase==2]<- 0.7
+  node.x.increase.if.node.y.increase[node.x.increase.if.node.y.increase==1]<- 0.6
+  node.x.increase.if.node.y.increase[node.x.increase.if.node.y.increase==-1]<- 0.4
+  node.x.increase.if.node.y.increase[node.x.increase.if.node.y.increase==-2]<- 0.3
+  node.x.increase.if.node.y.increase[node.x.increase.if.node.y.increase==-3]<- 0.2
+  node.x.increase.if.node.y.increase[node.x.increase.if.node.y.increase==-4]<- 0.1
+
+
+  node.x.increase.if.node.y.increase <- node.x.increase.if.node.y.increase[,-1] # drops first column which was text
+
+  node.x.increase.if.node.y.increase <- as.data.frame(node.x.increase.if.node.y.increase)
+
+  node.x.increase.if.node.y.increase2 <- (0 + node.x.increase.if.node.y.increase) # force contents to act as numbers, as initially one column was text
+
+  row.names(node.x.increase.if.node.y.increase)<-node$name # ensuring rows and columns in the model have the same names as the list of nodes
+  colnames(node.x.increase.if.node.y.increase)<-node$name
+
+  # create decrease matrix - for Bayes calculation
+  node.x.increase.if.node.y.decrease <- (1 - node.x.increase.if.node.y.increase2)
+
+  #fix(node.x.increase.if.node.y.decrease)
+
+
+  rep <- timesteps # number of repititions of the time series model
+  disturbancetype <- disturbance # prolonged pulse disturbance (1 = prolonged, 2 = pulse)
+
+  ## storage of probabilities over time
+
+  node.store <- array(NA, c(number.nodes,rep)) # time series model
+  node.store2 <- array(NA, c(number.nodes,rep)) # original model
+  #  boot.node.store <- array(NA,c(number.nodes,rep2,boot_max))
+
+  for(aaa in 1:number.nodes){node.store[aaa,1] <- node[aaa,1]}
+  for(aaa in 1:number.nodes){node.store2[aaa,1] <- node[aaa,1]}
+
+  ### set up order to look at connections - specifies node 1 on node 2, node 1 on node 3 etc
+
+  ord <- array(NA, dim=c(2,(number.nodes*number.nodes)))
+
+  aaa <-1
+  for(i in seq(1, (number.nodes*number.nodes), number.nodes)){
+    ord[1,i:(i+number.nodes-1)]<-aaa
+    aaa<-aaa+1
+    ord[2,1:(i+number.nodes-1)] <- 1:number.nodes
+  }
+
+  yyy<- 1:(number.nodes*number.nodes)
+
+  #### ordering complete
+
+  ################################## Time series Calcs ##############################################
+
+  post.node <- array(NA, c(number.nodes, number.nodes))
+
+  for(x.rep in 2:rep){
+
+    for(bbb in 1:(number.nodes*number.nodes)){
+      temp1 <- (node.x.increase.if.node.y.increase[(ord[1,yyy[bbb]]),ord[2,yyy[bbb]]] * node[ord[1,yyy[bbb]],1]) + (node.x.increase.if.node.y.decrease[ord[1,yyy[bbb]],ord[2,yyy[bbb]]] * node[ord[1,yyy[bbb]],2])
+      post.node[ord[2,yyy[bbb]],ord[1,yyy[bbb]]] <- temp1
+    }
+
+    for (f in 1:number.nodes){
+
+      post.node.calc <- c(post.node[f,1:number.nodes])
+      post.node.calc <- na.omit(post.node.calc)
+
+      if(node[f,1]>=0.5){q = 1}
+      if(node[f,1]<0.5){q=2}
+
+      if(all(is.na(post.node.calc))){
+        post.node.calc <- 0.5
+      }
+
+      if(disturbancetype == 1){
+        post.node1 <- (node[f,q]) #### disturbance is prolonged and remains at prior value or greater throughout
+      }
+      if(disturbancetype == 2){
+        post.node1 <- mean(post.node.calc) # pulse disturbance likely to dissipate rapidly
+      }
+
+      post.node1.try2 <- mean(post.node.calc) # this section works out whether something is more certain if the prior is not used
+      if(node[f,1]> 0.5 & post.node1.try2 > post.node1) {post.node1 <- post.node1.try2}
+      if(node[f,1]< 0.5 & post.node1.try2 < post.node1) {post.node1 <- post.node1.try2}
+      if(node[f,1] == 0.5) {post.node1 <- post.node1.try2}
+      node[f,1:2]<- c(post.node1 , 1-post.node1)
+      node.store[f, x.rep] <- node[f,1]
+    }
+
+  }
+
+  node.store<-(node.store-0.5)*10 # convert back to -4 to 4 scale
+
+  for (graphmake in 1: number.nodes){
+
+    # if(mean(node.store[graphmake,])>=0.5){
+    #
+    # y.vals <- node.store[graphmake,]/max(node.store[graphmake,])}
+    #
+    # if(mean(node.store[graphmake,])<0.5){
+    #
+    #   y.vals <- 1-(min(node.store[graphmake,])/node.store[graphmake,])}
+
+    x.vals <- 1:dim(node.store)[2]
+
+    y.vals <- node.store[graphmake,]
+
+    vals <- cbind.data.frame(x.vals, y.vals)
+
+    colnames(vals) <- c('x', 'y')
+
+    name_y <- node[graphmake,3]
+
+
+    p<-ggplot(vals, aes(x=x, y=y)) + geom_point(size=2, shape=23) + geom_smooth(se=F, method="loess") +
+      labs(x="Time Step", y = name_y)+theme_classic() + scale_color_grey()
+
+    print(p)
+
+
+  }
+
+}
