@@ -1,23 +1,52 @@
-#' @title Plot function
+#' Multiplot function
 #'
-#' @description
-#'Plot function from
-#'http://www.cookbook-r.com/Graphs/Multiple_graphs_on_one_page_(ggplot2)/
-#'CC0 licence
-
-
-#' @param multiplot
+#' This function allows for the arrangement and display of multiple \code{ggplot2} plots on a single graphics page.
 #'
-#' @return ggplot
-#' ggplot objects can be passed in ..., or to plotlist (as a list of ggplot objects)
-#'    cols:   Number of columns in layout
-#'    layout: A matrix specifying the layout. If present, 'cols' is ignored.
-#' If the layout is something like matrix(c(1,2,3,3), nrow=2, byrow=TRUE), then plot 1 will go in the upper left, 2 will go in the upper right, and 3 will go all the way across the bottom.
+#' \code{multiplot()} can take any number of plot objects as arguments, or if it can take a list of plot objects passed to plotlist.
+#'
+#' \code{multiplot()} is built under CC0 licence from:
+#'
+#' \url{http://www.cookbook-r.com/Graphs/Multiple_graphs_on_one_page_(ggplot2)/}
+#'
+#' \code{ggplot2} objects can be passed in ..., or to plotlist (as a list of \code{ggplot2} objects)
+#'
+#' Details:
+#' \itemize{
+#'   \item cols: Number of columns in layout.
+#'   \item layout: A matrix specifying the layout.If present, \code{cols} is ignored.
+#' }
+#'
+#' If the layout is something like \code{matrix(c(1,2,3,3), nrow=2, byrow=TRUE)}, then plot 1 will go in the upper left, 2 will go in the upper right, and 3 will go all the way across the bottom.
+#'
+#' @param ... One or more \code{ggplot2} objects to be plotted.
+#' @param plotlist An optional list of \code{ggplot2} objects. This parameter can be used in conjunction with or instead of the direct plot arguments.
+#' @param file A path to save the output file.
+#' @param cols Specifies the number of columns in the grid layout if \code{layout} is not provided. Defaults to 1.
+#' @param layout An optional matrix specifying the layout of plots. Overrides \code{cols} if provided.
+#'
+#' @return plot
+#'
+#' @examples
+#' # Load necessary library
+#' library(ggplot2)
+#'
+#' # Create example ggplot objects
+#' plot1 <- ggplot(mtcars, aes(x=mpg, y=wt)) + geom_point()
+#' plot2 <- ggplot(mtcars, aes(x=mpg, y=cyl)) + geom_point()
+#' plot3 <- ggplot(mtcars, aes(x=gear, y=wt)) + geom_point()
+#'
+#' # Plot all three plots in a single row
+#' multiplot(plot1, plot2, plot3, cols=3)
+#'
+#' # Plot using a custom layout
+#' layout_matrix <- matrix(c(1,2,3,3), nrow=2, byrow=TRUE)
+#'
+#' multiplot(plotlist=list(plot1, plot2, plot3), layout=layout_matrix)
+#'
+#'
 #'
 #' @export
-
 multiplot <- function(..., plotlist=NULL, file, cols=1, layout=NULL) {
-  library(grid)
 
   # Make a list from the ... arguments and plotlist
   plots <- c(list(...), plotlist)
@@ -51,5 +80,3 @@ multiplot <- function(..., plotlist=NULL, file, cols=1, layout=NULL) {
     }
   }
 }
-
-
