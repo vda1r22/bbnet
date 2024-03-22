@@ -2,34 +2,39 @@
 % Please edit documentation in R/bbn.timeseries.R
 \name{bbn.timeseries}
 \alias{bbn.timeseries}
-\title{Bayesian Belief Model v4.0.1 - Time series}
+\title{Time Series Prediction with Bayesian Belief Network}
 \usage{
 bbn.timeseries(bbn.model, priors1, timesteps = 5, disturbance = 1)
 }
 \arguments{
-\item{bbn.timeseries}{}
+\item{bbn.model}{A matrix or dataframe of interactions between different model \code{nodes}.}
+
+\item{priors1}{An X by 2 array of initial changes to the system under investigation.
+The first column should be a -4 to 4 (including 0) integer value for each node in the network with negative values
+indicating a decrease and positive values representing an increase. 0 represents no change.}
+
+\item{timesteps}{This is the number of timesteps the model performs. Default = 5.
+Note, timesteps are arbitrary and non-linear. However, something occurring in timestep 2, should occur before timestep 3.}
+
+\item{disturbance}{Default = 1.
+1 creates a prolonged or press disturbance as per \code{\link{bbn.predict}}
+Essentially \code{prior} values for each manipulated \code{node} are at least maintained (if not increased through reinforcement in the model) over all timesteps.
+2 shows a brief pulse disturbance, which can be useful to visualise changes as peaks and troughs in increase and decrease of \code{nodes} can propagate through the network.}
 }
 \value{
-Graph of each node in the network, visualised across the different timesteps in the model.
+Plots for each \code{node} showing the predicted change over time.
 }
 \description{
-27 Feb 2024
-Copyright Rick Stafford
+\code{bbn.timeseries()} performs time series predictions using a Bayesian Belief Network (\code{BBN}) model based on a single scenario.
+It generates figures illustrating how parameters change over time for all or selected \code{nodes}.
+}
+\details{
+\code{bbn.timeseries()} reads in a single scenario as prior information and calculates the changes in parameters over
+specified time steps, considering potential disturbances. It uses the \code{BBN} model to predict the evolution
+of each \code{node} over time and plots these changes to provide a visual representation of the model's dynamics.
+}
+\examples{
+# Assuming 'bbn.model' is a predefined BBN model matrix and 'priors1' is the initial set of priors:
+bbn.timeseries(bbn.model, priors1, timesteps=5, disturbance=1)
 
-Requires all functions loaded and:
-  1) BBN interaction grid - named bbn.model
-  2) list of scenarios indicating changes (1-12 can be used). Named priors1, priors2, ... priors12
-
-Required arguments:
-   1) bbn.model - a matrix or dataframe of interactions between different model nodes.
-   2) priors1 - an X by 2 array of initial changes to the system under investigation.
-      The first column should be a -4 to 4 (including 0) integer value for each node in the network with negative values indicating a decrease and positive values representing an increase.
-      0 represents no change.
-
-Optional Arguments:
-   3) timesteps - default = 5. This is the number of timesteps the model performs.
-      Note, timesteps are arbitrary and non-linear. However, something occurring in timestep 2, should occur before timestep 3.
-   4) disturbance - default = 1.
-      where 1 - creates a prolonged or press disturbance as per the bbn.predict() function. Essentially prior values for each manipulated node are at least maintained (if not increased through reinforcement in the model) over all timesteps.
-      where 2 - shows a brief pulse disturbance, which can be useful to visualise changes as peaks and troughs in increase and decrease of nodes can propagate through the network
 }
