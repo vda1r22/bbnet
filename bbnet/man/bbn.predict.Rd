@@ -2,7 +2,7 @@
 % Please edit documentation in R/bbn.predict.R
 \name{bbn.predict}
 \alias{bbn.predict}
-\title{Bayesian Belief Model - Basic function}
+\title{Bayesian Belief Network Prediction}
 \usage{
 bbn.predict(
   bbn.model,
@@ -15,40 +15,51 @@ bbn.predict(
 )
 }
 \arguments{
-\item{bbn.predict}{Run a predictive model on up to 12 scenarios at a time.
-As a minumum, we need to pass the network model and one scenario to the function.}
+\item{bbn.model}{A matrix or dataframe of interactions between different model \code{nodes}.}
+
+\item{priors1}{An X by 2 array of initial changes to the system under investigation.
+The first column should be a -4 to 4 (including 0) integer value for each node in the network with negative values
+indicating a decrease and positive values representing an increase. 0 represents no change.
+Note, names included here are included as outputs in tables and figures.
+Shortening these names can provide better figures.}
+
+\item{boot_max}{The number of bootstraps to perform. Suggested range for exploratory analysis 1-1000.
+For final analysis recommended size = 1000 - 10000 - note, this can take a long time to run.
+Default value is 1, running with no bootstrapping - suitable for exploration of data and error checking.}
+
+\item{values}{This provides a numeric output of posterior values and any confidence intervals.
+Default value 1. Set to 0 to hide this output.}
+
+\item{figure}{Sets the figure options. Default value 1. 0 = no figures produced.
+1 = figure is saved in working directory as a PDF file (note, this is overwritten if the name is not changed, and no figure is produced if the existing PDF is open when the new one is generated).
+2 = figure is produced in a graphics window.
+All figures are combined on a single plot where scenario 2 is below scenario 1 (i.e. scenarios work in columns then rows)}
+
+\item{font.size}{Font size for the plot labels. Defaults to 5.}
+
+\item{priors2-priors12}{Additional prior sets can be specified for multiple scenario predictions.}
 }
 \value{
-The output given above shows the posterior outcome of the model.
-This is a short-term prediction model.
-There are also confidence intervals of our predictions.
+Plots of the \code{(BBN)} predictions and optionally prints the predicted values.
 }
 \description{
-27 Feb 2024
-Copyright Rick Stafford
+\code{bbn.predict} performs predictions using a Bayesian Belief Network \code{(BBN)} model,
+accommodating multiple scenarios and allowing for \code{bootstrapping} to assess variability.
+}
+\details{
+\code{bbn.predict} takes a pre-defined BBN model and uses \code{priors} distributions
+to predict outcomes across specified scenarios. It supports visualization of the results
+and bootstrapping to estimate variability.
 
-Requires all functions loaded and:
-  1) BBN interaction grid - named bbn.model
-  2) list of scenarios indicating changes (1-12 can be used). Named priors1, priors2, ... priors12
+\itemize{
+  \item Supports input of multiple scenarios through \code{ellipsis()}.
+  \item Allows \code{bootstrapping} with a specified number of maximum iterations to assess prediction variability.
+  \item Generates \code{plots} for visual representation of the predictions.
+}
+}
+\examples{
+# Assuming 'bbn.model' is a pre-defined BBN model and 'priors1' is the initial set of priors:
 
-Required arguments:
-  1) bbn.model - a matrix or dataframe of interactions between different model nodes
-  2) priors1 - an X by 2 array of initial changes to the system under investigation.
-     The first column should be a -4 to 4 (including 0) integer value for each node in the network
-     with negative values indicating a decrease and positive values representing an increase.
-     0 represents no change.
+bbn.predict(bbn.model, priors1, boot_max=100, values=1, figure=1, font.size=5)
 
-Optional Arguments:
-  3) priors2 - priors12 - as above, but additional scenarios.
-  4) boot_max - the number of bootstraps to perform.
-     Suggested range for exploratory analysis 1-1000.
-     For final analysis recommended size = 1000 - 10000 - note, this can take a long time to run.
-     Default value is 1, running with no bootstrapping - suitable for exploration of data and error checking.
-  5) values - default value 1. This provides a numeric output of posterior values and any confidence intervals.
-     Set to 0 to hide this output
-  6)figure - default value 1. Sets the figure options.
-     0 = no figures produced.
-     1 = figure is saved in working directory as a PDF file (note, this is overwritten if the name is not changed, and no figure is produced if the existing PDF is open when the new one is generated).
-     2 = figure is produced in a graphics window. All figures are combined on a single plot where scenario 2 is below scenario 1 (i.e. scenarios work in columns then rows)
-  7)font.size - default = 5. This sets the font size on the figures.
 }
