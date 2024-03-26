@@ -181,8 +181,6 @@ For some methods of model parameterisation, extensive data extraction from liter
 
 One or more nodes (recommended no more than 3) which would be the main outcomes of interest in the model. The spelling of these nodes needs to be identical (including capital letters) to that in the imported csv file (note, you should include spaces if these are in your csv file, rather than the dot notation used once imported into R).
 
-*Optional arguments*
-
 *boot_max* - the number of bootstraps to perform. Suggested range for exploratory analysis 100-1000. For final analysis recommended size = 1000 - 10000 - note, this can take a long time to run. Default value is 1000.
 
 *Example use and interpretation*

@@ -26,8 +26,13 @@
 bbn.sensitivity <- function(bbn.model, boot_max = 1000, ...){
 
   x<-length(list(...))
-  if(x < 1){print('Need to input at least one key variable', call. = FALSE)}
-  if(x > 3){print('Recommend a maximum of three key variables', call. = FALSE)}
+  if(x < 1){stop('Need to input at least one key variable', call. = FALSE)}
+  if(x > 3){warning('Recommend a maximum of three key variables', call. = FALSE)}
+
+  # Validate boot_max
+  if (!is.numeric(boot_max) || boot_max <= 0) {
+    stop("'boot_max' must be a positive integer", call. = FALSE)
+  }
 
   node.x.increase.if.node.y.increase <- bbn.model  # bbn.model is matrix of interaction, read in from csv file
 

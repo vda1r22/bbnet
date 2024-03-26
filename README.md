@@ -2,7 +2,7 @@ BBNet – a package for creating simple predictive models in ecology,
 conservation and environmental policy based on Bayesian belief networks
 ================
 Rick Stafford & Victoria Dominguez Almela
-22 March, 2024
+26 March, 2024
 
 - [bbnet
   <img src="man/figures/Logo2.png" align="right" height="138" /></a>](#bbnet-)
@@ -505,8 +505,6 @@ be identical (including capital letters) to that in the imported csv
 file (note, you should include spaces if these are in your csv file,
 rather than the dot notation used once imported into R).
 
-*Optional arguments*
-
 *boot_max* - the number of bootstraps to perform. Suggested range for
 exploratory analysis 100-1000. For final analysis recommended size =
 1000 - 10000 - note, this can take a long time to run. Default value is
@@ -520,26 +518,24 @@ bbn.sensitivity(bbn.model = my_BBN, boot_max = 100, 'Limpet', 'Green Algae')
 
 <img src="man/figures/README-unnamed-chunk-8-1.png" width="100%" />
 
-    #>                   sens.output Freq
-    #> 1          Dogwhelk->Topshell    1
-    #> 2   Green.Algae->Fucoid.Algae    1
-    #> 3             Limpet->Biofilm    1
-    #> 4         Periwinkle->Biofilm    1
-    #> 5        Topshell->Periwinkle    1
-    #> 6          Dogwhelk->Barnacle    2
-    #> 7            Dogwhelk->Limpet    2
-    #> 8        Dogwhelk->Periwinkle    2
-    #> 9         Limpet->Green.Algae    2
-    #> 10         Limpet->Periwinkle    2
-    #> 11    Periwinkle->Green.Algae    2
-    #> 12      Topshell->Green.Algae    2
-    #> 13       Green.Algae->Biofilm    3
-    #> 14           Limpet->Topshell    3
-    #> 15         Periwinkle->Limpet    3
-    #> 16 Green.Algae->Corline.algae    5
-    #> 17       Periwinkle->Topshell    5
-    #> 18          Topshell->Biofilm    5
-    #> 19           Topshell->Limpet    7
+    #>                  sens.output Freq
+    #> 1         Dogwhelk->Barnacle    1
+    #> 2           Dogwhelk->Limpet    1
+    #> 3       Dogwhelk->Periwinkle    1
+    #> 4  Green.Algae->Fucoid.Algae    1
+    #> 5        Limpet->Green.Algae    1
+    #> 6    Periwinkle->Green.Algae    1
+    #> 7         Dogwhelk->Topshell    2
+    #> 8           Limpet->Topshell    3
+    #> 9       Periwinkle->Topshell    3
+    #> 10      Topshell->Periwinkle    3
+    #> 11           Limpet->Biofilm    4
+    #> 12        Periwinkle->Limpet    4
+    #> 13     Topshell->Green.Algae    4
+    #> 14      Green.Algae->Biofilm    5
+    #> 15       Periwinkle->Biofilm    5
+    #> 16         Topshell->Biofilm    5
+    #> 17        Limpet->Periwinkle    6
 
 The function works by bootstrapping with multiple changes to prior
 values and interaction strengths in the network. The frequency shows the
