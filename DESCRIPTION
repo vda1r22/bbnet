@@ -4,7 +4,7 @@ Title: Create simple predictive models in ecology, conservation and
     environmental policy based on Bayesian belief networks
 Version: 0.1.0
 Authors@R: c(
-    person("Rick", "Stafford", , "rstafford@bournemouth.ac.uk", role = c("cre", "aut"),
+    person("Rick", "Stafford", , "rstafford@bournemouth.ac.uk", role = c("cph", "cre", "aut"),
            comment = c(ORCID = "0000-0002-1964-5787")),
     person("Victoria", "Dominguez Almela", , "vda1r22@soton.ac.uk", role = "aut",
            comment = c(ORCID = "0000-0003-4877-5967"))
