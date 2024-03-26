@@ -14,7 +14,7 @@ Description: A system for ecological and environmental users to build,
     visualise and evaluate Bayesian belief networks. These models can
     incorporate expert knowledge and/or empirical data to model complex
     systems.
-License: use_proprietary_license()
+License: MIT + file LICENSE
 URL: https://github.com/vda1r22/bbnet
 BugReports: https://github.com/vda1r22/bbnet/issues
 Depends:
