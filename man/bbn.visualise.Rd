@@ -50,7 +50,7 @@ and visualises the strength and direction of interactions among \code{nodes} bas
 and \code{threshold} parameters.
 }
 \examples{
-# Assuming 'bbn.model' is a predefined BBN model matrix and 'priors1' is the initial set of priors:
-bbn.visualise(bbn.model, priors1, timesteps=5, disturbance=1, threshold=0.2, font.size=0.7, arrow.size=4)
+data(my_BBN, combined)
+bbn.visualise(bbn.model = my_BBN, priors1 = combined, timesteps=6, disturbance=1, threshold=0.2, font.size=0.7, arrow.size=4)
 
 }

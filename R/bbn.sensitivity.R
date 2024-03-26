@@ -19,15 +19,15 @@
 #' The analysis highlights how changes in the key \code{nodes} can affect the network, offering valuable insights for model refinement and decision-making.
 #'
 #' @examples
-#' # Assuming 'bbn.model' is your Bayesian Belief Network model and 'var1', 'var2', 'var3' are key \code{nodes}:
-#' bbn.sensitivity(bbn.model, boot_max = 1000, "var1", "var2", "var3")
+#' data(my_BBN)
+#' bbn.sensitivity(bbn.model = my_BBN, boot_max = 1000, 'Limpet', 'Green Algae')
 #'
 #' @export
 bbn.sensitivity <- function(bbn.model, boot_max = 1000, ...){
 
   x<-length(list(...))
-  if(x < 1){print('Need to input at least one key variable')}
-  if(x > 3){print('Recommend a maximum of three key variables')}
+  if(x < 1){print('Need to input at least one key variable', call. = FALSE)}
+  if(x > 3){print('Recommend a maximum of three key variables', call. = FALSE)}
 
   node.x.increase.if.node.y.increase <- bbn.model  # bbn.model is matrix of interaction, read in from csv file
 

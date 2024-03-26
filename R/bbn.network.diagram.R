@@ -31,8 +31,8 @@
 #' @return A plot of the network diagram, illustrating the interactions (both positive and negative) between \code{nodes}.
 #'
 #' @examples
-#' # Assuming 'bbn.network' is a data frame representing the BBN, including node ids, types, and the matrix of interactions:
-#' bbn.network.diagram(bbn.network, font.size=0.7, arrow.size=4, arrange = layout_on_sphere)
+#' data(my_network)
+#' bbn.network.diagram(bbn.network = my_network, font.size=0.7, arrow.size=4, arrange = layout_on_sphere)
 #'
 #' @export
 bbn.network.diagram <- function(bbn.network, font.size=0.7, arrow.size=4, arrange = layout_on_sphere){

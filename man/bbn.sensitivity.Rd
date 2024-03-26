@@ -30,7 +30,7 @@ It evaluates the impact of varying key \code{node} on the network's outcomes usi
 The analysis helps identify which \code{node} significantly influence the network, providing insights into the robustness and dependency of the network's structure.
 }
 \examples{
-# Assuming 'bbn.model' is your Bayesian Belief Network model and 'var1', 'var2', 'var3' are key \code{nodes}:
-bbn.sensitivity(bbn.model, boot_max = 1000, "var1", "var2", "var3")
+data(my_BBN)
+bbn.sensitivity(bbn.model = my_BBN, boot_max = 1000, 'Limpet', 'Green Algae')
 
 }

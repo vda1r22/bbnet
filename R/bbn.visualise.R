@@ -27,8 +27,8 @@
 #' @return A plot of the \code{BBN}, illustrating the dynamic interactions between \code{nodes} over the specified \code{timesteps}.
 #'
 #' @examples
-#' # Assuming 'bbn.model' is a predefined BBN model matrix and 'priors1' is the initial set of priors:
-#' bbn.visualise(bbn.model, priors1, timesteps=5, disturbance=1, threshold=0.2, font.size=0.7, arrow.size=4)
+#' data(my_BBN, combined)
+#' bbn.visualise(bbn.model = my_BBN, priors1 = combined, timesteps=6, disturbance=1, threshold=0.2, font.size=0.7, arrow.size=4)
 #'
 #' @export
 bbn.visualise <- function(bbn.model, priors1, timesteps=5, disturbance = 1, threshold=0.2, font.size=0.7, arrow.size=4){

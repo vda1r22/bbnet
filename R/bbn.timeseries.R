@@ -17,8 +17,8 @@
 #' @return Plots for each \code{node} showing the predicted change over time.
 #'
 #' @examples
-#' # Assuming 'bbn.model' is a predefined BBN model matrix and 'priors1' is the initial set of priors:
-#' bbn.timeseries(bbn.model, priors1, timesteps=5, disturbance=1)
+#' data(my_BBN, combined)
+#' bbn.timeseries(bbn.model = my_BBN, priors1 = combined, timesteps=6, disturbance=1)
 #'
 #' @export
 bbn.timeseries <- function(bbn.model, priors1, timesteps=5, disturbance = 1){ ### reads in a single scenario and makes figures of how parameters change over time for all or selected nodes

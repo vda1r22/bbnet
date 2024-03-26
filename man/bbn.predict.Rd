@@ -54,8 +54,7 @@ accommodating multiple \code{priors} scenarios and allowing for \code{bootstrapp
 }
 }
 \examples{
-# Assuming 'bbn.model' is a pre-defined BBN model and 'priors1' is the initial set of priors:
-
-bbn.predict(bbn.model, priors1, boot_max=100, values=1, figure=1, font.size=5)
+data(my_BBN, combined)
+bbn.predict(bbn.model = my_BBN, priors1 = combined, boot_max=100, values=1, figure=1, font.size=5)
 
 }

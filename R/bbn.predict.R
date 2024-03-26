@@ -30,9 +30,8 @@
 #' @return Plots of the \code{(BBN)} predictions and optionally prints the predicted values.
 #'
 #' @examples
-#' # Assuming 'bbn.model' is a pre-defined BBN model and 'priors1' is the initial set of priors:
-#'
-#' bbn.predict(bbn.model, priors1, boot_max=100, values=1, figure=1, font.size=5)
+#' data(my_BBN, combined)
+#' bbn.predict(bbn.model = my_BBN, priors1 = combined, boot_max=100, values=1, figure=1, font.size=5)
 #'
 #' @export
 bbn.predict <- function(bbn.model, priors1, ..., boot_max=1, values = 1, figure = 1, font.size=5){

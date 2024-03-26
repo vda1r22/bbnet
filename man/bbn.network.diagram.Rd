@@ -49,7 +49,7 @@ interactions (positive or negative) between \code{nodes}.
 \code{bbn.network.diagram()} visualises all \code{nodes} and interactions in a network, in a similar manner to \code{\link{bbn.visualise}}, other than this is the full network.
 }
 \examples{
-# Assuming 'bbn.network' is a data frame representing the BBN, including node ids, types, and the matrix of interactions:
-bbn.network.diagram(bbn.network, font.size=0.7, arrow.size=4, arrange = layout_on_sphere)
+data(my_network)
+bbn.network.diagram(bbn.network = my_network, font.size=0.7, arrow.size=4, arrange = layout_on_sphere)
 
 }

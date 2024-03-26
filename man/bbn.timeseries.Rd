@@ -29,7 +29,7 @@ Plots for each \code{node} showing the predicted change over time.
 It generates figures illustrating how parameters change over time for all or selected \code{nodes}.
 }
 \examples{
-# Assuming 'bbn.model' is a predefined BBN model matrix and 'priors1' is the initial set of priors:
-bbn.timeseries(bbn.model, priors1, timesteps=5, disturbance=1)
+data(my_BBN, combined)
+bbn.timeseries(bbn.model = my_BBN, priors1 = combined, timesteps=6, disturbance=1)
 
 }
