@@ -37,7 +37,6 @@ The bbnet R package provides a comprehensive suite of tools for building, visual
 
 It aims to facilitate decision-making by enabling users to model complex processes and infer probabilities of various outcomes. The package is designed to be user-friendly, making advanced probabilistic modelling techniques accessible to ecology and environmental researchers and practitioners.
 
-MORE HERE?XXX
  
 # Installation
 
