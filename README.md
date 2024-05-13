@@ -119,7 +119,7 @@ head(my_BBN)
 ```
 
 The details of this interaction matrix are discussed in the main text of
-the paper (under review in Ecological Informatics). Essentially it
+the paper (under review in *Ecological Informatics*). Essentially it
 explains direct interactions between what is here the species or taxon
 in the *row* on the species or taxon in the *column.*
 
@@ -518,23 +518,23 @@ bbn.sensitivity(bbn.model = my_BBN, boot_max = 100, 'Limpet', 'Green Algae')
 <img src="man/figures/README-unnamed-chunk-8-1.png" width="100%" />
 
     #>                   sens.output Freq
-    #> 1  Green.Algae->Corline.algae    1
-    #> 2            Limpet->Topshell    1
-    #> 3          Dogwhelk->Barnacle    2
-    #> 4        Dogwhelk->Periwinkle    2
-    #> 5   Green.Algae->Fucoid.Algae    2
-    #> 6          Limpet->Periwinkle    2
-    #> 7         Periwinkle->Biofilm    2
-    #> 8        Periwinkle->Topshell    2
-    #> 9            Dogwhelk->Limpet    3
-    #> 10            Limpet->Biofilm    3
-    #> 11           Topshell->Limpet    3
-    #> 12       Green.Algae->Biofilm    4
-    #> 13        Limpet->Green.Algae    4
-    #> 14         Periwinkle->Limpet    4
-    #> 15      Topshell->Green.Algae    4
-    #> 16       Topshell->Periwinkle    4
-    #> 17          Topshell->Biofilm    7
+    #> 1            Dogwhelk->Limpet    1
+    #> 2  Green.Algae->Corline.algae    1
+    #> 3   Green.Algae->Fucoid.Algae    1
+    #> 4         Periwinkle->Biofilm    1
+    #> 5          Dogwhelk->Barnacle    2
+    #> 6          Dogwhelk->Topshell    2
+    #> 7             Limpet->Biofilm    2
+    #> 8            Topshell->Limpet    2
+    #> 9        Dogwhelk->Periwinkle    3
+    #> 10           Limpet->Topshell    3
+    #> 11       Periwinkle->Topshell    3
+    #> 12         Limpet->Periwinkle    4
+    #> 13          Topshell->Biofilm    4
+    #> 14      Topshell->Green.Algae    4
+    #> 15       Green.Algae->Biofilm    5
+    #> 16        Limpet->Green.Algae    5
+    #> 17         Periwinkle->Limpet    7
 
 The function works by bootstrapping with multiple changes to prior
 values and interaction strengths in the network. The frequency shows the
