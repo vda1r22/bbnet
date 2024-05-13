@@ -37,7 +37,7 @@ coverage](https://codecov.io/gh/vda1r22/bbnet/branch/main/graph/badge.svg)](http
 
 # Introduction
 
-The bbnet R package provides a comprehensive suite of tools for
+The BBNet R package provides a comprehensive suite of tools for
 building, visualising, and analysing Bayesian Belief Networks.
 
 It aims to facilitate decision-making by enabling users to model complex
@@ -48,7 +48,7 @@ practitioners.
 
 # Installation
 
-You can install the development version of bbnet from
+You can install the development version of BBNet from
 [GitHub](https://github.com/) with:
 
 ``` r
@@ -64,7 +64,7 @@ install.packages("bbnet")
 With the exception of the bbn.network.diagram() function, all functions
 require a network model in the format below. It is easiest to read these
 into the R environment from a csv file. For this example, we will open
-the Rocky Shore model which comes as an example dataset within the bbnet
+the Rocky Shore model which comes as an example dataset within the BBNet
 package.
 
 ``` r
@@ -518,23 +518,24 @@ bbn.sensitivity(bbn.model = my_BBN, boot_max = 100, 'Limpet', 'Green Algae')
 <img src="man/figures/README-unnamed-chunk-8-1.png" width="100%" />
 
     #>                   sens.output Freq
-    #> 1        Dogwhelk->Periwinkle    1
-    #> 2   Green.Algae->Fucoid.Algae    1
-    #> 3            Topshell->Limpet    1
-    #> 4          Dogwhelk->Barnacle    2
-    #> 5          Dogwhelk->Topshell    2
-    #> 6             Limpet->Biofilm    2
-    #> 7         Periwinkle->Biofilm    2
-    #> 8           Topshell->Biofilm    2
-    #> 9       Topshell->Green.Algae    2
-    #> 10           Dogwhelk->Limpet    3
-    #> 11        Limpet->Green.Algae    3
-    #> 12       Green.Algae->Biofilm    4
-    #> 13         Limpet->Periwinkle    4
-    #> 14           Limpet->Topshell    4
-    #> 15       Periwinkle->Topshell    5
-    #> 16 Green.Algae->Corline.algae    6
-    #> 17         Periwinkle->Limpet    6
+    #> 1        Green.Algae->Biofilm    1
+    #> 2  Green.Algae->Corline.algae    1
+    #> 3         Limpet->Green.Algae    1
+    #> 4        Periwinkle->Topshell    1
+    #> 5        Dogwhelk->Periwinkle    2
+    #> 6   Green.Algae->Fucoid.Algae    2
+    #> 7          Limpet->Periwinkle    2
+    #> 8            Limpet->Topshell    2
+    #> 9          Dogwhelk->Barnacle    3
+    #> 10        Periwinkle->Biofilm    3
+    #> 11         Periwinkle->Limpet    3
+    #> 12      Topshell->Green.Algae    3
+    #> 13       Topshell->Periwinkle    3
+    #> 14         Dogwhelk->Topshell    4
+    #> 15    Periwinkle->Green.Algae    4
+    #> 16          Topshell->Biofilm    4
+    #> 17           Topshell->Limpet    4
+    #> 18            Limpet->Biofilm    7
 
 The function works by bootstrapping with multiple changes to prior
 values and interaction strengths in the network. The frequency shows the
