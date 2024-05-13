@@ -253,4 +253,4 @@ time spent in writing the package and this tutorial. Like all R packages,
 to know how to cite it, type:
 ```{r i4}
 citation("bbnet")
-```
+``` 
