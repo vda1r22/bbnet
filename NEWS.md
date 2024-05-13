@@ -1,3 +1,5 @@
+# bbnet 1.0
+
 bbnet 0.0 (Release date: 13 May 2024)
 ==============
 
