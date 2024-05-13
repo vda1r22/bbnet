@@ -51,6 +51,7 @@ and \code{threshold} parameters.
 }
 \examples{
 data(my_BBN, combined)
-bbn.visualise(bbn.model = my_BBN, priors1 = combined, timesteps=6, disturbance=1, threshold=0.2, font.size=0.7, arrow.size=4)
+bbn.visualise(bbn.model = my_BBN, priors1 = combined,
+  timesteps=6, disturbance=1, threshold=0.2, font.size=0.7, arrow.size=4)
 
 }
