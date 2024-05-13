@@ -121,9 +121,9 @@ head(my_BBN)
 ```
 
 The details of this interaction matrix are discussed in the main text of
-the paper. Essentially it explains direct interactions between what is
-here the species or taxon in the *row* on the species or taxon in the
-*column.*
+the paper (under review in Ecological Informatics). Essentially it
+explains direct interactions between what is here the species or taxon
+in the *row* on the species or taxon in the *column.*
 
 It is also normal in most functions to have a scenario or scenarios
 which we want to investigate. In this rocky shore example, we have three
@@ -521,22 +521,23 @@ bbn.sensitivity(bbn.model = my_BBN, boot_max = 100, 'Limpet', 'Green Algae')
 
     #>                   sens.output Freq
     #> 1        Dogwhelk->Periwinkle    1
-    #> 2  Green.Algae->Corline.algae    1
-    #> 3   Green.Algae->Fucoid.Algae    1
-    #> 4     Periwinkle->Green.Algae    1
+    #> 2          Dogwhelk->Topshell    1
+    #> 3  Green.Algae->Corline.algae    1
+    #> 4          Dogwhelk->Barnacle    2
     #> 5        Green.Algae->Biofilm    2
-    #> 6            Limpet->Topshell    2
-    #> 7            Topshell->Limpet    2
-    #> 8          Dogwhelk->Barnacle    3
-    #> 9          Dogwhelk->Topshell    3
+    #> 6     Periwinkle->Green.Algae    2
+    #> 7        Topshell->Periwinkle    2
+    #> 8            Dogwhelk->Limpet    3
+    #> 9   Green.Algae->Fucoid.Algae    3
     #> 10            Limpet->Biofilm    3
-    #> 11         Limpet->Periwinkle    3
-    #> 12         Periwinkle->Limpet    3
-    #> 13       Periwinkle->Topshell    4
-    #> 14      Topshell->Green.Algae    4
-    #> 15        Limpet->Green.Algae    5
-    #> 16        Periwinkle->Biofilm    6
-    #> 17       Topshell->Periwinkle    6
+    #> 11        Limpet->Green.Algae    3
+    #> 12         Limpet->Periwinkle    3
+    #> 13         Periwinkle->Limpet    3
+    #> 14       Periwinkle->Topshell    3
+    #> 15           Limpet->Topshell    4
+    #> 16          Topshell->Biofilm    4
+    #> 17        Periwinkle->Biofilm    5
+    #> 18           Topshell->Limpet    5
 
 The function works by bootstrapping with multiple changes to prior
 values and interaction strengths in the network. The frequency shows the
