@@ -15,7 +15,18 @@
 #' indicating a decrease and positive values representing an increase. 0 represents no change.
 #' Note, names included here are included as outputs in tables and figures.
 #' Shortening these names can provide better figures.
-#' @param priors2-priors12 Additional \code{prior} sets can be specified for multiple scenario predictions.
+#' @param priors1 Additional \code{prior} sets can be specified for multiple scenario predictions.
+#' @param priors2 Additional \code{prior} sets can be specified for multiple scenario predictions.
+#' @param priors3 Additional \code{prior} sets can be specified for multiple scenario predictions.
+#' @param priors4 Additional \code{prior} sets can be specified for multiple scenario predictions.
+#' @param priors5 Additional \code{prior} sets can be specified for multiple scenario predictions.
+#' @param priors6 Additional \code{prior} sets can be specified for multiple scenario predictions.
+#' @param priors7 Additional \code{prior} sets can be specified for multiple scenario predictions.
+#' @param priors8 Additional \code{prior} sets can be specified for multiple scenario predictions.
+#' @param priors9 Additional \code{prior} sets can be specified for multiple scenario predictions.
+#' @param priors10 Additional \code{prior} sets can be specified for multiple scenario predictions.
+#' @param priors11 Additional \code{prior} sets can be specified for multiple scenario predictions.
+#' @param priors12 Additional \code{prior} sets can be specified for multiple scenario predictions.
 #' @param boot_max The number of bootstraps to perform. Suggested range for exploratory analysis 1-1000.
 #' For final analysis recommended size = 1000 - 10000 - note, this can take a long time to run.
 #' Default value is 1, running with no \code{bootstrapping} - suitable for exploration of data and error checking.
