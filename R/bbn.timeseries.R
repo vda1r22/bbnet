@@ -15,13 +15,10 @@
 #' Essentially \code{prior} values for each manipulated \code{node} are at least maintained (if not increased through reinforcement in the model) over all \code{timesteps}.
 #' 2 shows a brief pulse \code{disturbance}, which can be useful to visualise changes as peaks and troughs in increase and decrease of \code{nodes} can propagate through the network.
 #'
-#' @importFrom dplyr mutate recode
-#' @importFrom ggplot2 ggplot aes geom_point geom_errorbar
-#' @importFrom grDevices dev.off pdf
-#' @importFrom grid grid.newpage pushViewport viewport grid.layout
-#' @importFrom igraph graph_from_data_frame
-#' @importFrom tibble tibble
-#' @importFrom stats na.omit quantile runif
+#' @importFrom dplyr "%>%"
+#' @importFrom ggplot2 ggplot geom_point geom_errorbar geom_bar aes theme element_text coord_flip scale_y_continuous
+#' @importFrom stats runif na.omit quantile
+#' @importFrom grDevices dev.off pdf gray.colors
 #'
 #' @return Plots for each \code{node} showing the predicted change over time.
 #'

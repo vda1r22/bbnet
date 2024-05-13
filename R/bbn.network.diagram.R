@@ -29,13 +29,10 @@
 #' \code{layout.random}
 #' \code{layout.fruchterman.reingold}
 #'
-#' @importFrom dplyr mutate recode
-#' @importFrom ggplot2 ggplot aes geom_point geom_errorbar
-#' @importFrom grDevices dev.off pdf
-#' @importFrom grid grid.newpage pushViewport viewport grid.layout
-#' @importFrom igraph graph_from_data_frame
-#' @importFrom tibble tibble
-#' @importFrom stats na.omit quantile runif
+#' @importFrom dplyr "%>%"
+#' @importFrom ggplot2 ggplot geom_point geom_errorbar geom_bar aes theme element_text coord_flip scale_y_continuous
+#' @importFrom stats runif na.omit quantile
+#' @importFrom grDevices dev.off pdf gray.colors
 #'
 #' @return A plot of the network diagram, illustrating the interactions (both positive and negative) between \code{nodes}.
 #'
