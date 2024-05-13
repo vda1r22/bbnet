@@ -1,7 +1,7 @@
 Type: Package
 Package: bbnet
-Title: Create simple predictive models in ecology, conservation and
-    environmental policy based on Bayesian belief networks
+Title: Create Simple Predictive Models in Ecology, 
+    Conservation and Environmental Policy Based on Bayesian Belief Networks
 Version: 0.1.0
 Authors@R: c(
     person("Rick", "Stafford", , "rstafford@bournemouth.ac.uk", role = c("cph", "aut"),
