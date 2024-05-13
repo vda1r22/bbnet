@@ -10,23 +10,11 @@
 #' }
 #'
 #' @param bbn.model  A matrix or dataframe of interactions between different model \code{nodes}.
-#' @param priors1 An X by 2 array of initial changes to the system under investigation.
+#' @param ... An X by 2 array of initial changes to the system under investigation.
 #' The first column should be a -4 to 4 (including 0) integer value for each \code{node} in the network with negative values
 #' indicating a decrease and positive values representing an increase. 0 represents no change.
 #' Note, names included here are included as outputs in tables and figures.
 #' Shortening these names can provide better figures.
-#' @param priors1 Additional \code{prior} sets can be specified for multiple scenario predictions.
-#' @param priors2 Additional \code{prior} sets can be specified for multiple scenario predictions.
-#' @param priors3 Additional \code{prior} sets can be specified for multiple scenario predictions.
-#' @param priors4 Additional \code{prior} sets can be specified for multiple scenario predictions.
-#' @param priors5 Additional \code{prior} sets can be specified for multiple scenario predictions.
-#' @param priors6 Additional \code{prior} sets can be specified for multiple scenario predictions.
-#' @param priors7 Additional \code{prior} sets can be specified for multiple scenario predictions.
-#' @param priors8 Additional \code{prior} sets can be specified for multiple scenario predictions.
-#' @param priors9 Additional \code{prior} sets can be specified for multiple scenario predictions.
-#' @param priors10 Additional \code{prior} sets can be specified for multiple scenario predictions.
-#' @param priors11 Additional \code{prior} sets can be specified for multiple scenario predictions.
-#' @param priors12 Additional \code{prior} sets can be specified for multiple scenario predictions.
 #' @param boot_max The number of bootstraps to perform. Suggested range for exploratory analysis 1-1000.
 #' For final analysis recommended size = 1000 - 10000 - note, this can take a long time to run.
 #' Default value is 1, running with no \code{bootstrapping} - suitable for exploration of data and error checking.
@@ -45,13 +33,14 @@
 #' bbn.predict(bbn.model = my_BBN, priors1 = combined, boot_max=100, values=1, figure=1, font.size=5)
 #'
 #' @export
-bbn.predict <- function(bbn.model, priors1, ..., boot_max=1, values = 1, figure = 1, font.size=5){
-
+bbn.predict <- function(bbn.model, ..., boot_max=1, values = 1, figure = 1, font.size=5){
+  # Collect all priors passed through '...'
+  list <- list(...)
   plot.keep= list() # to display plots at the end of the function
-  policyno = 1 + length(list(...))
+  policyno = length(list)
 
 
-  if(length(list(...))>12){
+  if(length(list)>12){
     print('Limit of 12 scenarios at once. Graphs may fail to print properly')
   }
 
@@ -61,18 +50,12 @@ bbn.predict <- function(bbn.model, priors1, ..., boot_max=1, values = 1, figure 
 
     # if uploading priors
 
-    if(policy==1){node <- priors1}  # read.csv(priors1, header = T)}# need to read in files as priors for each tested scenario
-    if(policy==2){node <- as.data.frame(list(...)[1])}  #read.csv(priors2, header = T)}
-    if(policy==3){node <- as.data.frame(list(...)[2])}  #read.csv(priors3, header = T)}
-    if(policy==4){node <- as.data.frame(list(...)[3])}  #read.csv(priors4, header = T)}
-    if(policy==5){node <- as.data.frame(list(...)[4])}  #read.csv(priors5, header = T)}
-    if(policy==6){node <- as.data.frame(list(...)[5])}  #read.csv(priors6, header = T)}
-    if(policy==7){node <- as.data.frame(list(...)[6])}  #read.csv(priors7, header = T)}
-    if(policy==8){node <- as.data.frame(list(...)[7])}  #read.csv(priors8, header = T)}
-    if(policy==9){node <- as.data.frame(list(...)[8])}  #read.csv(priors9, header = T)}
-    if(policy==10){node <- as.data.frame(list(...)[9])}  #read.csv(priors10, header = T)}
-    if(policy==11){node <- as.data.frame(list(...)[10])}  #read.csv(priors11, header = T)}
-    if(policy==12){node <- as.data.frame(list(...)[11])}  #read.csv(priors12, header = T)}
+    node <- list[[policy]]
+
+    # Check for expected structure in each prior
+    if (!all(c("Increase", "Node") %in% colnames(node))) {
+      stop("Each prior must contain 'Increase' and 'Node' columns.")
+    }
 
     colnames(node)<- c('Increase','name') # setting fixed column names as these are refered to later on
 

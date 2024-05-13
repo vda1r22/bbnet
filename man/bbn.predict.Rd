@@ -6,7 +6,6 @@
 \usage{
 bbn.predict(
   bbn.model,
-  priors1,
   ...,
   boot_max = 1,
   values = 1,
@@ -17,7 +16,11 @@ bbn.predict(
 \arguments{
 \item{bbn.model}{A matrix or dataframe of interactions between different model \code{nodes}.}
 
-\item{priors1}{Additional \code{prior} sets can be specified for multiple scenario predictions.}
+\item{...}{An X by 2 array of initial changes to the system under investigation.
+The first column should be a -4 to 4 (including 0) integer value for each \code{node} in the network with negative values
+indicating a decrease and positive values representing an increase. 0 represents no change.
+Note, names included here are included as outputs in tables and figures.
+Shortening these names can provide better figures.}
 
 \item{boot_max}{The number of bootstraps to perform. Suggested range for exploratory analysis 1-1000.
 For final analysis recommended size = 1000 - 10000 - note, this can take a long time to run.
@@ -32,28 +35,6 @@ Default value 1. Set to 0 to hide this output.}
 All figures are combined on a single plot where scenario 2 is below scenario 1 (i.e. scenarios work in columns then rows)}
 
 \item{font.size}{Font size for the plot labels. Defaults to 5.}
-
-\item{priors2}{Additional \code{prior} sets can be specified for multiple scenario predictions.}
-
-\item{priors3}{Additional \code{prior} sets can be specified for multiple scenario predictions.}
-
-\item{priors4}{Additional \code{prior} sets can be specified for multiple scenario predictions.}
-
-\item{priors5}{Additional \code{prior} sets can be specified for multiple scenario predictions.}
-
-\item{priors6}{Additional \code{prior} sets can be specified for multiple scenario predictions.}
-
-\item{priors7}{Additional \code{prior} sets can be specified for multiple scenario predictions.}
-
-\item{priors8}{Additional \code{prior} sets can be specified for multiple scenario predictions.}
-
-\item{priors9}{Additional \code{prior} sets can be specified for multiple scenario predictions.}
-
-\item{priors10}{Additional \code{prior} sets can be specified for multiple scenario predictions.}
-
-\item{priors11}{Additional \code{prior} sets can be specified for multiple scenario predictions.}
-
-\item{priors12}{Additional \code{prior} sets can be specified for multiple scenario predictions.}
 }
 \value{
 Plots of the \code{(BBN)} predictions and optionally prints the predicted values.

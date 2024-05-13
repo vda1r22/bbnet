@@ -36,6 +36,8 @@ knitr::opts_chunk$set(
 The bbnet R package provides a comprehensive suite of tools for building, visualising, and analysing Bayesian Belief Networks. 
 
 It aims to facilitate decision-making by enabling users to model complex processes and infer probabilities of various outcomes. The package is designed to be user-friendly, making advanced probabilistic modelling techniques accessible to ecology and environmental researchers and practitioners.
+
+MORE HERE?XXX
  
 # Installation
 
@@ -60,7 +62,7 @@ data("my_BBN")
 head(my_BBN)
 ```
 
-The details of this interaction matrix are discussed in the main text of the paper (under review in Ecological Informatics). Essentially it explains direct interactions between what is here the species or taxon in the *row* on the species or taxon in the *column.*
+The details of this interaction matrix are discussed in the main text of the paper. Essentially it explains direct interactions between what is here the species or taxon in the *row* on the species or taxon in the *column.*
 
 It is also normal in most functions to have a scenario or scenarios which we want to investigate. In this rocky shore example, we have three scenarios - the removal of dogwhelks, the addition of periwinkles and a combination treatment, where dogwhelks are removed and periwinkles added. Some of these scenarios and the model are described in more detail in [this paper](https://doi.org/10.1016/j.ocecoaman.2015.04.013).
 
@@ -136,7 +138,7 @@ As above we need to pass the function a network model and a scenario as a minimu
 *Example*
 
 ```{r}
-bbn.timeseries(bbn.model = my_BBN, priors1 = combined, timesteps = 6, disturbance = 2)
+bbn.timeseries(bbn.model = my_BBN, priors1 = combined, timesteps = 5, disturbance = 2)
 ```
 
 ## bbn.visualise()
@@ -178,6 +180,8 @@ For some methods of model parameterisation, extensive data extraction from liter
 *bbn.model* - a matrix or dataframe of interactions between different model *nodes*
 
 One or more nodes (recommended no more than 3) which would be the main outcomes of interest in the model. The spelling of these nodes needs to be identical (including capital letters) to that in the imported csv file (note, you should include spaces if these are in your csv file, rather than the dot notation used once imported into R).
+
+*Optional arguments*
 
 *boot_max* - the number of bootstraps to perform. Suggested range for exploratory analysis 100-1000. For final analysis recommended size = 1000 - 10000 - note, this can take a long time to run. Default value is 1000.
 
