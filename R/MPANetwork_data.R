@@ -1,6 +1,8 @@
-#' MPA Network data
+#' Simple model of MPA, ecological components and management
 #'
-#' MORE INFO...
+#' This dataset represents an interaction model of marine protected area
+#' and ecological components
+#' This is an example dataset loosely based on Lundy Island MCZ.
 #'
 #' @format
 #' A data frame with 11 rows and 12 columns:
@@ -18,4 +20,7 @@
 #'   \item{Algae}{integer}
 #'   \item{Revenue}{integer}
 #' }
-#' @source <DOI>
+#' @source <unpublished work by Rick Stafford>
+#' @name MPANetwork_data
+#' @docType data
+NULL

@@ -12,4 +12,9 @@
 #'   \item{Increase}{integer}
 #'   \item{Node}{Variable names}
 #' }
+#'
 #' @source <https://doi.org/10.1016/j.ocecoaman.2015.04.013>
+#' @name combined_data
+#' @docType data
+NULL
+
