@@ -21,6 +21,6 @@
 #'   \item{Revenue}{integer}
 #' }
 #' @source <unpublished work by Rick Stafford>
-#' @name MPANetwork_data
+#' @name MPANetwork
 #' @docType data
 NULL

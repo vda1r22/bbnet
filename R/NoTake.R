@@ -10,6 +10,6 @@
 #'   \item{Node}{Variable names}
 #' }
 #' @source <unpublished work by Rick Stafford>
-#' @name NoTake_data
+#' @name NoTake
 #' @docType data
 NULL

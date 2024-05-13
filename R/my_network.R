@@ -30,7 +30,7 @@
 #' }
 #'
 #' #' @source <https://doi.org/10.1016/j.ocecoaman.2015.04.013>
-#' @name my_network_data
+#' @name my_network
 #' @docType data
 NULL
 

@@ -21,6 +21,6 @@
 #' }
 #'
 #' @source <https://doi.org/10.1016/j.ocecoaman.2015.04.013>
-#' @name my_BBN_data
+#' @name my_BBN
 #' @docType data
 NULL

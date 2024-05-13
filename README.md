@@ -101,6 +101,7 @@ library(bbnet)
 #>     as_data_frame
 
 data("my_BBN")
+#> Warning in data("my_BBN"): data set 'my_BBN' not found
 
 head(my_BBN)
 #>             X Dogwhelk Topshell Limpet Periwinkle Barnacle Green.Algae Biofilm
@@ -135,6 +136,11 @@ Scenarios are loaded in as follows:
 
 ``` r
 data("dogwhelk", "winkle", "combined")
+#> Warning in data("dogwhelk", "winkle", "combined"): data set 'dogwhelk' not
+#> found
+#> Warning in data("dogwhelk", "winkle", "combined"): data set 'winkle' not found
+#> Warning in data("dogwhelk", "winkle", "combined"): data set 'combined' not
+#> found
 
 head(dogwhelk)
 #>   Increase        Node
@@ -428,23 +434,23 @@ bbn.sensitivity(bbn.model = my_BBN, boot_max = 100, 'Limpet', 'Green Algae')
 
     #>                   sens.output Freq
     #> 1          Dogwhelk->Barnacle    1
-    #> 2          Dogwhelk->Topshell    1
-    #> 3        Green.Algae->Biofilm    1
+    #> 2            Dogwhelk->Limpet    1
+    #> 3        Dogwhelk->Periwinkle    1
     #> 4  Green.Algae->Corline.algae    1
-    #> 5   Green.Algae->Fucoid.Algae    1
-    #> 6            Limpet->Topshell    1
-    #> 7            Dogwhelk->Limpet    2
-    #> 8           Topshell->Biofilm    2
-    #> 9         Limpet->Green.Algae    3
-    #> 10        Periwinkle->Biofilm    3
-    #> 11         Periwinkle->Limpet    3
-    #> 12       Topshell->Periwinkle    3
-    #> 13            Limpet->Biofilm    4
-    #> 14         Limpet->Periwinkle    4
-    #> 15           Topshell->Limpet    4
-    #> 16       Dogwhelk->Periwinkle    5
-    #> 17      Topshell->Green.Algae    5
-    #> 18       Periwinkle->Topshell    6
+    #> 5          Dogwhelk->Topshell    2
+    #> 6          Limpet->Periwinkle    2
+    #> 7            Limpet->Topshell    2
+    #> 8        Periwinkle->Topshell    2
+    #> 9           Topshell->Biofilm    2
+    #> 10      Topshell->Green.Algae    2
+    #> 11  Green.Algae->Fucoid.Algae    3
+    #> 12            Limpet->Biofilm    3
+    #> 13        Periwinkle->Biofilm    3
+    #> 14       Topshell->Periwinkle    3
+    #> 15        Limpet->Green.Algae    4
+    #> 16    Periwinkle->Green.Algae    4
+    #> 17         Periwinkle->Limpet    7
+    #> 18           Topshell->Limpet    7
 
 The function works by bootstrapping with multiple changes to prior
 values and interaction strengths in the network. The frequency shows the
@@ -472,6 +478,7 @@ allows for the colour coding.
 
 ``` r
 data("my_network")
+#> Warning in data("my_network"): data set 'my_network' not found
 
 head(my_network)
 #>    id node.type   node.name Dogwhelk Topshell Limpet Periwinkle Barnacle
