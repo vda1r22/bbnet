@@ -18,6 +18,7 @@
 #' \describe{
 #'   \item{id}{Variable names}
 #'   \item{node.type}{integer}
+#'   \item{node.name}{Variable names}
 #'   \item{Dogwhelk}{integer}
 #'   \item{Topshell}{integer}
 #'   \item{Limpet}{integer}
@@ -29,7 +30,7 @@
 #'   \item{Fucoid.Algae}{integer}
 #' }
 #'
-#' #' @source <https://doi.org/10.1016/j.ocecoaman.2015.04.013>
+#' @source <https://doi.org/10.1016/j.ocecoaman.2015.04.013>
 #' @name my_network
 #' @docType data
 NULL

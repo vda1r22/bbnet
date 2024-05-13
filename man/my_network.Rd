@@ -9,6 +9,7 @@ A data frame with 9 rows and 12 columns:
 \describe{
   \item{id}{Variable names}
   \item{node.type}{integer}
+  \item{node.name}{Variable names}
   \item{Dogwhelk}{integer}
   \item{Topshell}{integer}
   \item{Limpet}{integer}
@@ -19,8 +20,9 @@ A data frame with 9 rows and 12 columns:
   \item{Corline.algae}{integer}
   \item{Fucoid.Algae}{integer}
 }
-
-#' @source <https://doi.org/10.1016/j.ocecoaman.2015.04.013>
+}
+\source{
+<https://doi.org/10.1016/j.ocecoaman.2015.04.013>
 }
 \description{
 In this file, the first column is called id and
