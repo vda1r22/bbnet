@@ -1,3 +1,6 @@
-# bbnet 0.1.0
+bbnet v0.1.0 (Release date: 13 May 2024)
+==============
 
-* Initial CRAN submission.
+Changes:
+
+* First version of the package
