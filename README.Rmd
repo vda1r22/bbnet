@@ -254,4 +254,3 @@ to know how to cite it, type:
 ```{r i4}
 citation("bbnet")
 ```
-

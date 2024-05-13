@@ -83,7 +83,6 @@ library(bbnet)
 #> Loading required package: ggplot2
 #> Loading required package: grid
 #> Loading required package: igraph
-#> Warning: package 'igraph' was built under R version 4.3.3
 #> 
 #> Attaching package: 'igraph'
 #> The following objects are masked from 'package:dplyr':
@@ -521,25 +520,22 @@ bbn.sensitivity(bbn.model = my_BBN, boot_max = 100, 'Limpet', 'Green Algae')
 <img src="man/figures/README-unnamed-chunk-8-1.png" width="100%" />
 
     #>                   sens.output Freq
-    #> 1          Dogwhelk->Barnacle    1
-    #> 2          Dogwhelk->Topshell    1
-    #> 3             Limpet->Biofilm    1
-    #> 4     Periwinkle->Green.Algae    1
-    #> 5          Periwinkle->Limpet    1
-    #> 6           Topshell->Biofilm    1
-    #> 7            Dogwhelk->Limpet    2
-    #> 8   Green.Algae->Fucoid.Algae    2
-    #> 9          Limpet->Periwinkle    2
-    #> 10       Periwinkle->Topshell    2
-    #> 11           Topshell->Limpet    2
-    #> 12       Dogwhelk->Periwinkle    3
-    #> 13       Green.Algae->Biofilm    3
-    #> 14        Periwinkle->Biofilm    3
-    #> 15       Topshell->Periwinkle    3
-    #> 16      Topshell->Green.Algae    4
-    #> 17        Limpet->Green.Algae    5
-    #> 18           Limpet->Topshell    5
-    #> 19 Green.Algae->Corline.algae    8
+    #> 1        Green.Algae->Biofilm    1
+    #> 2   Green.Algae->Fucoid.Algae    1
+    #> 3            Limpet->Topshell    1
+    #> 4             Limpet->Biofilm    2
+    #> 5           Topshell->Biofilm    2
+    #> 6       Topshell->Green.Algae    2
+    #> 7            Dogwhelk->Limpet    3
+    #> 8          Dogwhelk->Topshell    3
+    #> 9  Green.Algae->Corline.algae    3
+    #> 10         Limpet->Periwinkle    3
+    #> 11         Periwinkle->Limpet    3
+    #> 12           Topshell->Limpet    3
+    #> 13        Periwinkle->Biofilm    5
+    #> 14       Periwinkle->Topshell    5
+    #> 15        Limpet->Green.Algae    6
+    #> 16    Periwinkle->Green.Algae    7
 
 The function works by bootstrapping with multiple changes to prior
 values and interaction strengths in the network. The frequency shows the

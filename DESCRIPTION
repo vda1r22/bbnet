@@ -18,7 +18,7 @@ License: file LICENSE
 URL: https://github.com/vda1r22/bbnet
 BugReports: https://github.com/vda1r22/bbnet/issues
 Depends:
-    R (>= 4.3.2),
+    R (>= 4.4.0),
     dplyr,
     ggplot2,
     grid,
