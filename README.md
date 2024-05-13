@@ -491,20 +491,21 @@ bbn.sensitivity(bbn.model = my_BBN, boot_max = 100, 'Limpet', 'Green Algae')
     #>                  sens.output Freq
     #> 1         Dogwhelk->Topshell    1
     #> 2  Green.Algae->Fucoid.Algae    1
-    #> 3        Periwinkle->Biofilm    1
-    #> 4        Limpet->Green.Algae    2
-    #> 5    Periwinkle->Green.Algae    2
-    #> 6         Periwinkle->Limpet    2
-    #> 7      Topshell->Green.Algae    2
-    #> 8       Dogwhelk->Periwinkle    3
-    #> 9           Limpet->Topshell    3
-    #> 10          Dogwhelk->Limpet    4
-    #> 11           Limpet->Biofilm    4
-    #> 12        Limpet->Periwinkle    4
-    #> 13      Topshell->Periwinkle    4
-    #> 14      Periwinkle->Topshell    5
-    #> 15      Green.Algae->Biofilm    6
-    #> 16         Topshell->Biofilm    6
+    #> 3       Topshell->Periwinkle    1
+    #> 4           Dogwhelk->Limpet    2
+    #> 5         Limpet->Periwinkle    2
+    #> 6        Periwinkle->Biofilm    2
+    #> 7         Periwinkle->Limpet    2
+    #> 8      Topshell->Green.Algae    2
+    #> 9         Dogwhelk->Barnacle    3
+    #> 10       Limpet->Green.Algae    3
+    #> 11          Limpet->Topshell    3
+    #> 12   Periwinkle->Green.Algae    3
+    #> 13         Topshell->Biofilm    4
+    #> 14          Topshell->Limpet    4
+    #> 15      Periwinkle->Topshell    5
+    #> 16      Green.Algae->Biofilm    6
+    #> 17           Limpet->Biofilm    6
 
 The function works by bootstrapping with multiple changes to prior
 values and interaction strengths in the network. The frequency shows the
@@ -628,25 +629,7 @@ repository](https://github.com/vda1r22/bbnet/issues).
 If you found the package and/or the tutorial useful, please do not
 hesitate to cite the package (in addition to the papers) as an
 acknowledgement for the time spent in writing the package and this
-tutorial. Like all R packages, to know how to cite it, type:
-
-``` r
-citation("bbnet")
-#> Warning in citation("bbnet"): could not determine year for 'bbnet' from package DESCRIPTION
-#> file
-#> To cite package 'bbnet' in publications use:
-#> 
-#>   Stafford R, Dominguez Almela V (????). _bbnet: Create simple predictive models
-#>   in ecology, conservation and environmental policy based on Bayesian belief
-#>   networks_. R package version 0.1.0, <https://github.com/vda1r22/bbnet>.
-#> 
-#> A BibTeX entry for LaTeX users is
-#> 
-#>   @Manual{,
-#>     title = {bbnet: Create simple predictive models in ecology, conservation and
-#> environmental policy based on Bayesian belief networks},
-#>     author = {Rick Stafford and Victoria {Dominguez Almela}},
-#>     note = {R package version 0.1.0},
-#>     url = {https://github.com/vda1r22/bbnet},
-#>   }
-```
+tutorial. Like all R packages, to know how to cite it, type: Stafford R,
+Dominguez Almela V (2024). bbnet: Create simple predictive models in
+ecology, conservation and environmental policy based on Bayesian belief
+networks\_. R package version 0.1.0, <https://github.com/vda1r22/bbnet>.

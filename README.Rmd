@@ -250,6 +250,7 @@ If you found the package and/or the tutorial useful, please do not hesitate to
 cite the package (in addition to the papers) as an acknowledgement for the
 time spent in writing the package and this tutorial. Like all R packages, 
 to know how to cite it, type:
-```{r i4}
-citation("bbnet")
-``` 
+  Stafford R, Dominguez Almela V (2024). bbnet: Create simple predictive
+  models in ecology, conservation and environmental policy based on
+  Bayesian belief networks_. R package version 0.1.0,
+  <https://github.com/vda1r22/bbnet>.
