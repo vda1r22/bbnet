@@ -62,7 +62,7 @@ data("my_BBN")
 head(my_BBN)
 ```
 
-The details of this interaction matrix are discussed in the main text of the paper (under review in *Ecological Informatics*). Essentially it explains direct interactions between what is here the species or taxon in the *row* on the species or taxon in the *column.*
+The details of this interaction matrix are discussed in the main text of the paper (under review in *Ecological Informatics*). Essentially it explains direct interactions between what is here the species or taxon in the *row* on the species or taxon in the *column*.
 
 It is also normal in most functions to have a scenario or scenarios which we want to investigate. In this rocky shore example, we have three scenarios - the removal of dogwhelks, the addition of periwinkles and a combination treatment, where dogwhelks are removed and periwinkles added. Some of these scenarios and the model are described in more detail in [this paper](https://doi.org/10.1016/j.ocecoaman.2015.04.013).
 
