@@ -1,11 +1,14 @@
 #' Rocky Shore simple food web data
 #'
-#' A subset of data from xxxxxx
+#' This dataset represents a simplified food web of a rocky shore ecosystem,
+#' focusing on the interactions between various species.
+#' The data was used to study the effects of various ecological interventions and
+#' their effects, as described in the associated paper.
 #'
 #' @format
 #' A data frame with 9 rows and 10 columns:
 #' \describe{
-#'   \item{X}{Variable names}
+#'   \item{X}{Row names, representing various species}
 #'   \item{Dogwhelk}{integer}
 #'   \item{Topshell}{integer}
 #'   \item{Limpet}{integer}
@@ -16,4 +19,4 @@
 #'   \item{Corline.algae}{integer}
 #'   \item{Fucoid.Algae}{integer}
 #' }
-#' @source <DOI>
+#' @source <https://doi.org/10.1016/j.ocecoaman.2015.04.013>

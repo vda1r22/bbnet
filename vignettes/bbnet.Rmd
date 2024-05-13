@@ -1,66 +1,34 @@
 ---
-title: "BBNet – a package for creating simple predictive models in ecology, conservation and environmental policy based on Bayesian belief networks"
-author: "Rick Stafford & Victoria Dominguez Almela"
-date: "`r Sys.setlocale('LC_TIME', 'C');format(Sys.time(), '%d %B, %Y')`"
-output:
-  github_document:
-    toc: true
-    toc_depth: 2
-  html_document:
-    df_print: kable
-    toc: yes
-    toc_float: true
+title: "bbnet"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{bbnet}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
 ---
-
-<!-- README.md is generated from README.Rmd. Please edit that file -->
 
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>",
-  fig.path = "man/figures/README-",
-  out.width = "100%"
+  comment = "#>"
 )
 ```
 
-# bbnet <img src="man/figures/Logo2.png" align="right" height="138" /></a>
-
-<!-- badges: start -->
-[![CRAN status](https://www.r-pkg.org/badges/version/bbnet)](https://CRAN.R-project.org/package=bbnet)
-[![Codecov test coverage](https://codecov.io/gh/vda1r22/bbnet/branch/main/graph/badge.svg)](https://app.codecov.io/gh/vda1r22/bbnet?branch=main)
-[![R-CMD-check](https://github.com/vda1r22/bbnet/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/vda1r22/bbnet/actions/workflows/R-CMD-check.yaml)
-<!-- badges: end -->
-
-# Introduction 
-
-The bbnet R package provides a comprehensive suite of tools for building, visualising, and analysing Bayesian Belief Networks. 
-
-It aims to facilitate decision-making by enabling users to model complex processes and infer probabilities of various outcomes. The package is designed to be user-friendly, making advanced probabilistic modelling techniques accessible to ecology and environmental researchers and practitioners.
- 
-# Installation
-
-You can install the development version of bbnet from [GitHub](https://github.com/) with:
-
-``` {r install, eval = FALSE}
-# install.packages("devtools")
-#devtools::install_github("vda1r22/bbnet")
-install.packages("bbnet")
+```{r setup}
+library(bbnet)
 ```
 
-# Basic steps to get started
-## How to load the data in R?
+## Importing data
 
 With the exception of the bbn.network.diagram() function, all functions require a network model in the format below. It is easiest to read these into the R environment from a csv file. For this example, we will open the Rocky Shore model which comes as an example dataset within the bbnet package.
 
 ```{r}
-library(bbnet)
-
 data("my_BBN")
 
 head(my_BBN)
 ```
 
-The details of this interaction matrix are discussed in the main text of the paper (under review in Ecological Informatics). Essentially it explains direct interactions between what is here the species or taxon in the *row* on the species or taxon in the *column.*
+The details of this interaction matrix are discussed in the main text of the paper. Essentially it explains direct interactions between what is here the species or taxon in the *row* on the species or taxon in the *column.*
 
 It is also normal in most functions to have a scenario or scenarios which we want to investigate. In this rocky shore example, we have three scenarios - the removal of dogwhelks, the addition of periwinkles and a combination treatment, where dogwhelks are removed and periwinkles added. Some of these scenarios and the model are described in more detail in [this paper](https://doi.org/10.1016/j.ocecoaman.2015.04.013).
 
@@ -136,7 +104,7 @@ As above we need to pass the function a network model and a scenario as a minimu
 *Example*
 
 ```{r}
-bbn.timeseries(bbn.model = my_BBN, priors1 = combined, timesteps = 6, disturbance = 2)
+bbn.timeseries(bbn.model = my_BBN, priors1 = combined, timesteps = 5, disturbance = 2)
 ```
 
 ## bbn.visualise()
@@ -178,6 +146,8 @@ For some methods of model parameterisation, extensive data extraction from liter
 *bbn.model* - a matrix or dataframe of interactions between different model *nodes*
 
 One or more nodes (recommended no more than 3) which would be the main outcomes of interest in the model. The spelling of these nodes needs to be identical (including capital letters) to that in the imported csv file (note, you should include spaces if these are in your csv file, rather than the dot notation used once imported into R).
+
+*Optional arguments*
 
 *boot_max* - the number of bootstraps to perform. Suggested range for exploratory analysis 100-1000. For final analysis recommended size = 1000 - 10000 - note, this can take a long time to run. Default value is 1000.
 
@@ -233,20 +203,3 @@ bbn.network.diagram(bbn.network = my_network, font.size = 0.7, arrow.size = 2, a
 bbn.network.diagram(bbn.network = my_network, font.size = 0.7, arrow.size = 2, arrange = layout.circle)
 
 ```
-
-# Improving the package
-
-If something is not clear, or missing, or if you would like to request a 
-feature, please open an issue on
-[our GitHub repository](https://github.com/vda1r22/bbnet/issues).
-
-# Citation
-
-If you found the package and/or the tutorial useful, please do not hesitate to
-cite the package (in addition to the papers) as an acknowledgement for the
-time spent in writing the package and this tutorial. Like all R packages, 
-to know how to cite it, type:
-```{r i4}
-citation("bbnet")
-```
-

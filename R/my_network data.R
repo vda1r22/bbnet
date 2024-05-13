@@ -5,7 +5,7 @@
 #' The second column is called node.type and is an integer value from 1-4.
 #' This sets the colour of the node in the network
 #' (sticking to a maximum of four colours).
-#' Here, predators, grazers, filter feeders and algae are colour coded seperately
+#' Here, predators, grazers, filter feeders and algae are colour coded separately
 #' it would be fine to change the colours, for example to ensure algae were green.
 #' The third column is the same as the first column in the standard BBN interaction csv,
 #' other than it is titled node.name.
@@ -28,4 +28,4 @@
 #'   \item{Corline.algae}{integer}
 #'   \item{Fucoid.Algae}{integer}
 #' }
-#' @source <DOI>
+#' @source <https://doi.org/10.1016/j.ocecoaman.2015.04.013>

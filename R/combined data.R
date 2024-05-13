@@ -1,6 +1,10 @@
-#' Combination treatment, where dogwhelks are removed and periwinkles added
+#' Combined Treatment Data
 #'
-#' A subset of data from xxxxxx
+#' This dataset represents the numerical changes in species populations on a rocky shore
+#' ecosystem due to the combined treatment of removing dogwhelks and adding periwinkles.
+#' It reflects the complex interactions and potential synergistic effects
+#' of multiple ecological interventions.
+#'
 #'
 #' @format
 #' A data frame with 9 rows and 2 columns:
@@ -8,4 +12,4 @@
 #'   \item{Increase}{integer}
 #'   \item{Node}{Variable names}
 #' }
-#' @source <DOI>
+#' @source <https://doi.org/10.1016/j.ocecoaman.2015.04.013>
