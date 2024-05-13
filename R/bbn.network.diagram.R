@@ -8,6 +8,7 @@
 #'
 #' \code{bbn.network.diagram()} visualises all \code{nodes} and interactions in a network, in a similar manner to \code{\link{bbn.visualise}}, other than this is the full network.
 #'
+#'
 #' @param bbn.network A dataframe, with a first column called \code{id} that consists of an \code{s} and a 2 digit number relating to the \code{node} number.
 #' The second column called \code{node.type} is an \code{integer} value from 1-4.
 #' This sets the colour of the \code{node} in the network (sticking to a maximum of four colours).
@@ -27,6 +28,14 @@
 #' \code{layout.circle}
 #' \code{layout.random}
 #' \code{layout.fruchterman.reingold}
+#'
+#' @importFrom dplyr mutate recode
+#' @importFrom ggplot2 ggplot aes geom_point geom_errorbar
+#' @importFrom grDevices dev.off pdf
+#' @importFrom grid grid.newpage pushViewport viewport grid.layout
+#' @importFrom igraph graph_from_data_frame
+#' @importFrom tibble tibble
+#' @importFrom stats na.omit quantile runif
 #'
 #' @return A plot of the network diagram, illustrating the interactions (both positive and negative) between \code{nodes}.
 #'

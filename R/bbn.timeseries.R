@@ -3,6 +3,7 @@
 #' \code{bbn.timeseries()} performs time series predictions using a Bayesian Belief Network (\code{BBN}) model based on a single \code{prior} scenario.
 #' It generates figures illustrating how parameters change over time for all or selected \code{nodes}.
 #'
+#'
 #' @param bbn.model  A matrix or dataframe of interactions between different model \code{nodes}.
 #' @param priors1 An X by 2 array of initial changes to the system under investigation.
 #' The first column should be a -4 to 4 (including 0) integer value for each \code{node} in the network with negative values
@@ -13,6 +14,14 @@
 #' 1 creates a prolonged or press \code{disturbance} as per \code{\link{bbn.predict}}.
 #' Essentially \code{prior} values for each manipulated \code{node} are at least maintained (if not increased through reinforcement in the model) over all \code{timesteps}.
 #' 2 shows a brief pulse \code{disturbance}, which can be useful to visualise changes as peaks and troughs in increase and decrease of \code{nodes} can propagate through the network.
+#'
+#' @importFrom dplyr mutate recode
+#' @importFrom ggplot2 ggplot aes geom_point geom_errorbar
+#' @importFrom grDevices dev.off pdf
+#' @importFrom grid grid.newpage pushViewport viewport grid.layout
+#' @importFrom igraph graph_from_data_frame
+#' @importFrom tibble tibble
+#' @importFrom stats na.omit quantile runif
 #'
 #' @return Plots for each \code{node} showing the predicted change over time.
 #'

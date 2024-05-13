@@ -4,6 +4,7 @@
 #' It evaluates the impact of varying key \code{node} on the network's outcomes using \code{bootstrapping}.
 #' The analysis helps identify which \code{node} significantly influence the network, providing insights into the robustness and dependency of the network's structure.
 #'
+#'
 #' @param bbn.model a matrix or dataframe of interactions between different model \code{nodes}.
 #' One or more \code{nodes} (recommended no more than 3) which would be the main outcomes of interest in the model.
 #' The spelling of these \code{nodes} needs to be identical (including capital letters) to that in the matrix or dataframe file.
@@ -14,6 +15,14 @@
 #' Default value is 1000.
 #' @param ... Key \code{nodes} for sensitivity analysis.
 #' The function is designed to handle up to three key \code{nodes}, beyond which it recommends limiting the analysis for clarity and efficiency.
+#'
+#' @importFrom dplyr mutate recode
+#' @importFrom ggplot2 ggplot aes geom_point geom_errorbar
+#' @importFrom grDevices dev.off pdf
+#' @importFrom grid grid.newpage pushViewport viewport grid.layout
+#' @importFrom igraph graph_from_data_frame
+#' @importFrom tibble tibble
+#' @importFrom stats na.omit quantile runif
 #'
 #' @return The function outputs a plot showing the \code{nodes} most influential to the network's outcomes, alongside a table ranking these variables by their impact.
 #' The analysis highlights how changes in the key \code{nodes} can affect the network, offering valuable insights for model refinement and decision-making.

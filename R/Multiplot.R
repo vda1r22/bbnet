@@ -24,6 +24,14 @@
 #' @param cols Specifies the number of columns in the grid layout if \code{layout} is not provided. Defaults to 1.
 #' @param layout An optional matrix specifying the layout of plots. Overrides \code{cols} if provided.
 #'
+#' @importFrom dplyr mutate recode
+#' @importFrom ggplot2 ggplot aes geom_point geom_errorbar
+#' @importFrom grDevices dev.off pdf
+#' @importFrom grid grid.newpage pushViewport viewport grid.layout
+#' @importFrom igraph graph_from_data_frame
+#' @importFrom tibble tibble
+#' @importFrom stats na.omit quantile runif
+#'
 #' @return plot
 #'
 #' @examples

@@ -4,7 +4,7 @@ Title: Create simple predictive models in ecology, conservation and
     environmental policy based on Bayesian belief networks
 Version: 0.1.0
 Authors@R: c(
-    person("Rick", "Stafford", , "rstafford@bournemouth.ac.uk", role = c("cph", "cre", "aut"),
+    person("Rick", "Stafford", , "rstafford@bournemouth.ac.uk", role = c("cre", "aut"),
            comment = c(ORCID = "0000-0002-1964-5787")),
     person("Victoria", "Dominguez Almela", , "vda1r22@soton.ac.uk", role = "aut",
            comment = c(ORCID = "0000-0003-4877-5967"))
@@ -14,10 +14,11 @@ Description: A system for ecological and environmental users to build,
     visualise and evaluate Bayesian belief networks. These models can
     incorporate expert knowledge and/or empirical data to model complex
     systems.
-License: MIT + file LICENSE
+License: file LICENSE
 URL: https://github.com/vda1r22/bbnet
 BugReports: https://github.com/vda1r22/bbnet/issues
 Depends:
+    R (>= 4.3.2),
     dplyr,
     ggplot2,
     grid,
@@ -30,6 +31,5 @@ RoxygenNote: 7.3.1
 Suggests: 
     knitr,
     rmarkdown,
-    testthat (>= 3.0.0)
+    testthat
 VignetteBuilder: knitr
-Config/testthat/edition: 3

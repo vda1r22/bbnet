@@ -59,6 +59,16 @@ You can install the development version of bbnet from
 install.packages("bbnet")
 ```
 
+``` r
+#' Global variable declarations
+#'
+#' @keywords internal
+utils::globalVariables(c("Increase", "Decrease", "name", "LowerCI", "UpperCI", "Freq", "x", "y", "layout_on_sphere", "layout_on_grid"))
+#>  [1] "Increase"         "Decrease"         "name"             "LowerCI"         
+#>  [5] "UpperCI"          "Freq"             "x"                "y"               
+#>  [9] "layout_on_sphere" "layout_on_grid"
+```
+
 # Basic steps to get started
 
 ## How to load the data in R?
@@ -230,7 +240,7 @@ columns then rows)
 bbn.predict(bbn.model = my_BBN, priors1 = dogwhelk, priors2 = winkle, priors3= combined, figure = 2, boot_max = 100, values = 0, font.size = 7)
 ```
 
-<img src="man/figures/README-unnamed-chunk-5-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-6-1.png" width="100%" />
 
 ## Visualising changes over time
 
@@ -295,7 +305,7 @@ bbn.timeseries(bbn.model = my_BBN, priors1 = combined, timesteps = 5, disturbanc
 #> : There are other near singularities as well. 4.0804
 ```
 
-<img src="man/figures/README-unnamed-chunk-6-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-7-1.png" width="100%" />
 
     #> `geom_smooth()` using formula = 'y ~ x'
     #> Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
@@ -309,7 +319,7 @@ bbn.timeseries(bbn.model = my_BBN, priors1 = combined, timesteps = 5, disturbanc
     #> Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
     #> : There are other near singularities as well. 4.0804
 
-<img src="man/figures/README-unnamed-chunk-6-2.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-7-2.png" width="100%" />
 
     #> `geom_smooth()` using formula = 'y ~ x'
     #> Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
@@ -323,7 +333,7 @@ bbn.timeseries(bbn.model = my_BBN, priors1 = combined, timesteps = 5, disturbanc
     #> Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
     #> : There are other near singularities as well. 4.0804
 
-<img src="man/figures/README-unnamed-chunk-6-3.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-7-3.png" width="100%" />
 
     #> `geom_smooth()` using formula = 'y ~ x'
     #> Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
@@ -337,7 +347,7 @@ bbn.timeseries(bbn.model = my_BBN, priors1 = combined, timesteps = 5, disturbanc
     #> Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
     #> : There are other near singularities as well. 4.0804
 
-<img src="man/figures/README-unnamed-chunk-6-4.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-7-4.png" width="100%" />
 
     #> `geom_smooth()` using formula = 'y ~ x'
     #> Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
@@ -351,7 +361,7 @@ bbn.timeseries(bbn.model = my_BBN, priors1 = combined, timesteps = 5, disturbanc
     #> Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
     #> : There are other near singularities as well. 4.0804
 
-<img src="man/figures/README-unnamed-chunk-6-5.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-7-5.png" width="100%" />
 
     #> `geom_smooth()` using formula = 'y ~ x'
     #> Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
@@ -365,7 +375,7 @@ bbn.timeseries(bbn.model = my_BBN, priors1 = combined, timesteps = 5, disturbanc
     #> Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
     #> : There are other near singularities as well. 4.0804
 
-<img src="man/figures/README-unnamed-chunk-6-6.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-7-6.png" width="100%" />
 
     #> `geom_smooth()` using formula = 'y ~ x'
     #> Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
@@ -379,7 +389,7 @@ bbn.timeseries(bbn.model = my_BBN, priors1 = combined, timesteps = 5, disturbanc
     #> Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
     #> : There are other near singularities as well. 4.0804
 
-<img src="man/figures/README-unnamed-chunk-6-7.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-7-7.png" width="100%" />
 
     #> `geom_smooth()` using formula = 'y ~ x'
     #> Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
@@ -393,7 +403,7 @@ bbn.timeseries(bbn.model = my_BBN, priors1 = combined, timesteps = 5, disturbanc
     #> Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
     #> : There are other near singularities as well. 4.0804
 
-<img src="man/figures/README-unnamed-chunk-6-8.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-7-8.png" width="100%" />
 
     #> `geom_smooth()` using formula = 'y ~ x'
     #> Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
@@ -407,7 +417,7 @@ bbn.timeseries(bbn.model = my_BBN, priors1 = combined, timesteps = 5, disturbanc
     #> Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
     #> : There are other near singularities as well. 4.0804
 
-<img src="man/figures/README-unnamed-chunk-6-9.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-7-9.png" width="100%" />
 
 ## bbn.visualise()
 
@@ -463,23 +473,23 @@ visualisation purposes.
 bbn.visualise(bbn.model = my_BBN, priors1 = combined, timesteps = 5, disturbance = 2, threshold=0.05, font.size=0.7, arrow.size=4)
 ```
 
-<img src="man/figures/README-unnamed-chunk-7-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-8-1.png" width="100%" />
 
     #> NULL
 
-<img src="man/figures/README-unnamed-chunk-7-2.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-8-2.png" width="100%" />
 
     #> NULL
 
-<img src="man/figures/README-unnamed-chunk-7-3.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-8-3.png" width="100%" />
 
     #> NULL
 
-<img src="man/figures/README-unnamed-chunk-7-4.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-8-4.png" width="100%" />
 
     #> NULL
 
-<img src="man/figures/README-unnamed-chunk-7-5.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-8-5.png" width="100%" />
 
     #> NULL
 
@@ -518,25 +528,28 @@ exploratory analysis 100-1000. For final analysis recommended size =
 bbn.sensitivity(bbn.model = my_BBN, boot_max = 100, 'Limpet', 'Green Algae')
 ```
 
-<img src="man/figures/README-unnamed-chunk-8-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-9-1.png" width="100%" />
 
     #>                   sens.output Freq
-    #> 1          Limpet->Periwinkle    1
-    #> 2     Periwinkle->Green.Algae    1
-    #> 3            Dogwhelk->Limpet    2
-    #> 4   Green.Algae->Fucoid.Algae    2
-    #> 5             Limpet->Biofilm    2
-    #> 6         Periwinkle->Biofilm    2
-    #> 7          Dogwhelk->Barnacle    3
-    #> 8            Topshell->Limpet    3
-    #> 9        Green.Algae->Biofilm    4
-    #> 10 Green.Algae->Corline.algae    4
-    #> 11           Limpet->Topshell    4
-    #> 12         Periwinkle->Limpet    4
-    #> 13          Topshell->Biofilm    4
-    #> 14       Topshell->Periwinkle    4
-    #> 15        Limpet->Green.Algae    5
-    #> 16       Periwinkle->Topshell    5
+    #> 1          Dogwhelk->Barnacle    1
+    #> 2            Dogwhelk->Limpet    1
+    #> 3   Green.Algae->Fucoid.Algae    1
+    #> 4         Limpet->Green.Algae    1
+    #> 5        Topshell->Periwinkle    1
+    #> 6          Dogwhelk->Topshell    2
+    #> 7             Limpet->Biofilm    2
+    #> 8        Periwinkle->Topshell    2
+    #> 9            Topshell->Limpet    2
+    #> 10       Dogwhelk->Periwinkle    3
+    #> 11 Green.Algae->Corline.algae    3
+    #> 12           Limpet->Topshell    3
+    #> 13    Periwinkle->Green.Algae    3
+    #> 14         Periwinkle->Limpet    3
+    #> 15      Topshell->Green.Algae    3
+    #> 16       Green.Algae->Biofilm    4
+    #> 17          Topshell->Biofilm    4
+    #> 18         Limpet->Periwinkle    5
+    #> 19        Periwinkle->Biofilm    6
 
 The function works by bootstrapping with multiple changes to prior
 values and interaction strengths in the network. The frequency shows the
@@ -630,22 +643,22 @@ from the *igraph* package:
 bbn.network.diagram(bbn.network = my_network, font.size = 0.7, arrow.size = 4, arrange = layout_on_sphere)
 ```
 
-<img src="man/figures/README-unnamed-chunk-10-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-11-1.png" width="100%" />
 
     #> NULL
     bbn.network.diagram(bbn.network = my_network, font.size = 0.7, arrow.size = 2, arrange = layout_on_grid)
 
-<img src="man/figures/README-unnamed-chunk-10-2.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-11-2.png" width="100%" />
 
     #> NULL
     bbn.network.diagram(bbn.network = my_network, font.size = 0.7, arrow.size = 2, arrange = layout.random)
 
-<img src="man/figures/README-unnamed-chunk-10-3.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-11-3.png" width="100%" />
 
     #> NULL
     bbn.network.diagram(bbn.network = my_network, font.size = 0.7, arrow.size = 2, arrange = layout.circle)
 
-<img src="man/figures/README-unnamed-chunk-10-4.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-11-4.png" width="100%" />
 
     #> NULL
 
