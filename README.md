@@ -520,22 +520,24 @@ bbn.sensitivity(bbn.model = my_BBN, boot_max = 100, 'Limpet', 'Green Algae')
 <img src="man/figures/README-unnamed-chunk-8-1.png" width="100%" />
 
     #>                   sens.output Freq
-    #> 1        Green.Algae->Biofilm    1
-    #> 2   Green.Algae->Fucoid.Algae    1
-    #> 3            Limpet->Topshell    1
-    #> 4             Limpet->Biofilm    2
-    #> 5           Topshell->Biofilm    2
-    #> 6       Topshell->Green.Algae    2
-    #> 7            Dogwhelk->Limpet    3
-    #> 8          Dogwhelk->Topshell    3
-    #> 9  Green.Algae->Corline.algae    3
-    #> 10         Limpet->Periwinkle    3
-    #> 11         Periwinkle->Limpet    3
-    #> 12           Topshell->Limpet    3
-    #> 13        Periwinkle->Biofilm    5
-    #> 14       Periwinkle->Topshell    5
-    #> 15        Limpet->Green.Algae    6
-    #> 16    Periwinkle->Green.Algae    7
+    #> 1          Dogwhelk->Barnacle    1
+    #> 2            Dogwhelk->Limpet    1
+    #> 3        Dogwhelk->Periwinkle    1
+    #> 4   Green.Algae->Fucoid.Algae    1
+    #> 5        Periwinkle->Topshell    1
+    #> 6          Limpet->Periwinkle    2
+    #> 7  Green.Algae->Corline.algae    3
+    #> 8         Limpet->Green.Algae    3
+    #> 9          Periwinkle->Limpet    3
+    #> 10          Topshell->Biofilm    3
+    #> 11      Topshell->Green.Algae    3
+    #> 12       Topshell->Periwinkle    3
+    #> 13       Green.Algae->Biofilm    4
+    #> 14            Limpet->Biofilm    4
+    #> 15           Limpet->Topshell    4
+    #> 16        Periwinkle->Biofilm    4
+    #> 17           Topshell->Limpet    4
+    #> 18    Periwinkle->Green.Algae    5
 
 The function works by bootstrapping with multiple changes to prior
 values and interaction strengths in the network. The frequency shows the

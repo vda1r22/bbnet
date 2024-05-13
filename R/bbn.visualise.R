@@ -24,13 +24,13 @@
 #' @param arrow.size Changes the size of the arrows. Default = 4.
 #' Note, sizes do vary based on interaction strength, so this is a multiplier for visualisation purposes.
 #'
-#' @importFrom dplyr mutate recode
+#' @importFrom dplyr mutate recode "%>%"
 #' @importFrom ggplot2 ggplot geom_point geom_errorbar geom_bar aes theme element_text coord_flip scale_y_continuous geom_smooth labs theme_classic scale_color_grey xlab ylab theme
 #' @importFrom stats runif na.omit quantile
 #' @importFrom grDevices dev.off pdf gray.colors
-#' @importFrom igraph graph_from_data_frame V E
-#' @importFrom grid pushViewport viewport grid.layout
-#' @importFrom tibble tibble
+#' @importFrom igraph graph_from_data_frame
+#' @importFrom grid pushViewport viewport grid.layout grid.newpage
+#' @importFrom tibble tibble add_column
 #'
 #' @return A plot of the \code{BBN}, illustrating the dynamic interactions between \code{nodes} over the specified \code{timesteps}.
 #'

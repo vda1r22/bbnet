@@ -26,13 +26,13 @@
 #' All figures are combined on a single plot where scenario 2 is below scenario 1 (i.e. scenarios work in columns then rows)
 #' @param font.size Font size for the plot labels. Defaults to 5.
 #'
-#' @importFrom dplyr mutate recode
+#' @importFrom dplyr mutate recode "%>%"
 #' @importFrom ggplot2 ggplot geom_point geom_errorbar geom_bar aes theme element_text coord_flip scale_y_continuous geom_smooth labs theme_classic scale_color_grey xlab ylab theme
 #' @importFrom stats runif na.omit quantile
 #' @importFrom grDevices dev.off pdf gray.colors
-#' @importFrom igraph graph_from_data_frame V E
-#' @importFrom grid pushViewport viewport grid.layout
-#' @importFrom tibble tibble
+#' @importFrom igraph graph_from_data_frame
+#' @importFrom grid pushViewport viewport grid.layout grid.newpage
+#' @importFrom tibble tibble add_column
 #'
 #' @return Plots of the \code{(BBN)} predictions and optionally prints the predicted values.
 #'

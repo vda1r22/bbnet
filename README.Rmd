@@ -239,7 +239,7 @@ bbn.network.diagram(bbn.network = my_network, font.size = 0.7, arrow.size = 2, a
 
 ```
 
-# Improving the package
+# Improving the package 
 
 If something is not clear, or missing, or if you would like to request a 
 feature, please open an issue on

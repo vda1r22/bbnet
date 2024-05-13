@@ -16,13 +16,13 @@
 #' @param ... Key \code{nodes} for sensitivity analysis.
 #' The function is designed to handle up to three key \code{nodes}, beyond which it recommends limiting the analysis for clarity and efficiency.
 #'
-#' @importFrom dplyr mutate recode
+#' @importFrom dplyr mutate recode "%>%"
 #' @importFrom ggplot2 ggplot geom_point geom_errorbar geom_bar aes theme element_text coord_flip scale_y_continuous geom_smooth labs theme_classic scale_color_grey xlab ylab theme
 #' @importFrom stats runif na.omit quantile
 #' @importFrom grDevices dev.off pdf gray.colors
-#' @importFrom igraph graph_from_data_frame V E
-#' @importFrom grid pushViewport viewport grid.layout
-#' @importFrom tibble tibble
+#' @importFrom igraph graph_from_data_frame
+#' @importFrom grid pushViewport viewport grid.layout grid.newpage
+#' @importFrom tibble tibble add_column
 #'
 #' @return The function outputs a plot showing the \code{nodes} most influential to the network's outcomes, alongside a table ranking these variables by their impact.
 #' The analysis highlights how changes in the key \code{nodes} can affect the network, offering valuable insights for model refinement and decision-making.
