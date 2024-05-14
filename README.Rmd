@@ -1,6 +1,6 @@
 ---
 title: "BBNet – a package for creating simple predictive models in ecology, conservation and environmental policy based on Bayesian belief networks"
-author: "Rick Stafford & Victoria Dominguez Almela"
+author: "Victoria Dominguez Almela & Richard Stafford"
 date: "`r Sys.setlocale('LC_TIME', 'C');format(Sys.time(), '%d %B, %Y')`"
 output:
   github_document:

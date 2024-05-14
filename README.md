@@ -1,7 +1,7 @@
 BBNet – a package for creating simple predictive models in ecology,
 conservation and environmental policy based on Bayesian belief networks
 ================
-Rick Stafford & Victoria Dominguez Almela
+Victoria Dominguez Almela & Richard Stafford
 14 May, 2024
 
 - [bbnet
@@ -517,23 +517,23 @@ bbn.sensitivity(bbn.model = my_BBN, boot_max = 100, 'Limpet', 'Green Algae')
 
 <img src="man/figures/README-unnamed-chunk-8-1.png" width="100%" />
 
-    #>                   sens.output Freq
-    #> 1            Dogwhelk->Limpet    1
-    #> 2            Limpet->Topshell    1
-    #> 3  Green.Algae->Corline.algae    2
-    #> 4         Periwinkle->Biofilm    2
-    #> 5        Periwinkle->Topshell    2
-    #> 6           Topshell->Biofilm    2
-    #> 7       Topshell->Green.Algae    2
-    #> 8          Dogwhelk->Topshell    3
-    #> 9          Periwinkle->Limpet    3
-    #> 10       Topshell->Periwinkle    3
-    #> 11  Green.Algae->Fucoid.Algae    4
-    #> 12         Limpet->Periwinkle    4
-    #> 13    Periwinkle->Green.Algae    4
-    #> 14            Limpet->Biofilm    5
-    #> 15        Limpet->Green.Algae    6
-    #> 16           Topshell->Limpet    6
+    #>                  sens.output Freq
+    #> 1         Dogwhelk->Barnacle    1
+    #> 2           Dogwhelk->Limpet    1
+    #> 3         Dogwhelk->Topshell    1
+    #> 4       Periwinkle->Topshell    1
+    #> 5         Limpet->Periwinkle    2
+    #> 6    Periwinkle->Green.Algae    3
+    #> 7         Periwinkle->Limpet    3
+    #> 8          Topshell->Biofilm    3
+    #> 9      Topshell->Green.Algae    3
+    #> 10          Topshell->Limpet    3
+    #> 11 Green.Algae->Fucoid.Algae    4
+    #> 12           Limpet->Biofilm    4
+    #> 13          Limpet->Topshell    4
+    #> 14       Periwinkle->Biofilm    5
+    #> 15       Limpet->Green.Algae    6
+    #> 16      Topshell->Periwinkle    6
 
 The function works by bootstrapping with multiple changes to prior
 values and interaction strengths in the network. The frequency shows the

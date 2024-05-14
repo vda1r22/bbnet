@@ -342,7 +342,8 @@ bbn.predict <- function(bbn.model, ..., boot_max=1, values = 1, figure = 1, font
 
   if(figure==1){## plot pdf figure to working directory
 
-    pdf("BBN_Output_RenameMe.pdf")
+    pdf_file <- file.path(tempdir(), "BBN_Output_RenameMe.pdf")
+    pdf(pdf_file)
 
     if(policyno==1){multiplot(plot.keep[[1]])}
     if(policyno==2){multiplot(plot.keep[[1]],plot.keep[[2]])}
