@@ -31,12 +31,15 @@ test_that("bbn.predict saves plot to PDF when figure is 1", {
   data("my_BBN")
   data("dogwhelk")
 
+  # Define the path to the test plot in the temporary directory
+  test_plot_path <- file.path(tempdir(), "BBN_Output_RenameMe.pdf")
+
   # Ensure any previous test file is removed
-  test_plot_path <- "BBN_Output_RenameMe.pdf"
-  if(file.exists(test_plot_path)) {
+  if (file.exists(test_plot_path)) {
     file.remove(test_plot_path)
   }
 
+  # Call the function with the correct parameters
   bbn.predict(bbn.model = my_BBN, priors1 = dogwhelk, figure = 1)
 
   # Check if the file now exists
@@ -45,6 +48,7 @@ test_that("bbn.predict saves plot to PDF when figure is 1", {
   # Cleanup: remove the test plot file after checking
   file.remove(test_plot_path)
 })
+
 
 test_that("bbn.predict runs without error for figure = 2", {
   data("my_BBN")
