@@ -29,7 +29,7 @@
 #'
 #' @examples
 #' data(my_BBN)
-#' bbn.sensitivity(bbn.model = my_BBN, boot_max = 1000, 'Limpet', 'Green Algae')
+#' bbn.sensitivity(bbn.model = my_BBN, boot_max = 100, 'Limpet', 'Green Algae')
 #'
 #' @export
 bbn.sensitivity <- function(bbn.model, boot_max = 1000, ...){
