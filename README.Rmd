@@ -251,5 +251,5 @@ cite the package as an acknowledgement for the time spent in writing the package
 and this tutorial. 
   Stafford R, Dominguez Almela V (2024). BBNet: Create simple predictive
   models in ecology, conservation and environmental policy based on
-  Bayesian belief networks. R package version 0.1.0,
+  Bayesian belief networks. R package version 1.0,
   <https://github.com/vda1r22/bbnet>.

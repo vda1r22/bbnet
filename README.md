@@ -518,24 +518,22 @@ bbn.sensitivity(bbn.model = my_BBN, boot_max = 100, 'Limpet', 'Green Algae')
 <img src="man/figures/README-unnamed-chunk-8-1.png" width="100%" />
 
     #>                   sens.output Freq
-    #> 1          Dogwhelk->Barnacle    1
-    #> 2         Limpet->Green.Algae    1
-    #> 3        Dogwhelk->Periwinkle    2
-    #> 4   Green.Algae->Fucoid.Algae    2
-    #> 5          Limpet->Periwinkle    2
-    #> 6          Periwinkle->Limpet    2
-    #> 7        Periwinkle->Topshell    2
-    #> 8           Topshell->Biofilm    2
-    #> 9        Topshell->Periwinkle    2
-    #> 10           Dogwhelk->Limpet    3
-    #> 11         Dogwhelk->Topshell    3
-    #> 12           Limpet->Topshell    3
-    #> 13    Periwinkle->Green.Algae    3
-    #> 14      Topshell->Green.Algae    3
-    #> 15       Green.Algae->Biofilm    4
-    #> 16 Green.Algae->Corline.algae    4
-    #> 17        Periwinkle->Biofilm    5
-    #> 18            Limpet->Biofilm    6
+    #> 1            Dogwhelk->Limpet    1
+    #> 2            Limpet->Topshell    1
+    #> 3  Green.Algae->Corline.algae    2
+    #> 4         Periwinkle->Biofilm    2
+    #> 5        Periwinkle->Topshell    2
+    #> 6           Topshell->Biofilm    2
+    #> 7       Topshell->Green.Algae    2
+    #> 8          Dogwhelk->Topshell    3
+    #> 9          Periwinkle->Limpet    3
+    #> 10       Topshell->Periwinkle    3
+    #> 11  Green.Algae->Fucoid.Algae    4
+    #> 12         Limpet->Periwinkle    4
+    #> 13    Periwinkle->Green.Algae    4
+    #> 14            Limpet->Biofilm    5
+    #> 15        Limpet->Green.Algae    6
+    #> 16           Topshell->Limpet    6
 
 The function works by bootstrapping with multiple changes to prior
 values and interaction strengths in the network. The frequency shows the
@@ -661,4 +659,4 @@ hesitate to cite the package as an acknowledgement for the time spent in
 writing the package and this tutorial. Stafford R, Dominguez Almela V
 (2024). BBNet: Create simple predictive models in ecology, conservation
 and environmental policy based on Bayesian belief networks. R package
-version 0.1.0, <https://github.com/vda1r22/bbnet>.
+version 1.0, <https://github.com/vda1r22/bbnet>.
