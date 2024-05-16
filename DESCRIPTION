@@ -1,7 +1,6 @@
 Type: Package
 Package: bbnet
-Title: Create Simple Predictive Models in Ecology, 
-    Conservation and Environmental Policy Based on Bayesian Belief Networks
+Title: Create Simple Predictive Models on Bayesian Belief Networks
 Version: 1.0
 Authors@R: c(
     person("Rick", "Stafford", , "rstafford@bournemouth.ac.uk", role = c("cph", "aut"),
@@ -10,10 +9,7 @@ Authors@R: c(
            comment = c(ORCID = "0000-0003-4877-5967"))
   )
 Maintainer: Victoria Dominguez Almela <vda1r22@soton.ac.uk>
-Description: A system for ecological and environmental users to build,
-    visualise and evaluate Bayesian belief networks. These models can
-    incorporate expert knowledge and/or empirical data to model complex
-    systems.
+Description: A system to build, visualise and evaluate Bayesian belief networks. The methods are described in Stafford et al. (2015) <doi:10.12688/f1000research.5981.1>.
 License: GPL (>= 2)
 URL: https://github.com/vda1r22/bbnet
 BugReports: https://github.com/vda1r22/bbnet/issues

@@ -1,5 +1,5 @@
 ---
-title: "BBNet – a package for creating simple predictive models in ecology, conservation and environmental policy based on Bayesian belief networks"
+title: "BBNet – Simple predictive models based on Bayesian belief networks"
 author: "Victoria Dominguez Almela & Richard Stafford"
 date: "`r Sys.setlocale('LC_TIME', 'C');format(Sys.time(), '%d %B, %Y')`"
 output:
@@ -138,7 +138,7 @@ As above we need to pass the function a network model and a scenario as a minimu
 *Example*
 
 ```{r}
-bbn.timeseries(bbn.model = my_BBN, priors1 = combined, timesteps = 5, disturbance = 2)
+bbn.timeseries(bbn.model = my_BBN, priors1 = combined, timesteps = 6, disturbance = 2)
 ```
 
 ## bbn.visualise()

@@ -11,6 +11,7 @@
 #'
 #' @param bbn.model  A matrix or dataframe of interactions between different model \code{nodes}.
 #' @param ... An X by 2 array of initial changes to the system under investigation.
+#' It requires at least 1 prior scenario (up to 12 priors).
 #' The first column should be a -4 to 4 (including 0) integer value for each \code{node} in the network with negative values
 #' indicating a decrease and positive values representing an increase. 0 represents no change.
 #' Note, names included here are included as outputs in tables and figures.
@@ -49,7 +50,7 @@ bbn.predict <- function(bbn.model, ..., boot_max=1, values = 1, figure = 1, font
 
 
   if(length(list)>12){
-    print('Limit of 12 scenarios at once. Graphs may fail to print properly')
+    warning('Limit of 12 scenarios at once. Graphs may fail to print properly')
   }
 
   #print(list(...)[1])

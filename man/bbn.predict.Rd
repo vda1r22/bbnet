@@ -17,6 +17,7 @@ bbn.predict(
 \item{bbn.model}{A matrix or dataframe of interactions between different model \code{nodes}.}
 
 \item{...}{An X by 2 array of initial changes to the system under investigation.
+It requires at least 1 prior scenario (up to 12 priors).
 The first column should be a -4 to 4 (including 0) integer value for each \code{node} in the network with negative values
 indicating a decrease and positive values representing an increase. 0 represents no change.
 Note, names included here are included as outputs in tables and figures.

@@ -1,8 +1,7 @@
-BBNet – a package for creating simple predictive models in ecology,
-conservation and environmental policy based on Bayesian belief networks
+BBNet – Simple predictive models based on Bayesian belief networks
 ================
 Victoria Dominguez Almela & Richard Stafford
-14 May, 2024
+16 May, 2024
 
 - [bbnet
   <img src="man/figures/Logo2.png" align="right" height="138" /></a>](#bbnet-)
@@ -278,131 +277,41 @@ through the network
 *Example*
 
 ``` r
-bbn.timeseries(bbn.model = my_BBN, priors1 = combined, timesteps = 5, disturbance = 2)
+bbn.timeseries(bbn.model = my_BBN, priors1 = combined, timesteps = 6, disturbance = 2)
 #> `geom_smooth()` using formula = 'y ~ x'
-#> Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
-#> : span too small.  fewer data values than degrees of freedom.
-#> Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
-#> : pseudoinverse used at 0.98
-#> Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
-#> : neighborhood radius 2.02
-#> Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
-#> : reciprocal condition number 0
-#> Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
-#> : There are other near singularities as well. 4.0804
 ```
 
 <img src="man/figures/README-unnamed-chunk-6-1.png" width="100%" />
 
     #> `geom_smooth()` using formula = 'y ~ x'
-    #> Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
-    #> : span too small.  fewer data values than degrees of freedom.
-    #> Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
-    #> : pseudoinverse used at 0.98
-    #> Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
-    #> : neighborhood radius 2.02
-    #> Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
-    #> : reciprocal condition number 0
-    #> Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
-    #> : There are other near singularities as well. 4.0804
 
 <img src="man/figures/README-unnamed-chunk-6-2.png" width="100%" />
 
     #> `geom_smooth()` using formula = 'y ~ x'
-    #> Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
-    #> : span too small.  fewer data values than degrees of freedom.
-    #> Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
-    #> : pseudoinverse used at 0.98
-    #> Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
-    #> : neighborhood radius 2.02
-    #> Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
-    #> : reciprocal condition number 0
-    #> Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
-    #> : There are other near singularities as well. 4.0804
 
 <img src="man/figures/README-unnamed-chunk-6-3.png" width="100%" />
 
     #> `geom_smooth()` using formula = 'y ~ x'
-    #> Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
-    #> : span too small.  fewer data values than degrees of freedom.
-    #> Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
-    #> : pseudoinverse used at 0.98
-    #> Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
-    #> : neighborhood radius 2.02
-    #> Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
-    #> : reciprocal condition number 0
-    #> Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
-    #> : There are other near singularities as well. 4.0804
 
 <img src="man/figures/README-unnamed-chunk-6-4.png" width="100%" />
 
     #> `geom_smooth()` using formula = 'y ~ x'
-    #> Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
-    #> : span too small.  fewer data values than degrees of freedom.
-    #> Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
-    #> : pseudoinverse used at 0.98
-    #> Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
-    #> : neighborhood radius 2.02
-    #> Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
-    #> : reciprocal condition number 0
-    #> Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
-    #> : There are other near singularities as well. 4.0804
 
 <img src="man/figures/README-unnamed-chunk-6-5.png" width="100%" />
 
     #> `geom_smooth()` using formula = 'y ~ x'
-    #> Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
-    #> : span too small.  fewer data values than degrees of freedom.
-    #> Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
-    #> : pseudoinverse used at 0.98
-    #> Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
-    #> : neighborhood radius 2.02
-    #> Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
-    #> : reciprocal condition number 0
-    #> Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
-    #> : There are other near singularities as well. 4.0804
 
 <img src="man/figures/README-unnamed-chunk-6-6.png" width="100%" />
 
     #> `geom_smooth()` using formula = 'y ~ x'
-    #> Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
-    #> : span too small.  fewer data values than degrees of freedom.
-    #> Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
-    #> : pseudoinverse used at 0.98
-    #> Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
-    #> : neighborhood radius 2.02
-    #> Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
-    #> : reciprocal condition number 0
-    #> Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
-    #> : There are other near singularities as well. 4.0804
 
 <img src="man/figures/README-unnamed-chunk-6-7.png" width="100%" />
 
     #> `geom_smooth()` using formula = 'y ~ x'
-    #> Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
-    #> : span too small.  fewer data values than degrees of freedom.
-    #> Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
-    #> : pseudoinverse used at 0.98
-    #> Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
-    #> : neighborhood radius 2.02
-    #> Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
-    #> : reciprocal condition number 0
-    #> Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
-    #> : There are other near singularities as well. 4.0804
 
 <img src="man/figures/README-unnamed-chunk-6-8.png" width="100%" />
 
     #> `geom_smooth()` using formula = 'y ~ x'
-    #> Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
-    #> : span too small.  fewer data values than degrees of freedom.
-    #> Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
-    #> : pseudoinverse used at 0.98
-    #> Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
-    #> : neighborhood radius 2.02
-    #> Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
-    #> : reciprocal condition number 0
-    #> Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
-    #> : There are other near singularities as well. 4.0804
 
 <img src="man/figures/README-unnamed-chunk-6-9.png" width="100%" />
 
@@ -518,22 +427,22 @@ bbn.sensitivity(bbn.model = my_BBN, boot_max = 100, 'Limpet', 'Green Algae')
 <img src="man/figures/README-unnamed-chunk-8-1.png" width="100%" />
 
     #>                  sens.output Freq
-    #> 1         Dogwhelk->Barnacle    1
-    #> 2           Dogwhelk->Limpet    1
-    #> 3         Dogwhelk->Topshell    1
-    #> 4       Periwinkle->Topshell    1
-    #> 5         Limpet->Periwinkle    2
-    #> 6    Periwinkle->Green.Algae    3
-    #> 7         Periwinkle->Limpet    3
-    #> 8          Topshell->Biofilm    3
-    #> 9      Topshell->Green.Algae    3
-    #> 10          Topshell->Limpet    3
-    #> 11 Green.Algae->Fucoid.Algae    4
-    #> 12           Limpet->Biofilm    4
-    #> 13          Limpet->Topshell    4
-    #> 14       Periwinkle->Biofilm    5
-    #> 15       Limpet->Green.Algae    6
-    #> 16      Topshell->Periwinkle    6
+    #> 1    Periwinkle->Green.Algae    1
+    #> 2         Dogwhelk->Barnacle    2
+    #> 3  Green.Algae->Fucoid.Algae    2
+    #> 4        Limpet->Green.Algae    2
+    #> 5           Limpet->Topshell    2
+    #> 6         Periwinkle->Limpet    2
+    #> 7      Topshell->Green.Algae    2
+    #> 8           Topshell->Limpet    2
+    #> 9           Dogwhelk->Limpet    3
+    #> 10      Dogwhelk->Periwinkle    3
+    #> 11        Dogwhelk->Topshell    3
+    #> 12       Periwinkle->Biofilm    4
+    #> 13           Limpet->Biofilm    5
+    #> 14         Topshell->Biofilm    5
+    #> 15      Green.Algae->Biofilm    6
+    #> 16      Periwinkle->Topshell    6
 
 The function works by bootstrapping with multiple changes to prior
 values and interaction strengths in the network. The frequency shows the
