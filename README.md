@@ -1,7 +1,7 @@
 BBNet – Simple predictive models based on Bayesian belief networks
 ================
 Victoria Dominguez Almela & Richard Stafford
-16 May, 2024
+17 May, 2024
 
 - [bbnet
   <img src="man/figures/Logo2.png" align="right" height="138" /></a>](#bbnet-)
@@ -52,8 +52,8 @@ You can install the development version of BBNet from
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("vda1r22/bbnet")
-#install.packages("bbnet")
+#devtools::install_github("vda1r22/bbnet")
+install.packages("bbnet")
 ```
 
 # Basic steps to get started
@@ -426,23 +426,24 @@ bbn.sensitivity(bbn.model = my_BBN, boot_max = 100, 'Limpet', 'Green Algae')
 
 <img src="man/figures/README-unnamed-chunk-8-1.png" width="100%" />
 
-    #>                  sens.output Freq
-    #> 1    Periwinkle->Green.Algae    1
-    #> 2         Dogwhelk->Barnacle    2
-    #> 3  Green.Algae->Fucoid.Algae    2
-    #> 4        Limpet->Green.Algae    2
-    #> 5           Limpet->Topshell    2
-    #> 6         Periwinkle->Limpet    2
-    #> 7      Topshell->Green.Algae    2
-    #> 8           Topshell->Limpet    2
-    #> 9           Dogwhelk->Limpet    3
-    #> 10      Dogwhelk->Periwinkle    3
-    #> 11        Dogwhelk->Topshell    3
-    #> 12       Periwinkle->Biofilm    4
-    #> 13           Limpet->Biofilm    5
-    #> 14         Topshell->Biofilm    5
-    #> 15      Green.Algae->Biofilm    6
-    #> 16      Periwinkle->Topshell    6
+    #>                   sens.output Freq
+    #> 1          Dogwhelk->Barnacle    1
+    #> 2          Dogwhelk->Topshell    1
+    #> 3          Limpet->Periwinkle    1
+    #> 4     Periwinkle->Green.Algae    1
+    #> 5           Topshell->Biofilm    1
+    #> 6            Topshell->Limpet    1
+    #> 7            Dogwhelk->Limpet    2
+    #> 8        Green.Algae->Biofilm    2
+    #> 9            Limpet->Topshell    2
+    #> 10         Periwinkle->Limpet    3
+    #> 11      Topshell->Green.Algae    3
+    #> 12 Green.Algae->Corline.algae    4
+    #> 13        Limpet->Green.Algae    4
+    #> 14       Dogwhelk->Periwinkle    5
+    #> 15       Topshell->Periwinkle    5
+    #> 16        Periwinkle->Biofilm    7
+    #> 17       Periwinkle->Topshell    7
 
 The function works by bootstrapping with multiple changes to prior
 values and interaction strengths in the network. The frequency shows the
@@ -565,7 +566,24 @@ repository](https://github.com/vda1r22/bbnet/issues).
 
 If you found the package and/or the tutorial useful, please do not
 hesitate to cite the package as an acknowledgement for the time spent in
-writing the package and this tutorial. Stafford R, Dominguez Almela V
-(2024). BBNet: Create simple predictive models in ecology, conservation
-and environmental policy based on Bayesian belief networks. R package
-version 1.0, <https://github.com/vda1r22/bbnet>.
+writing the package and this tutorial.
+
+``` r
+citation("bbnet")
+#> Warning in citation("bbnet"): could not determine year for 'bbnet' from package
+#> DESCRIPTION file
+#> To cite package 'bbnet' in publications use:
+#> 
+#>   Dominguez Almela V, Stafford R (????). _bbnet: Create Simple
+#>   Predictive Models on Bayesian Belief Networks_. R package version
+#>   1.0, <https://github.com/vda1r22/bbnet>.
+#> 
+#> A BibTeX entry for LaTeX users is
+#> 
+#>   @Manual{,
+#>     title = {bbnet: Create Simple Predictive Models on Bayesian Belief Networks},
+#>     author = {Victoria {Dominguez Almela} and Rick Stafford},
+#>     note = {R package version 1.0},
+#>     url = {https://github.com/vda1r22/bbnet},
+#>   }
+```

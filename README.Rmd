@@ -44,8 +44,8 @@ You can install the development version of BBNet from [GitHub](https://github.co
 
 ``` {r install, eval = FALSE}
 # install.packages("devtools")
-devtools::install_github("vda1r22/bbnet")
-#install.packages("bbnet")
+#devtools::install_github("vda1r22/bbnet")
+install.packages("bbnet")
 ```
 
 
@@ -249,7 +249,8 @@ feature, please open an issue on
 If you found the package and/or the tutorial useful, please do not hesitate to
 cite the package as an acknowledgement for the time spent in writing the package 
 and this tutorial. 
-  Stafford R, Dominguez Almela V (2024). BBNet: Create simple predictive
-  models in ecology, conservation and environmental policy based on
-  Bayesian belief networks. R package version 1.0,
-  <https://github.com/vda1r22/bbnet>.
+
+```{r}
+citation("bbnet")
+```
+
