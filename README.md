@@ -1,7 +1,7 @@
 BBNet – Simple predictive models based on Bayesian belief networks
 ================
 Victoria Dominguez Almela & Richard Stafford
-17 May, 2024
+18 May, 2024
 
 - [bbnet
   <img src="man/figures/Logo2.png" align="right" height="138" /></a>](#bbnet-)
@@ -118,9 +118,10 @@ head(my_BBN)
 ```
 
 The details of this interaction matrix are discussed in the main text of
-the paper (under review in *Ecological Informatics*). Essentially it
-explains direct interactions between what is here the species or taxon
-in the *row* on the species or taxon in the *column*.
+the paper, which is under review in *Ecological Informatics* \[we will
+update this shortly\]. Essentially it explains direct interactions
+between what is here the species or taxon in the *row* on the species or
+taxon in the *column*.
 
 It is also normal in most functions to have a scenario or scenarios
 which we want to investigate. In this rocky shore example, we have three
@@ -429,21 +430,23 @@ bbn.sensitivity(bbn.model = my_BBN, boot_max = 100, 'Limpet', 'Green Algae')
     #>                   sens.output Freq
     #> 1          Dogwhelk->Barnacle    1
     #> 2          Dogwhelk->Topshell    1
-    #> 3          Limpet->Periwinkle    1
-    #> 4     Periwinkle->Green.Algae    1
-    #> 5           Topshell->Biofilm    1
-    #> 6            Topshell->Limpet    1
-    #> 7            Dogwhelk->Limpet    2
-    #> 8        Green.Algae->Biofilm    2
-    #> 9            Limpet->Topshell    2
-    #> 10         Periwinkle->Limpet    3
-    #> 11      Topshell->Green.Algae    3
-    #> 12 Green.Algae->Corline.algae    4
-    #> 13        Limpet->Green.Algae    4
-    #> 14       Dogwhelk->Periwinkle    5
-    #> 15       Topshell->Periwinkle    5
-    #> 16        Periwinkle->Biofilm    7
-    #> 17       Periwinkle->Topshell    7
+    #> 3   Green.Algae->Fucoid.Algae    1
+    #> 4            Limpet->Topshell    1
+    #> 5          Periwinkle->Limpet    1
+    #> 6            Dogwhelk->Limpet    2
+    #> 7             Limpet->Biofilm    2
+    #> 8         Limpet->Green.Algae    2
+    #> 9          Limpet->Periwinkle    2
+    #> 10    Periwinkle->Green.Algae    2
+    #> 11        Periwinkle->Biofilm    3
+    #> 12       Periwinkle->Topshell    3
+    #> 13          Topshell->Biofilm    3
+    #> 14       Dogwhelk->Periwinkle    4
+    #> 15       Green.Algae->Biofilm    4
+    #> 16 Green.Algae->Corline.algae    4
+    #> 17       Topshell->Periwinkle    4
+    #> 18      Topshell->Green.Algae    5
+    #> 19           Topshell->Limpet    5
 
 The function works by bootstrapping with multiple changes to prior
 values and interaction strengths in the network. The frequency shows the
@@ -582,7 +585,7 @@ citation("bbnet")
 #> 
 #>   @Manual{,
 #>     title = {bbnet: Create Simple Predictive Models on Bayesian Belief Networks},
-#>     author = {Victoria {Dominguez Almela} and Rick Stafford},
+#>     author = {Victoria {Dominguez Almela} and Richard Stafford},
 #>     note = {R package version 1.0},
 #>     url = {https://github.com/vda1r22/bbnet},
 #>   }

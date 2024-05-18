@@ -104,7 +104,7 @@ As above we need to pass the function a network model and a scenario as a minimu
 *Example*
 
 ```{r}
-bbn.timeseries(bbn.model = my_BBN, priors1 = combined, timesteps = 5, disturbance = 2)
+bbn.timeseries(bbn.model = my_BBN, priors1 = combined, timesteps = 6, disturbance = 2)
 ```
 
 ## bbn.visualise()
