@@ -66,6 +66,7 @@ bbn.sensitivity <- function(bbn.model, boot_max = 1000, ...){
   node.x.increase.if.node.y.increase[node.x.increase.if.node.y.increase==-2]<- 0.3
   node.x.increase.if.node.y.increase[node.x.increase.if.node.y.increase==-3]<- 0.2
   node.x.increase.if.node.y.increase[node.x.increase.if.node.y.increase==-4]<- 0.1
+  node.x.increase.if.node.y.increase[node.x.increase.if.node.y.increase==0]<- NA
 
 
   node.x.increase.if.node.y.increase <- node.x.increase.if.node.y.increase[,-1] # drops first column which was text
@@ -267,6 +268,7 @@ bbn.sensitivity <- function(bbn.model, boot_max = 1000, ...){
     for(output.param in 1:display.number){
       output.index <- boot_max - (output.param-1)
       output.save <- which(dif.val.rank==output.index)
+      if (identical (output.save, integer(0)) == T) {print ("Key variable name cannot be found. Please, check spelling and white space")}
       sens.output[,output.param,max.variable] <- sens.store[,(output.save-1)] ### -1 as there is no storage of first set of parameters as these don't change
     }
 

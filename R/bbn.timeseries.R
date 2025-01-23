@@ -34,6 +34,13 @@ bbn.timeseries <- function(bbn.model, priors1, timesteps=5, disturbance = 1){ ##
 
   node <- priors1 # read in single scenario
 
+  # Check for expected structure in each prior
+  if (!all(c("Increase", "Node") %in% colnames(node))) {
+    stop("Each prior must contain 'Increase' and 'Node' columns.")
+  }
+
+  if (is.numeric(node[, 1]) == F) {stop("First column of priors values must contain numeric data")}
+
   colnames(node)<- c('Increase','name') # setting fixed column names as these are refered to later on
 
   ## Bayesian Belief network relies on values between 0 and 1, but -4 to 4 is much more intuitive, so converted at this stage
@@ -54,6 +61,10 @@ bbn.timeseries <- function(bbn.model, priors1, timesteps=5, disturbance = 1){ ##
 
   node.x.increase.if.node.y.increase <- bbn.model # input of bbm matrix
 
+  if(identical(node[,2],node.x.increase.if.node.y.increase[,1] )==F){
+    warning('Node names in priors are different to those in the interaction matrix - prior names will be used, but please check order of nodes is identical')
+  }
+
   #### convert from +4 to -4 scale to 1 to 0 scale
   node.x.increase.if.node.y.increase[node.x.increase.if.node.y.increase==4]<- 0.9
   node.x.increase.if.node.y.increase[node.x.increase.if.node.y.increase==3]<- 0.8
@@ -63,6 +74,7 @@ bbn.timeseries <- function(bbn.model, priors1, timesteps=5, disturbance = 1){ ##
   node.x.increase.if.node.y.increase[node.x.increase.if.node.y.increase==-2]<- 0.3
   node.x.increase.if.node.y.increase[node.x.increase.if.node.y.increase==-3]<- 0.2
   node.x.increase.if.node.y.increase[node.x.increase.if.node.y.increase==-4]<- 0.1
+  node.x.increase.if.node.y.increase[node.x.increase.if.node.y.increase==0]<- NA
 
 
   node.x.increase.if.node.y.increase <- node.x.increase.if.node.y.increase[,-1] # drops first column which was text
