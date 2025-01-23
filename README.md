@@ -1,7 +1,7 @@
 BBNet – Simple predictive models based on Bayesian belief networks
 ================
 Victoria Dominguez Almela & Richard Stafford
-18 May, 2024
+23 January, 2025
 
 - [bbnet
   <img src="man/figures/Logo2.png" align="right" height="138" /></a>](#bbnet-)
@@ -69,6 +69,7 @@ package.
 ``` r
 library(bbnet)
 #> Loading required package: dplyr
+#> Warning: package 'dplyr' was built under R version 4.4.2
 #> 
 #> Attaching package: 'dplyr'
 #> The following objects are masked from 'package:stats':
@@ -80,6 +81,7 @@ library(bbnet)
 #> Loading required package: ggplot2
 #> Loading required package: grid
 #> Loading required package: igraph
+#> Warning: package 'igraph' was built under R version 4.4.2
 #> 
 #> Attaching package: 'igraph'
 #> The following objects are masked from 'package:dplyr':
@@ -92,6 +94,7 @@ library(bbnet)
 #> 
 #>     union
 #> Loading required package: tibble
+#> Warning: package 'tibble' was built under R version 4.4.2
 #> 
 #> Attaching package: 'tibble'
 #> The following object is masked from 'package:igraph':
@@ -160,6 +163,9 @@ and one scenario to the function.
 
 ``` r
 bbn.predict(bbn.model = my_BBN, priors1 = dogwhelk, figure = 0) # figure set to zero, this is explained below
+#> Warning in bbn.predict(bbn.model = my_BBN, priors1 = dogwhelk, figure = 0):
+#> Node names in priors are different to those in the interaction matrix - prior
+#> names will be used, but please check order of nodes is identical
 #> [1] "Scenario number  1"
 #>     Increase          name    LowerCI    UpperCI
 #> 1 -4.0000000      Dogwhelk -4.0000000 -4.0000000
@@ -225,6 +231,15 @@ columns then rows)
 
 ``` r
 bbn.predict(bbn.model = my_BBN, priors1 = dogwhelk, priors2 = winkle, priors3= combined, figure = 2, boot_max = 100, values = 0, font.size = 7)
+#> Warning in bbn.predict(bbn.model = my_BBN, priors1 = dogwhelk, priors2 =
+#> winkle, : Node names in priors are different to those in the interaction matrix
+#> - prior names will be used, but please check order of nodes is identical
+#> Warning in bbn.predict(bbn.model = my_BBN, priors1 = dogwhelk, priors2 =
+#> winkle, : Node names in priors are different to those in the interaction matrix
+#> - prior names will be used, but please check order of nodes is identical
+#> Warning in bbn.predict(bbn.model = my_BBN, priors1 = dogwhelk, priors2 =
+#> winkle, : Node names in priors are different to those in the interaction matrix
+#> - prior names will be used, but please check order of nodes is identical
 ```
 
 <img src="man/figures/README-unnamed-chunk-5-1.png" width="100%" />
@@ -279,6 +294,9 @@ through the network
 
 ``` r
 bbn.timeseries(bbn.model = my_BBN, priors1 = combined, timesteps = 6, disturbance = 2)
+#> Warning in bbn.timeseries(bbn.model = my_BBN, priors1 = combined, timesteps =
+#> 6, : Node names in priors are different to those in the interaction matrix -
+#> prior names will be used, but please check order of nodes is identical
 #> `geom_smooth()` using formula = 'y ~ x'
 ```
 
@@ -368,6 +386,9 @@ visualisation purposes.
 
 ``` r
 bbn.visualise(bbn.model = my_BBN, priors1 = combined, timesteps = 5, disturbance = 2, threshold=0.05, font.size=0.7, arrow.size=4)
+#> Warning in bbn.visualise(bbn.model = my_BBN, priors1 = combined, timesteps = 5,
+#> : Node names in priors are different to those in the interaction matrix - prior
+#> names will be used, but please check order of nodes is identical
 ```
 
 <img src="man/figures/README-unnamed-chunk-7-1.png" width="100%" />
@@ -428,25 +449,23 @@ bbn.sensitivity(bbn.model = my_BBN, boot_max = 100, 'Limpet', 'Green Algae')
 <img src="man/figures/README-unnamed-chunk-8-1.png" width="100%" />
 
     #>                   sens.output Freq
-    #> 1          Dogwhelk->Barnacle    1
+    #> 1        Dogwhelk->Periwinkle    1
     #> 2          Dogwhelk->Topshell    1
-    #> 3   Green.Algae->Fucoid.Algae    1
-    #> 4            Limpet->Topshell    1
-    #> 5          Periwinkle->Limpet    1
-    #> 6            Dogwhelk->Limpet    2
-    #> 7             Limpet->Biofilm    2
-    #> 8         Limpet->Green.Algae    2
-    #> 9          Limpet->Periwinkle    2
-    #> 10    Periwinkle->Green.Algae    2
-    #> 11        Periwinkle->Biofilm    3
-    #> 12       Periwinkle->Topshell    3
-    #> 13          Topshell->Biofilm    3
-    #> 14       Dogwhelk->Periwinkle    4
-    #> 15       Green.Algae->Biofilm    4
-    #> 16 Green.Algae->Corline.algae    4
-    #> 17       Topshell->Periwinkle    4
-    #> 18      Topshell->Green.Algae    5
-    #> 19           Topshell->Limpet    5
+    #> 3  Green.Algae->Corline.algae    1
+    #> 4             Limpet->Biofilm    1
+    #> 5        Periwinkle->Topshell    1
+    #> 6        Green.Algae->Biofilm    2
+    #> 7         Limpet->Green.Algae    2
+    #> 8            Limpet->Topshell    2
+    #> 9          Periwinkle->Limpet    2
+    #> 10           Topshell->Limpet    2
+    #> 11      Topshell->Green.Algae    3
+    #> 12         Limpet->Periwinkle    4
+    #> 13       Topshell->Periwinkle    4
+    #> 14         Dogwhelk->Barnacle    5
+    #> 15        Periwinkle->Biofilm    5
+    #> 16    Periwinkle->Green.Algae    5
+    #> 17          Topshell->Biofilm    9
 
 The function works by bootstrapping with multiple changes to prior
 values and interaction strengths in the network. The frequency shows the
@@ -579,14 +598,14 @@ citation("bbnet")
 #> 
 #>   Dominguez Almela V, Stafford R (????). _bbnet: Create Simple
 #>   Predictive Models on Bayesian Belief Networks_. R package version
-#>   1.0, <https://github.com/vda1r22/bbnet>.
+#>   1.1.0, <https://github.com/vda1r22/bbnet>.
 #> 
 #> A BibTeX entry for LaTeX users is
 #> 
 #>   @Manual{,
 #>     title = {bbnet: Create Simple Predictive Models on Bayesian Belief Networks},
 #>     author = {Victoria {Dominguez Almela} and Richard Stafford},
-#>     note = {R package version 1.0},
+#>     note = {R package version 1.1.0},
 #>     url = {https://github.com/vda1r22/bbnet},
 #>   }
 ```
