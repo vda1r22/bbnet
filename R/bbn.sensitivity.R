@@ -177,7 +177,7 @@ bbn.sensitivity <- function(bbn.model, boot_max = 1000, ...){
           #print(temp2)
           #print(f)
         }
-        else if(all(post.node.calc >= 0.5) == T){  ## if all 0.5 or above, then sort by biggest first. take difference between current prob and multiply this up to increase cerinty when everything agrees
+        else if(mean(post.node.calc >= 0.5) == T){  ## if all 0.5 or above, then sort by biggest first. take difference between current prob and multiply this up to increase cerinty when everything agrees
           post.node.calc <- sort(post.node.calc, decreasing = T)
           temp2 <- post.node.calc[1]
           if(length(post.node.calc)>1){
@@ -188,7 +188,7 @@ bbn.sensitivity <- function(bbn.model, boot_max = 1000, ...){
           #print(temp2)
           #print(f)
         }
-        else if(all(post.node.calc <= 0.5) == T){ ##
+        else if(mean(post.node.calc < 0.5) == T){ ##
           post.node.calc <- sort(post.node.calc, decreasing = F)
           temp2 <- post.node.calc[1]
           if(length(post.node.calc)>1){

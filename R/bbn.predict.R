@@ -198,7 +198,7 @@ bbn.predict <- function(bbn.model, ..., boot_max=1, values = 1, figure = 1, font
             #print(temp2)
             #print(f)
           }
-          else if(all(post.node.calc >= 0.5) == T){  ## if all 0.5 or above, then sort by biggest first. take difference between current prob and multiply this up to increase cerinty when everything agrees
+          else if(mean(post.node.calc >= 0.5) == T){  ## if all 0.5 or above, then sort by biggest first. take difference between current prob and multiply this up to increase cerinty when everything agrees
             post.node.calc <- sort(post.node.calc, decreasing = T)
             temp2 <- post.node.calc[1]
             if(length(post.node.calc)>1){
@@ -209,7 +209,7 @@ bbn.predict <- function(bbn.model, ..., boot_max=1, values = 1, figure = 1, font
             #print(temp2)
             #print(f)
           }
-          else if(all(post.node.calc <= 0.5) == T){ ##
+          else if(mean(post.node.calc < 0.5) == T){ ##
             post.node.calc <- sort(post.node.calc, decreasing = F)
             temp2 <- post.node.calc[1]
             if(length(post.node.calc)>1){
@@ -333,6 +333,10 @@ bbn.predict <- function(bbn.model, ..., boot_max=1, values = 1, figure = 1, font
     final.output$LowerCI<-gg(final.output$LowerCI)
     final.output$UpperCI<-ff(final.output$UpperCI)
     final.output$UpperCI<-gg(final.output$UpperCI)
+
+    temp_name <- paste0('F0', policy)
+
+    assign(temp_name, final.output, envir = globalenv()) # save the final output to the global environment for each policy)
 
     p0<-ggplot(data=final.output, aes(x=name, y=Increase)) +
       geom_point(stat="identity", size=0.5) +

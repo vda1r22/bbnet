@@ -1,3 +1,11 @@
+# bbnet 1.2.0
+
+==============
+
+Changes:
+* Updated the bbn.predict to allow the generation of a global variable of the model outputs.
+* Modification of bbn.predict and bbn.sensitivity algorithms to more efficiently combine results from multiple inputs nodes.
+
 # bbnet 1.1.0
 
 ==============

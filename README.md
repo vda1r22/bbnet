@@ -1,7 +1,7 @@
 BBNet – Simple predictive models based on Bayesian belief networks
 ================
 Victoria Dominguez Almela & Richard Stafford
-23 January, 2025
+29 July, 2025
 
 - [bbnet
   <img src="man/figures/Logo2.png" align="right" height="138" /></a>](#bbnet-)
@@ -69,7 +69,6 @@ package.
 ``` r
 library(bbnet)
 #> Loading required package: dplyr
-#> Warning: package 'dplyr' was built under R version 4.4.2
 #> 
 #> Attaching package: 'dplyr'
 #> The following objects are masked from 'package:stats':
@@ -81,7 +80,6 @@ library(bbnet)
 #> Loading required package: ggplot2
 #> Loading required package: grid
 #> Loading required package: igraph
-#> Warning: package 'igraph' was built under R version 4.4.2
 #> 
 #> Attaching package: 'igraph'
 #> The following objects are masked from 'package:dplyr':
@@ -94,7 +92,6 @@ library(bbnet)
 #> 
 #>     union
 #> Loading required package: tibble
-#> Warning: package 'tibble' was built under R version 4.4.2
 #> 
 #> Attaching package: 'tibble'
 #> The following object is masked from 'package:igraph':
@@ -174,7 +171,7 @@ bbn.predict(bbn.model = my_BBN, priors1 = dogwhelk, figure = 0) # figure set to 
 #> 4  1.6000000    Periwinkle  1.6000000  1.6000000
 #> 5  2.4000000      Barnacle  2.4000000  2.4000000
 #> 6 -1.7985382   Green Algae -1.7985382 -1.7985382
-#> 7 -1.7985382       Biofilm -1.7985382 -1.7985382
+#> 7 -0.6800000       Biofilm -0.6800000 -0.6800000
 #> 8  1.0791229 Corline algae  1.0791229  1.0791229
 #> 9  0.3597076  Fucoid Algae  0.3597076  0.3597076
 ```
@@ -448,24 +445,21 @@ bbn.sensitivity(bbn.model = my_BBN, boot_max = 100, 'Limpet', 'Green Algae')
 
 <img src="man/figures/README-unnamed-chunk-8-1.png" width="100%" />
 
-    #>                   sens.output Freq
-    #> 1        Dogwhelk->Periwinkle    1
-    #> 2          Dogwhelk->Topshell    1
-    #> 3  Green.Algae->Corline.algae    1
-    #> 4             Limpet->Biofilm    1
-    #> 5        Periwinkle->Topshell    1
-    #> 6        Green.Algae->Biofilm    2
-    #> 7         Limpet->Green.Algae    2
-    #> 8            Limpet->Topshell    2
-    #> 9          Periwinkle->Limpet    2
-    #> 10           Topshell->Limpet    2
-    #> 11      Topshell->Green.Algae    3
-    #> 12         Limpet->Periwinkle    4
-    #> 13       Topshell->Periwinkle    4
-    #> 14         Dogwhelk->Barnacle    5
-    #> 15        Periwinkle->Biofilm    5
-    #> 16    Periwinkle->Green.Algae    5
-    #> 17          Topshell->Biofilm    9
+    #>                  sens.output Freq
+    #> 1  Green.Algae->Fucoid.Algae    1
+    #> 2           Limpet->Topshell    1
+    #> 3       Periwinkle->Topshell    2
+    #> 4       Topshell->Periwinkle    2
+    #> 5         Dogwhelk->Barnacle    3
+    #> 6           Dogwhelk->Limpet    3
+    #> 7         Dogwhelk->Topshell    4
+    #> 8            Limpet->Biofilm    4
+    #> 9        Periwinkle->Biofilm    4
+    #> 10        Periwinkle->Limpet    4
+    #> 11        Limpet->Periwinkle    5
+    #> 12     Topshell->Green.Algae    5
+    #> 13      Green.Algae->Biofilm    6
+    #> 14          Topshell->Limpet    6
 
 The function works by bootstrapping with multiple changes to prior
 values and interaction strengths in the network. The frequency shows the
