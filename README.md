@@ -1,7 +1,7 @@
 BBNet – Simple predictive models based on Bayesian belief networks
 ================
 Victoria Dominguez Almela & Richard Stafford
-29 July, 2025
+31 July, 2025
 
 - [bbnet
   <img src="man/figures/Logo2.png" align="right" height="138" /></a>](#bbnet-)
@@ -241,6 +241,65 @@ bbn.predict(bbn.model = my_BBN, priors1 = dogwhelk, priors2 = winkle, priors3= c
 
 <img src="man/figures/README-unnamed-chunk-5-1.png" width="100%" />
 
+You can extract the prediction results for any scenario:
+
+``` r
+results <- bbn.predict(bbn.model = my_BBN, priors1 = dogwhelk, priors2 = winkle, priors3= combined, boot_max = 100)
+#> Warning in bbn.predict(bbn.model = my_BBN, priors1 = dogwhelk, priors2 =
+#> winkle, : Node names in priors are different to those in the interaction matrix
+#> - prior names will be used, but please check order of nodes is identical
+#> [1] "Scenario number  1"
+#>     Increase          name     LowerCI    UpperCI
+#> 1 -4.0000000      Dogwhelk -4.00000000 -4.0000000
+#> 2  0.8000000      Topshell  0.17889751  1.0123913
+#> 3  1.6000000        Limpet  0.52557752  1.8476517
+#> 4  1.6000000    Periwinkle  0.52729988  1.8315324
+#> 5  2.4000000      Barnacle  2.39406954  2.4197561
+#> 6 -1.7985382   Green Algae -2.54492119  0.0000000
+#> 7 -0.6800000       Biofilm -1.92631138  0.0000000
+#> 8  1.0791229 Corline algae  0.02409555  1.6009148
+#> 9  0.3597076  Fucoid Algae  0.00000000  0.5413387
+#> Warning in bbn.predict(bbn.model = my_BBN, priors1 = dogwhelk, priors2 =
+#> winkle, : Node names in priors are different to those in the interaction matrix
+#> - prior names will be used, but please check order of nodes is identical
+#> [1] "Scenario number  2"
+#>   Increase          name     LowerCI     UpperCI
+#> 1     0.00      Dogwhelk  0.00000000  0.00000000
+#> 2    -0.20      Topshell -0.36551060  0.00000000
+#> 3    -0.20        Limpet -0.38948433 -0.06801676
+#> 4     3.00    Periwinkle  3.00000000  3.00000000
+#> 5     0.00      Barnacle  0.00000000  0.00000000
+#> 6    -0.60   Green Algae -0.73628567 -0.47616121
+#> 7    -0.45       Biofilm -0.62016064 -0.30546208
+#> 8     0.36 Corline algae  0.13915245  0.48142605
+#> 9     0.12  Fucoid Algae  0.06698419  0.42260373
+#> Warning in bbn.predict(bbn.model = my_BBN, priors1 = dogwhelk, priors2 =
+#> winkle, : Node names in priors are different to those in the interaction matrix
+#> - prior names will be used, but please check order of nodes is identical
+#> [1] "Scenario number  3"
+#>      Increase          name    LowerCI    UpperCI
+#> 1 -4.00000000      Dogwhelk -4.0000000 -4.0000000
+#> 2  0.06666667      Topshell  0.0000000  0.8163132
+#> 3  0.33333333        Limpet  0.1735027  0.4702048
+#> 4  3.00000000    Periwinkle  3.0000000  3.0000000
+#> 5  2.40000000      Barnacle  2.3885873  2.4165676
+#> 6 -1.89779200   Green Algae -2.6037531 -0.7136886
+#> 7 -0.46666667       Biofilm -0.6916419 -0.3101190
+#> 8  1.13867520 Corline algae  0.4418393  1.5795833
+#> 9  0.37955840  Fucoid Algae  0.1327066  0.5898523
+results[[2]]$summary  # view the numeric output for scenario 2
+#>   Increase          name     LowerCI     UpperCI
+#> 1     0.00      Dogwhelk  0.00000000  0.00000000
+#> 2    -0.20      Topshell -0.36551060  0.00000000
+#> 3    -0.20        Limpet -0.38948433 -0.06801676
+#> 4     3.00    Periwinkle  3.00000000  3.00000000
+#> 5     0.00      Barnacle  0.00000000  0.00000000
+#> 6    -0.60   Green Algae -0.73628567 -0.47616121
+#> 7    -0.45       Biofilm -0.62016064 -0.30546208
+#> 8     0.36 Corline algae  0.13915245  0.48142605
+#> 9     0.12  Fucoid Algae  0.06698419  0.42260373
+```
+
 ## Visualising changes over time
 
 Two functions help visualise changes over time. It should be noted that
@@ -297,39 +356,39 @@ bbn.timeseries(bbn.model = my_BBN, priors1 = combined, timesteps = 6, disturbanc
 #> `geom_smooth()` using formula = 'y ~ x'
 ```
 
-<img src="man/figures/README-unnamed-chunk-6-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-7-1.png" width="100%" />
 
     #> `geom_smooth()` using formula = 'y ~ x'
 
-<img src="man/figures/README-unnamed-chunk-6-2.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-7-2.png" width="100%" />
 
     #> `geom_smooth()` using formula = 'y ~ x'
 
-<img src="man/figures/README-unnamed-chunk-6-3.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-7-3.png" width="100%" />
 
     #> `geom_smooth()` using formula = 'y ~ x'
 
-<img src="man/figures/README-unnamed-chunk-6-4.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-7-4.png" width="100%" />
 
     #> `geom_smooth()` using formula = 'y ~ x'
 
-<img src="man/figures/README-unnamed-chunk-6-5.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-7-5.png" width="100%" />
 
     #> `geom_smooth()` using formula = 'y ~ x'
 
-<img src="man/figures/README-unnamed-chunk-6-6.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-7-6.png" width="100%" />
 
     #> `geom_smooth()` using formula = 'y ~ x'
 
-<img src="man/figures/README-unnamed-chunk-6-7.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-7-7.png" width="100%" />
 
     #> `geom_smooth()` using formula = 'y ~ x'
 
-<img src="man/figures/README-unnamed-chunk-6-8.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-7-8.png" width="100%" />
 
     #> `geom_smooth()` using formula = 'y ~ x'
 
-<img src="man/figures/README-unnamed-chunk-6-9.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-7-9.png" width="100%" />
 
 ## bbn.visualise()
 
@@ -388,23 +447,23 @@ bbn.visualise(bbn.model = my_BBN, priors1 = combined, timesteps = 5, disturbance
 #> names will be used, but please check order of nodes is identical
 ```
 
-<img src="man/figures/README-unnamed-chunk-7-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-8-1.png" width="100%" />
 
     #> NULL
 
-<img src="man/figures/README-unnamed-chunk-7-2.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-8-2.png" width="100%" />
 
     #> NULL
 
-<img src="man/figures/README-unnamed-chunk-7-3.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-8-3.png" width="100%" />
 
     #> NULL
 
-<img src="man/figures/README-unnamed-chunk-7-4.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-8-4.png" width="100%" />
 
     #> NULL
 
-<img src="man/figures/README-unnamed-chunk-7-5.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-8-5.png" width="100%" />
 
     #> NULL
 
@@ -443,23 +502,26 @@ exploratory analysis 100-1000. For final analysis recommended size =
 bbn.sensitivity(bbn.model = my_BBN, boot_max = 100, 'Limpet', 'Green Algae')
 ```
 
-<img src="man/figures/README-unnamed-chunk-8-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-9-1.png" width="100%" />
 
-    #>                  sens.output Freq
-    #> 1  Green.Algae->Fucoid.Algae    1
-    #> 2           Limpet->Topshell    1
-    #> 3       Periwinkle->Topshell    2
-    #> 4       Topshell->Periwinkle    2
-    #> 5         Dogwhelk->Barnacle    3
-    #> 6           Dogwhelk->Limpet    3
-    #> 7         Dogwhelk->Topshell    4
-    #> 8            Limpet->Biofilm    4
-    #> 9        Periwinkle->Biofilm    4
-    #> 10        Periwinkle->Limpet    4
-    #> 11        Limpet->Periwinkle    5
-    #> 12     Topshell->Green.Algae    5
-    #> 13      Green.Algae->Biofilm    6
-    #> 14          Topshell->Limpet    6
+    #>                   sens.output Freq
+    #> 1         Periwinkle->Biofilm    1
+    #> 2       Topshell->Green.Algae    1
+    #> 3            Dogwhelk->Limpet    2
+    #> 4        Dogwhelk->Periwinkle    2
+    #> 5          Dogwhelk->Topshell    2
+    #> 6   Green.Algae->Fucoid.Algae    2
+    #> 7         Limpet->Green.Algae    2
+    #> 8          Periwinkle->Limpet    2
+    #> 9        Periwinkle->Topshell    2
+    #> 10          Topshell->Biofilm    2
+    #> 11            Limpet->Biofilm    3
+    #> 12           Topshell->Limpet    3
+    #> 13           Limpet->Topshell    4
+    #> 14       Green.Algae->Biofilm    5
+    #> 15    Periwinkle->Green.Algae    5
+    #> 16 Green.Algae->Corline.algae    6
+    #> 17       Topshell->Periwinkle    6
 
 The function works by bootstrapping with multiple changes to prior
 values and interaction strengths in the network. The frequency shows the
@@ -553,22 +615,22 @@ from the *igraph* package:
 bbn.network.diagram(bbn.network = my_network, font.size = 0.7, arrow.size = 4, arrange = layout_on_sphere)
 ```
 
-<img src="man/figures/README-unnamed-chunk-10-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-11-1.png" width="100%" />
 
     #> NULL
     bbn.network.diagram(bbn.network = my_network, font.size = 0.7, arrow.size = 2, arrange = layout_on_grid)
 
-<img src="man/figures/README-unnamed-chunk-10-2.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-11-2.png" width="100%" />
 
     #> NULL
     bbn.network.diagram(bbn.network = my_network, font.size = 0.7, arrow.size = 2, arrange = layout.random)
 
-<img src="man/figures/README-unnamed-chunk-10-3.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-11-3.png" width="100%" />
 
     #> NULL
     bbn.network.diagram(bbn.network = my_network, font.size = 0.7, arrow.size = 2, arrange = layout.circle)
 
-<img src="man/figures/README-unnamed-chunk-10-4.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-11-4.png" width="100%" />
 
     #> NULL
 
@@ -592,14 +654,14 @@ citation("bbnet")
 #> 
 #>   Dominguez Almela V, Stafford R (????). _bbnet: Create Simple
 #>   Predictive Models on Bayesian Belief Networks_. R package version
-#>   1.1.0, <https://github.com/vda1r22/bbnet>.
+#>   1.2.0, <https://github.com/vda1r22/bbnet>.
 #> 
 #> A BibTeX entry for LaTeX users is
 #> 
 #>   @Manual{,
 #>     title = {bbnet: Create Simple Predictive Models on Bayesian Belief Networks},
 #>     author = {Victoria {Dominguez Almela} and Richard Stafford},
-#>     note = {R package version 1.1.0},
+#>     note = {R package version 1.2.0},
 #>     url = {https://github.com/vda1r22/bbnet},
 #>   }
 ```

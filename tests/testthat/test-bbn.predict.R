@@ -65,3 +65,4 @@ test_that("bbn.predict handles bootstrapping with boot_max > 1", {
   # Ensure it runs without error.
   expect_output(bbn.predict(bbn.model = my_BBN, priors1 = dogwhelk, boot_max = 10, figure = 0))
 })
+

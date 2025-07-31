@@ -81,6 +81,12 @@ The output given above shows the *posterior* outcome of the model as a result of
 bbn.predict(bbn.model = my_BBN, priors1 = dogwhelk, priors2 = winkle, priors3= combined, figure = 2, boot_max = 100, values = 0, font.size = 7)
 ```
 
+You can extract the prediction results for any scenario:
+```{r}
+results <- bbn.predict(bbn.model = my_BBN, priors1 = dogwhelk, priors2 = winkle, priors3= combined, figure = 0, boot_max = 100, values = 1, font.size = 7)
+results[[2]]$summary  # view the numeric output for scenario 2
+```
+
 ## Visualising changes over time
 
 Two functions help visualise changes over time. It should be noted that the exact values from these functions do not correspond to the more robust bbn.predict() - which should be used to inform of likely changes. These help visualise the flow of information through the network and how changes progress through the network over time (e.g. should we expect to see a change in one parameter before another - perhaps as per trophic cascade or ecological succession type processes)

@@ -39,7 +39,17 @@
 #'
 #' @examples
 #' data(my_BBN, combined)
+#'
+#' # Run the prediction
 #' bbn.predict(bbn.model = my_BBN, priors1 = combined, boot_max=100, values=1, figure=1, font.size=5)
+#' #' # Access results from scenario 1
+#' results <- bbn.predict(bbn.model = my_BBN, priors1 = combined, boot_max=100, values=1, figure=1, font.size=5)
+#' F1 <- results[[1]]$summary  # extract numeric prediction of Final output (e.g. to customise plot)
+#'
+#' # Run and store the prediction with multiple scenarios
+#' results <- bbn.predict(bbn.model = my_BBN, priors1 = combined, priors2 = combined, boot_max=100, values=1, figure=1, font.size=5)
+#' # Access results from scenario 2
+#' F2 <- results[[2]]$summary  # extract numeric prediction of Final Output (e.g. to customise plot)
 #'
 #' @export
 bbn.predict <- function(bbn.model, ..., boot_max=1, values = 1, figure = 1, font.size=5){
@@ -47,6 +57,7 @@ bbn.predict <- function(bbn.model, ..., boot_max=1, values = 1, figure = 1, font
   list <- list(...)
   plot.keep= list() # to display plots at the end of the function
   policyno = length(list)
+  output.list <- list()  # will store summary + plot for each scenario
 
 
   if(length(list)>12){
@@ -334,9 +345,9 @@ bbn.predict <- function(bbn.model, ..., boot_max=1, values = 1, figure = 1, font
     final.output$UpperCI<-ff(final.output$UpperCI)
     final.output$UpperCI<-gg(final.output$UpperCI)
 
-    temp_name <- paste0('F0', policy)
 
-    assign(temp_name, final.output, envir = globalenv()) # save the final output to the global environment for each policy)
+
+
 
     p0<-ggplot(data=final.output, aes(x=name, y=Increase)) +
       geom_point(stat="identity", size=0.5) +
@@ -350,6 +361,12 @@ bbn.predict <- function(bbn.model, ..., boot_max=1, values = 1, figure = 1, font
 
 
     plot.keep[[policy]] <- p0
+
+    output.list[[policy]] <- list(
+      summary = final.output,
+      plot = p0
+    )
+
 
   }
 
@@ -388,4 +405,7 @@ bbn.predict <- function(bbn.model, ..., boot_max=1, values = 1, figure = 1, font
     if(policyno==11){multiplot(plot.keep[[1]],plot.keep[[2]],plot.keep[[3]], plot.keep[[4]], plot.keep[[5]], plot.keep[[6]],plot.keep[[7]],plot.keep[[8]],plot.keep[[9]],plot.keep[[10]],plot.keep[[11]],cols=3)}
     if(policyno==12){multiplot(plot.keep[[1]],plot.keep[[2]],plot.keep[[3]], plot.keep[[4]], plot.keep[[5]], plot.keep[[6]],plot.keep[[7]],plot.keep[[8]],plot.keep[[9]],plot.keep[[10]],plot.keep[[11]], plot.keep[[12]],cols=3)}
   }
+  class(output.list) <- "bbnpredict"
+  return(invisible(output.list))
+
 }
