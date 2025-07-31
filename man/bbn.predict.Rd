@@ -53,16 +53,7 @@ accommodating multiple \code{priors} scenarios and allowing for \code{bootstrapp
 }
 \examples{
 data(my_BBN, combined)
-
 # Run the prediction
 bbn.predict(bbn.model = my_BBN, priors1 = combined, boot_max=100, values=1, figure=1, font.size=5)
-#' # Access results from scenario 1
-results <- bbn.predict(bbn.model = my_BBN, priors1 = combined, boot_max=100, values=1, figure=1, font.size=5)
-F1 <- results[[1]]$summary  # extract numeric prediction of Final output (e.g. to customise plot)
-
-# Run and store the prediction with multiple scenarios
-results <- bbn.predict(bbn.model = my_BBN, priors1 = combined, priors2 = combined, boot_max=100, values=1, figure=1, font.size=5)
-# Access results from scenario 2
-F2 <- results[[2]]$summary  # extract numeric prediction of Final Output (e.g. to customise plot)
 
 }
