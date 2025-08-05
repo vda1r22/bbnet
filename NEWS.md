@@ -1,3 +1,10 @@
+# bbnet 1.2.1
+
+==============
+
+Changes:
+* Corrected bbn.predict and bbn.sensitivity due to a bug that caused the functions to fail.
+
 # bbnet 1.2.0
 
 ==============
