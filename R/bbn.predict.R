@@ -200,7 +200,7 @@ bbn.predict <- function(bbn.model, ..., boot_max=1, values = 1, figure = 1, font
             #print(temp2)
             #print(f)
           }
-          else if(mean(post.node.calc >= 0.5) == T){  ## if all 0.5 or above, then sort in descending order and combine
+          else if(mean(post.node.calc) >= 0.5) {  ## if all 0.5 or above, then sort in descending order and combine
             post.node.calc <- sort(post.node.calc, decreasing = T)
             temp2 <- post.node.calc[1]
             if(length(post.node.calc)>1){
@@ -211,7 +211,7 @@ bbn.predict <- function(bbn.model, ..., boot_max=1, values = 1, figure = 1, font
             #print(temp2)
             #print(f)
           }
-          else if(mean(post.node.calc <= 0.5) == T){ ## if all 0.5 or below, then sort in ascending order and combine
+          else if(mean(post.node.calc) <= 0.5) { ## if all 0.5 or below, then sort in ascending order and combine
             post.node.calc <- sort(post.node.calc, decreasing = F)
             temp2 <- post.node.calc[1]
             if(length(post.node.calc)>1){
