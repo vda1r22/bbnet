@@ -1,7 +1,7 @@
 BBNet – Simple predictive models based on Bayesian belief networks
 ================
 Victoria Dominguez Almela & Richard Stafford
-31 July, 2025
+15 August, 2025
 
 - [bbnet
   <img src="man/figures/Logo2.png" align="right" height="138" /></a>](#bbnet-)
@@ -171,7 +171,7 @@ bbn.predict(bbn.model = my_BBN, priors1 = dogwhelk, figure = 0) # figure set to 
 #> 4  1.6000000    Periwinkle  1.6000000  1.6000000
 #> 5  2.4000000      Barnacle  2.4000000  2.4000000
 #> 6 -1.7985382   Green Algae -1.7985382 -1.7985382
-#> 7 -0.6800000       Biofilm -0.6800000 -0.6800000
+#> 7 -1.7985382       Biofilm -1.7985382 -1.7985382
 #> 8  1.0791229 Corline algae  1.0791229  1.0791229
 #> 9  0.3597076  Fucoid Algae  0.3597076  0.3597076
 ```
@@ -249,55 +249,55 @@ results <- bbn.predict(bbn.model = my_BBN, priors1 = dogwhelk, priors2 = winkle,
 #> winkle, : Node names in priors are different to those in the interaction matrix
 #> - prior names will be used, but please check order of nodes is identical
 #> [1] "Scenario number  1"
-#>     Increase          name     LowerCI    UpperCI
-#> 1 -4.0000000      Dogwhelk -4.00000000 -4.0000000
-#> 2  0.8000000      Topshell  0.17889751  1.0123913
-#> 3  1.6000000        Limpet  0.52557752  1.8476517
-#> 4  1.6000000    Periwinkle  0.52729988  1.8315324
-#> 5  2.4000000      Barnacle  2.39406954  2.4197561
-#> 6 -1.7985382   Green Algae -2.54492119  0.0000000
-#> 7 -0.6800000       Biofilm -1.92631138  0.0000000
-#> 8  1.0791229 Corline algae  0.02409555  1.6009148
-#> 9  0.3597076  Fucoid Algae  0.00000000  0.5413387
+#>     Increase          name    LowerCI    UpperCI
+#> 1 -4.0000000      Dogwhelk -4.0000000 -4.0000000
+#> 2  0.8000000      Topshell  0.6254595  0.9656235
+#> 3  1.6000000        Limpet  1.5143918  1.6750624
+#> 4  1.6000000    Periwinkle  1.4986888  1.7169608
+#> 5  2.4000000      Barnacle  2.3607991  2.4160612
+#> 6 -1.7985382   Green Algae -2.3159993  0.0000000
+#> 7 -1.7985382       Biofilm -2.5117583  0.0000000
+#> 8  1.0791229 Corline algae  0.0000000  1.4349772
+#> 9  0.3597076  Fucoid Algae  0.0000000  0.4650112
 #> Warning in bbn.predict(bbn.model = my_BBN, priors1 = dogwhelk, priors2 =
 #> winkle, : Node names in priors are different to those in the interaction matrix
 #> - prior names will be used, but please check order of nodes is identical
 #> [1] "Scenario number  2"
-#>   Increase          name     LowerCI     UpperCI
-#> 1     0.00      Dogwhelk  0.00000000  0.00000000
-#> 2    -0.20      Topshell -0.36551060  0.00000000
-#> 3    -0.20        Limpet -0.38948433 -0.06801676
-#> 4     3.00    Periwinkle  3.00000000  3.00000000
-#> 5     0.00      Barnacle  0.00000000  0.00000000
-#> 6    -0.60   Green Algae -0.73628567 -0.47616121
-#> 7    -0.45       Biofilm -0.62016064 -0.30546208
-#> 8     0.36 Corline algae  0.13915245  0.48142605
-#> 9     0.12  Fucoid Algae  0.06698419  0.42260373
+#>   Increase          name    LowerCI    UpperCI
+#> 1     0.00      Dogwhelk  0.0000000  0.0000000
+#> 2    -0.60      Topshell -0.8859101 -0.3889231
+#> 3    -0.60        Limpet -0.7161615 -0.4135167
+#> 4     3.00    Periwinkle  3.0000000  3.0000000
+#> 5     0.00      Barnacle  0.0000000  0.0000000
+#> 6    -1.80   Green Algae -2.3039743 -1.4805342
+#> 7    -1.80       Biofilm -2.4281818 -1.4755448
+#> 8     1.08 Corline algae  0.7867032  1.3937164
+#> 9     0.36  Fucoid Algae  0.1737414  0.4900351
 #> Warning in bbn.predict(bbn.model = my_BBN, priors1 = dogwhelk, priors2 =
 #> winkle, : Node names in priors are different to those in the interaction matrix
 #> - prior names will be used, but please check order of nodes is identical
 #> [1] "Scenario number  3"
-#>      Increase          name    LowerCI    UpperCI
-#> 1 -4.00000000      Dogwhelk -4.0000000 -4.0000000
-#> 2  0.06666667      Topshell  0.0000000  0.8163132
-#> 3  0.33333333        Limpet  0.1735027  0.4702048
-#> 4  3.00000000    Periwinkle  3.0000000  3.0000000
-#> 5  2.40000000      Barnacle  2.3885873  2.4165676
-#> 6 -1.89779200   Green Algae -2.6037531 -0.7136886
-#> 7 -0.46666667       Biofilm -0.6916419 -0.3101190
-#> 8  1.13867520 Corline algae  0.4418393  1.5795833
-#> 9  0.37955840  Fucoid Algae  0.1327066  0.5898523
+#>     Increase          name    LowerCI    UpperCI
+#> 1 -4.0000000      Dogwhelk -4.0000000 -4.0000000
+#> 2  0.5480000      Topshell  0.0000000  0.7302683
+#> 3  1.3960000        Limpet  1.2200014  1.5356487
+#> 4  3.0000000    Periwinkle  3.0000000  3.0000000
+#> 5  2.4000000      Barnacle  2.4007149  2.4007149
+#> 6 -2.2508415   Green Algae -2.6165441 -1.7374702
+#> 7 -2.0529021       Biofilm -2.2566043 -1.8152090
+#> 8  1.3505049 Corline algae  1.0421560  1.5881879
+#> 9  0.4501683  Fucoid Algae  0.3201083  0.5516109
 results[[2]]$summary  # view the numeric output for scenario 2
-#>   Increase          name     LowerCI     UpperCI
-#> 1     0.00      Dogwhelk  0.00000000  0.00000000
-#> 2    -0.20      Topshell -0.36551060  0.00000000
-#> 3    -0.20        Limpet -0.38948433 -0.06801676
-#> 4     3.00    Periwinkle  3.00000000  3.00000000
-#> 5     0.00      Barnacle  0.00000000  0.00000000
-#> 6    -0.60   Green Algae -0.73628567 -0.47616121
-#> 7    -0.45       Biofilm -0.62016064 -0.30546208
-#> 8     0.36 Corline algae  0.13915245  0.48142605
-#> 9     0.12  Fucoid Algae  0.06698419  0.42260373
+#>   Increase          name    LowerCI    UpperCI
+#> 1     0.00      Dogwhelk  0.0000000  0.0000000
+#> 2    -0.60      Topshell -0.8859101 -0.3889231
+#> 3    -0.60        Limpet -0.7161615 -0.4135167
+#> 4     3.00    Periwinkle  3.0000000  3.0000000
+#> 5     0.00      Barnacle  0.0000000  0.0000000
+#> 6    -1.80   Green Algae -2.3039743 -1.4805342
+#> 7    -1.80       Biofilm -2.4281818 -1.4755448
+#> 8     1.08 Corline algae  0.7867032  1.3937164
+#> 9     0.36  Fucoid Algae  0.1737414  0.4900351
 ```
 
 ## Visualising changes over time
@@ -505,23 +505,24 @@ bbn.sensitivity(bbn.model = my_BBN, boot_max = 100, 'Limpet', 'Green Algae')
 <img src="man/figures/README-unnamed-chunk-9-1.png" width="100%" />
 
     #>                   sens.output Freq
-    #> 1         Periwinkle->Biofilm    1
-    #> 2       Topshell->Green.Algae    1
-    #> 3            Dogwhelk->Limpet    2
-    #> 4        Dogwhelk->Periwinkle    2
-    #> 5          Dogwhelk->Topshell    2
-    #> 6   Green.Algae->Fucoid.Algae    2
-    #> 7         Limpet->Green.Algae    2
-    #> 8          Periwinkle->Limpet    2
-    #> 9        Periwinkle->Topshell    2
-    #> 10          Topshell->Biofilm    2
-    #> 11            Limpet->Biofilm    3
-    #> 12           Topshell->Limpet    3
-    #> 13           Limpet->Topshell    4
-    #> 14       Green.Algae->Biofilm    5
-    #> 15    Periwinkle->Green.Algae    5
-    #> 16 Green.Algae->Corline.algae    6
-    #> 17       Topshell->Periwinkle    6
+    #> 1            Dogwhelk->Limpet    1
+    #> 2   Green.Algae->Fucoid.Algae    1
+    #> 3          Limpet->Periwinkle    1
+    #> 4          Dogwhelk->Topshell    2
+    #> 5        Green.Algae->Biofilm    2
+    #> 6  Green.Algae->Corline.algae    2
+    #> 7         Periwinkle->Biofilm    2
+    #> 8          Dogwhelk->Barnacle    3
+    #> 9             Limpet->Biofilm    3
+    #> 10        Limpet->Green.Algae    3
+    #> 11           Limpet->Topshell    3
+    #> 12    Periwinkle->Green.Algae    3
+    #> 13         Periwinkle->Limpet    3
+    #> 14          Topshell->Biofilm    3
+    #> 15           Topshell->Limpet    3
+    #> 16      Topshell->Green.Algae    4
+    #> 17       Topshell->Periwinkle    5
+    #> 18       Periwinkle->Topshell    6
 
 The function works by bootstrapping with multiple changes to prior
 values and interaction strengths in the network. The frequency shows the
@@ -654,14 +655,14 @@ citation("bbnet")
 #> 
 #>   Dominguez Almela V, Stafford R (????). _bbnet: Create Simple
 #>   Predictive Models on Bayesian Belief Networks_. R package version
-#>   1.2.0, <https://github.com/vda1r22/bbnet>.
+#>   1.2.1, <https://github.com/vda1r22/bbnet>.
 #> 
 #> A BibTeX entry for LaTeX users is
 #> 
 #>   @Manual{,
 #>     title = {bbnet: Create Simple Predictive Models on Bayesian Belief Networks},
 #>     author = {Victoria {Dominguez Almela} and Richard Stafford},
-#>     note = {R package version 1.2.0},
+#>     note = {R package version 1.2.1},
 #>     url = {https://github.com/vda1r22/bbnet},
 #>   }
 ```
